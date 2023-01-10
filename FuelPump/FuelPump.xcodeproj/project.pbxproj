@@ -51,9 +51,12 @@
 		46F74A4A296DEFE8002BFF64 /* FuelPump */ = {
 			isa = PBXGroup;
 			children = (
-				46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */,
 				46F74A4D296DEFE8002BFF64 /* ContentView.swift */,
-				46F74A4F296DEFE9002BFF64 /* Assets.xcassets */,
+				46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */,
+				46F74A59296DF7BD002BFF64 /* Data */,
+				46F74A5A296DF7C2002BFF64 /* Domain */,
+				46F74A5B296DF7CA002BFF64 /* Presentation */,
+				46F74A5C296DF7D9002BFF64 /* Resources */,
 				46F74A51296DEFE9002BFF64 /* Preview Content */,
 			);
 			path = FuelPump;
@@ -65,6 +68,35 @@
 				46F74A52296DEFE9002BFF64 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		46F74A59296DF7BD002BFF64 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		46F74A5A296DF7C2002BFF64 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		46F74A5B296DF7CA002BFF64 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		46F74A5C296DF7D9002BFF64 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				46F74A4F296DEFE9002BFF64 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
