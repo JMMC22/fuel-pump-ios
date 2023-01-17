@@ -139,6 +139,7 @@
 				46F74A44296DEFE8002BFF64 /* Sources */,
 				46F74A45296DEFE8002BFF64 /* Frameworks */,
 				46F74A46296DEFE8002BFF64 /* Resources */,
+				261856F51178E15A0EA2CB24 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,6 +198,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		261856F51178E15A0EA2CB24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FuelPump/Pods-FuelPump-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FuelPump/Pods-FuelPump-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FuelPump/Pods-FuelPump-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7794E90F5F1CC451EFDE5DC4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
