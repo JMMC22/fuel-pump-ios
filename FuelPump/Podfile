@@ -6,5 +6,6 @@ target 'FuelPump' do
   use_frameworks!
 
   # Pods for FuelPump
+  pod 'SwiftLint', '~> 0.50.3'
 
 end
