@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		463F5FC729773126003C9E39 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC629773126003C9E39 /* Endpoint.swift */; };
+		463F5FC929773144003C9E39 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC829773144003C9E39 /* HttpClient.swift */; };
+		463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FCA2977315C003C9E39 /* RequestError.swift */; };
 		46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */; };
 		46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F74A4D296DEFE8002BFF64 /* ContentView.swift */; };
 		46F74A50296DEFE9002BFF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A4F296DEFE9002BFF64 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		17292A1E84FAC8A59E910957 /* Pods-FuelPump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.debug.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.debug.xcconfig"; sourceTree = "<group>"; };
+		463F5FC629773126003C9E39 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		463F5FC829773144003C9E39 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		463F5FCA2977315C003C9E39 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		46F74A48296DEFE8002BFF64 /* FuelPump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuelPump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelPumpApp.swift; sourceTree = "<group>"; };
 		46F74A4D296DEFE8002BFF64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,8 +52,25 @@
 				17292A1E84FAC8A59E910957 /* Pods-FuelPump.debug.xcconfig */,
 				C53F06939E8113B7B5E23F20 /* Pods-FuelPump.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		463F5FC429773105003C9E39 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				463F5FC529773111003C9E39 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		463F5FC529773111003C9E39 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				463F5FC629773126003C9E39 /* Endpoint.swift */,
+				463F5FC829773144003C9E39 /* HttpClient.swift */,
+				463F5FCA2977315C003C9E39 /* RequestError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		46F74A3F296DEFE8002BFF64 = {
@@ -75,9 +98,10 @@
 				46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */,
 				46F74A59296DF7BD002BFF64 /* Data */,
 				46F74A5A296DF7C2002BFF64 /* Domain */,
+				463F5FC429773105003C9E39 /* Infrastructure */,
 				46F74A5B296DF7CA002BFF64 /* Presentation */,
-				46F74A5C296DF7D9002BFF64 /* Resources */,
 				46F74A51296DEFE9002BFF64 /* Preview Content */,
+				46F74A5C296DF7D9002BFF64 /* Resources */,
 			);
 			path = FuelPump;
 			sourceTree = "<group>";
@@ -245,7 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */,
+				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
 				46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */,
+				463F5FC929773144003C9E39 /* HttpClient.swift in Sources */,
+				463F5FC729773126003C9E39 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
