@@ -12,6 +12,9 @@
 		463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FCA2977315C003C9E39 /* RequestError.swift */; };
 		466B990B2979C24800C9F4DF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B990A2979C24800C9F4DF /* DataManager.swift */; };
 		466B990D2979C2A800C9F4DF /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B990C2979C2A800C9F4DF /* RealmDataManager.swift */; };
+		46E1FC902979CCDA009FAE81 /* GasStationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E1FC8F2979CCDA009FAE81 /* GasStationList.swift */; };
+		46E1FC942979CD75009FAE81 /* Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 46E1FC932979CD75009FAE81 /* Configuration.xcconfig */; };
+		46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E1FC972979CE4D009FAE81 /* Configuration.swift */; };
 		46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */; };
 		46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F74A4D296DEFE8002BFF64 /* ContentView.swift */; };
 		46F74A50296DEFE9002BFF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A4F296DEFE9002BFF64 /* Assets.xcassets */; };
@@ -27,6 +30,10 @@
 		463F5FCA2977315C003C9E39 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		466B990A2979C24800C9F4DF /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		466B990C2979C2A800C9F4DF /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
+		46E1FC8F2979CCDA009FAE81 /* GasStationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationList.swift; sourceTree = "<group>"; };
+		46E1FC932979CD75009FAE81 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
+		46E1FC952979CDDC009FAE81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46E1FC972979CE4D009FAE81 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		46F74A48296DEFE8002BFF64 /* FuelPump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuelPump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelPumpApp.swift; sourceTree = "<group>"; };
 		46F74A4D296DEFE8002BFF64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +94,38 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		46E1FC8E2979CCCB009FAE81 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				46E1FC912979CCDD009FAE81 /* GasStation */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		46E1FC912979CCDD009FAE81 /* GasStation */ = {
+			isa = PBXGroup;
+			children = (
+				46E1FC8F2979CCDA009FAE81 /* GasStationList.swift */,
+			);
+			path = GasStation;
+			sourceTree = "<group>";
+		};
+		46E1FC922979CD5D009FAE81 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				46E1FC932979CD75009FAE81 /* Configuration.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		46E1FC962979CE24009FAE81 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				46E1FC972979CE4D009FAE81 /* Configuration.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		46F74A3F296DEFE8002BFF64 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +155,7 @@
 				46F74A5B296DF7CA002BFF64 /* Presentation */,
 				46F74A51296DEFE9002BFF64 /* Preview Content */,
 				46F74A5C296DF7D9002BFF64 /* Resources */,
+				46E1FC962979CE24009FAE81 /* Utils */,
 			);
 			path = FuelPump;
 			sourceTree = "<group>";
@@ -145,6 +185,7 @@
 		46F74A5B296DF7CA002BFF64 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				46E1FC8E2979CCCB009FAE81 /* Screens */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -152,6 +193,8 @@
 		46F74A5C296DF7D9002BFF64 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				46E1FC952979CDDC009FAE81 /* Info.plist */,
+				46E1FC922979CD5D009FAE81 /* Configuration */,
 				46F74A4F296DEFE9002BFF64 /* Assets.xcassets */,
 				46F74A61296DF8D8002BFF64 /* Localizable.strings */,
 			);
@@ -228,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46F74A53296DEFE9002BFF64 /* Preview Assets.xcassets in Resources */,
+				46E1FC942979CD75009FAE81 /* Configuration.xcconfig in Resources */,
 				46F74A5F296DF8D8002BFF64 /* Localizable.strings in Resources */,
 				46F74A50296DEFE9002BFF64 /* Assets.xcassets in Resources */,
 			);
@@ -282,8 +326,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E1FC902979CCDA009FAE81 /* GasStationList.swift in Sources */,
 				46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */,
 				466B990B2979C24800C9F4DF /* DataManager.swift in Sources */,
+				46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */,
 				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
 				46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */,
 				466B990D2979C2A800C9F4DF /* RealmDataManager.swift in Sources */,
@@ -309,6 +355,7 @@
 /* Begin XCBuildConfiguration section */
 		46F74A54296DEFE9002BFF64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46E1FC932979CD75009FAE81 /* Configuration.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -369,6 +416,7 @@
 		};
 		46F74A55296DEFE9002BFF64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46E1FC932979CD75009FAE81 /* Configuration.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -433,6 +481,7 @@
 				DEVELOPMENT_TEAM = HM99275N5A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FuelPump/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -463,6 +512,7 @@
 				DEVELOPMENT_TEAM = HM99275N5A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FuelPump/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
