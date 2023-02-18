@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct GasStationList: View {
+    
+    @ObservedObject private(set) var viewModel: GasStationListViewModel
+    
     var body: some View {
         Text("GasStationList")
-    }
-}
-
-struct GasStationList_Previews: PreviewProvider {
-    static var previews: some View {
-        GasStationList()
+            .onAppear {
+                Task {
+                    await viewModel.getAllGasStation()
+                }
+            }
     }
 }

@@ -10,8 +10,17 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         Group {
-            GasStationList()
+            goToGasStationList()
         }
+    }
+}
+
+private extension ContentView {
+    func goToGasStationList() -> some View {
+        var repository = DefaultGasStationRepository()
+        var useCase = DefaultGetGasStationsUseCase(gasStationRepository: repository)
+        var viewModel = GasStationListViewModel(getGasStationsUseCase: useCase)
+        return GasStationList(viewModel: viewModel)
     }
 }
 
