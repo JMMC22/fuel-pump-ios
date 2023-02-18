@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4616F8CE29A0D6FB0040ED6F /* GetGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CD29A0D6FB0040ED6F /* GetGasStationsUseCase.swift */; };
 		463F5FC729773126003C9E39 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC629773126003C9E39 /* Endpoint.swift */; };
 		463F5FC929773144003C9E39 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC829773144003C9E39 /* HttpClient.swift */; };
 		463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FCA2977315C003C9E39 /* RequestError.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		17292A1E84FAC8A59E910957 /* Pods-FuelPump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.debug.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.debug.xcconfig"; sourceTree = "<group>"; };
+		4616F8CD29A0D6FB0040ED6F /* GetGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGasStationsUseCase.swift; sourceTree = "<group>"; };
 		463F5FC629773126003C9E39 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		463F5FC829773144003C9E39 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		463F5FCA2977315C003C9E39 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		46F3890D297C542F0090A5CB /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				4616F8CD29A0D6FB0040ED6F /* GetGasStationsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */,
 				46F38917297C59D10090A5CB /* GetAllResponseDTO.swift in Sources */,
 				46F38913297C577B0090A5CB /* GasStationEndpoint.swift in Sources */,
+				4616F8CE29A0D6FB0040ED6F /* GetGasStationsUseCase.swift in Sources */,
 				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
 				46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */,
 				46F3890C297C541F0090A5CB /* DefaultGasStationRepository.swift in Sources */,
