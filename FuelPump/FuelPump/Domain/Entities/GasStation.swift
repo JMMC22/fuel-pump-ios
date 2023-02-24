@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct GasStation: Equatable {
+struct GasStation: Equatable, Hashable {
     let address: String
+    let city: String
+    let province: String
+    let company: String
+    let icon: String
 }
 
 struct GetAllGasStation: Equatable {
