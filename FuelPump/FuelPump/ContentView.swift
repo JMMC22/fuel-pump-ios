@@ -17,10 +17,10 @@ struct ContentView: View {
 
 private extension ContentView {
     func goToGasStationList() -> some View {
-        var repository = DefaultGasStationRepository()
-        var useCase = DefaultGetGasStationsUseCase(gasStationRepository: repository)
-        var viewModel = GasStationListViewModel(getGasStationsUseCase: useCase)
-        return GasStationList(viewModel: viewModel)
+        let gasStationRepository = DefaultGasStationRepository()
+        let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: gasStationRepository)
+        let gasStationListViewModel = GasStationListViewModel(getGasStationsUseCase: getGasStationsUseCase)
+        return GasStationListView(viewModel: gasStationListViewModel)
     }
 }
 

@@ -19,3 +19,21 @@ struct GetAllGasStation: Equatable {
     let date: String
     let gasStations: [GasStation]
 }
+
+extension GasStation {
+    static let mockedData: [GasStation] = [GasStation(address: "c/test",
+                                                      city: "testCity",
+                                                      province: "testProvince",
+                                                      company: "companyTest",
+                                                      icon: "default-icon"),
+                                           GasStation(address: "c/test2",
+                                                      city: "testCity2",
+                                                      province: "testProvince2",
+                                                      company: "companyTest2",
+                                                      icon: "default-icon"),
+                                           GasStation(address: "c/test3",
+                                                      city: "testCity3",
+                                                      province: "testProvince3",
+                                                      company: "companyTest3",
+                                                      icon: "default-icon")]
+}
