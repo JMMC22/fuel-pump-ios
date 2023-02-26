@@ -23,12 +23,14 @@ struct GetAllResponseDTO: Decodable {
 
 extension GetAllResponseDTO {
     struct GasStationDTO: Decodable {
+        let id: String
         let address: String
         let city: String
         let province: String
         let company: String
         
         private enum CodingKeys: String, CodingKey {
+            case id = "IDEESS"
             case address = "Dirección"
             case city = "Municipio"
             case province = "Provincia"
@@ -48,26 +50,11 @@ extension GetAllResponseDTO {
 
 extension GetAllResponseDTO.GasStationDTO {
     func toDomain() -> GasStation {
-        return .init(address: address,
+        return .init(id: id,
+                     address: address,
                      city: city,
                      province: province,
                      company: company,
-                     icon: companyToIcon(company: company))
+                     icon: GasStation.companyToIcon(company: company))
     }
-
-    private func companyToIcon(company: String) -> String {
-        if let company = GasCompany(rawValue: company) {
-            switch company {
-            case .repsol: return "repsol-icon"
-            default: return "default-icon"
-            }
-        } else {
-            return "default-icon"
-        }
-    }
-}
-
-enum GasCompany: String {
-    case repsol = "REPSOL"
-    case unknown
 }

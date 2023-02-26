@@ -36,7 +36,18 @@ extension RealmDataManager: DataManager {
         try realm.write {
             realm.add(object)
         }
+    }
 
+    func saveAll(objects: [Storable]) throws {
+        guard let realm = realm, let objects = objects as? [Object] else {
+            throw RealmError.nilOrNotRealmSpecificModel
+        }
+
+        for object in objects {
+            try realm.write {
+                realm.add(object)
+            }
+        }
     }
 
     func update(object: Storable) throws {
