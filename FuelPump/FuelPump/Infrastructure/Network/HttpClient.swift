@@ -6,25 +6,25 @@
 //
 
 import Foundation
+import Combine
 
-protocol HTTPClient {
-    func request<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T
+protocol HTTPClientProtocol {
+    func request<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> AnyPublisher<T,Error>
 }
 
-extension HTTPClient {
-    func request<T: Decodable>(endpoint: Endpoint,
-        responseModel: T.Type
-    ) async throws -> T {
+class HTTPClient: HTTPClientProtocol {
+
+    func request<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) -> AnyPublisher<T,Error> {
         var urlComponents = URLComponents()
 
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
-        
+
         guard let url = urlComponents.url else {
-            throw RequestError.invalidURL
+            return Fail(error: RequestError.invalidURL).eraseToAnyPublisher()
         }
-                
+
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.header
@@ -33,24 +33,25 @@ extension HTTPClient {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         }
         
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
-            guard let response = response as? HTTPURLResponse else {
-                throw RequestError.decode
-            }
-            switch response.statusCode {
-            case 200...299:
-                guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
-                    throw RequestError.decode
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .mapError { $0 as Error }
+            .flatMap { data, response -> AnyPublisher<T, Error> in
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    return Fail(error: RequestError.decode).eraseToAnyPublisher()
                 }
-                return decodedResponse
-            case 401:
-                throw RequestError.unauthorized
-            default:
-                throw RequestError.error(statusCode: response.statusCode, data: data)
+
+                switch httpResponse.statusCode {
+                case 200...299:
+                    guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
+                        return Fail(error: RequestError.decode).eraseToAnyPublisher()
+                    }
+                    return Just(decodedResponse).setFailureType(to: Error.self).eraseToAnyPublisher()
+                case 401:
+                    return Fail(error: RequestError.unauthorized).eraseToAnyPublisher()
+                default:
+                    return Fail(error: RequestError.error(statusCode: httpResponse.statusCode, data: data)).eraseToAnyPublisher()
+                }
             }
-        } catch {
-            throw RequestError.unknown
-        }
+            .eraseToAnyPublisher()
     }
 }
