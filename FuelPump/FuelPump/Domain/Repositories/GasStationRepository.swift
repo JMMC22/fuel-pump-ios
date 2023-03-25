@@ -5,8 +5,8 @@
 //  Created by Jose Mari on 21/1/23.
 //
 
-import Foundation
+import Combine
 
 protocol GasStationRepository {
-    func getAllGasStations() async throws -> GetAllGasStation
+    func getAllGasStations() -> AnyPublisher<GetAllGasStation, Error>
 }

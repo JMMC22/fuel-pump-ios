@@ -5,35 +5,28 @@
 //  Created by Jose Mari on 21/1/23.
 //
 
-import RealmSwift
+import Combine
 
 final class DefaultGasStationRepository {
 
     private let cacheService: DataManager
+    private let httpClient: HTTPClient
 
-    init(dataManager: DataManager = RealmDataManager(RealmProvider.default)) {
+    init(dataManager: DataManager = RealmDataManager(RealmProvider.default),
+         httpClient: HTTPClient = NetworkManager()) {
         self.cacheService = dataManager
+        self.httpClient = httpClient
     }
 }
 
-extension DefaultGasStationRepository: GasStationRepository, HTTPClient {
+extension DefaultGasStationRepository: GasStationRepository {
 
-    func getAllGasStations() async throws -> GetAllGasStation {
+    func getAllGasStations() -> AnyPublisher<GetAllGasStation, Error> {
         let endpoint = GasStationEndpoint.getAll
-        return try await requestGasStationEndpoint(endpoint)
-    }
-    
-    private func requestGasStationEndpoint(_ endpoint: Endpoint) async throws -> GetAllGasStation {
-        do {
-            let response = try await request(endpoint: endpoint,
-                                         responseModel: GetAllResponseDTO.self)
-            let domainResponse = response.toDomain()
-            DispatchQueue.main.async {
-                try? self.cacheService.update(object: domainResponse.mapToRealmObject())
+        return httpClient.request(endpoint: endpoint, responseModel: GetAllResponseDTO.self)
+            .map { response in
+                return response.toDomain()
             }
-            return domainResponse
-        } catch {
-            throw error
-        }
+            .eraseToAnyPublisher()
     }
 }

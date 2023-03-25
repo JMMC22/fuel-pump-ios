@@ -13,8 +13,11 @@ struct GasStationListView: View {
 
     var body: some View {
         GasStationList(gasStations: viewModel.gasStations)
-            .task {
-                await viewModel.getAllGasStation()
+            .alert(isPresented: $viewModel.error) {
+                Alert(title: Text("Error"), message: Text ("Vaya, parece que ha habido un error."), dismissButton: .default(Text("OK")))
+            }
+            .onAppear {
+                viewModel.getAllGasStations()
             }
     }
 }
