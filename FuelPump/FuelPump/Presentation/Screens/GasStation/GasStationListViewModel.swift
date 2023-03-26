@@ -11,6 +11,7 @@ import Combine
 class GasStationListViewModel: ObservableObject {
 
     @Published var gasStations: [GasStation] = []
+    @Published var isLoading: Bool = false
     @Published var error: Bool = false
 
     private let getGasStationsUseCase: GetGasStationsUseCase
@@ -21,6 +22,7 @@ class GasStationListViewModel: ObservableObject {
     }
 
     func getAllGasStations() {
+        isLoading = true
         getGasStationsUseCase
             .execute()
             .receive(on: DispatchQueue.main)
@@ -31,7 +33,7 @@ class GasStationListViewModel: ObservableObject {
     private func handleCompletion(completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
-            print("Request completed successfully")
+            isLoading = false
         case .failure(_):
             self.error = true
         }
