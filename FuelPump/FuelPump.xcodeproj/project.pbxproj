@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4616F8CE29A0D6FB0040ED6F /* GetGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CD29A0D6FB0040ED6F /* GetGasStationsUseCase.swift */; };
+		4616F8CE29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */; };
 		4616F8D029A0D8FC0040ED6F /* GasStationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CF29A0D8FC0040ED6F /* GasStationListViewModel.swift */; };
 		463F5FC729773126003C9E39 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC629773126003C9E39 /* Endpoint.swift */; };
 		463F5FC929773144003C9E39 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC829773144003C9E39 /* HttpClient.swift */; };
@@ -31,12 +31,13 @@
 		46F74A50296DEFE9002BFF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A4F296DEFE9002BFF64 /* Assets.xcassets */; };
 		46F74A53296DEFE9002BFF64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A52296DEFE9002BFF64 /* Preview Assets.xcassets */; };
 		46F74A5F296DF8D8002BFF64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A61296DF8D8002BFF64 /* Localizable.strings */; };
+		B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */; };
 		F3C3A94A5C1F3A12C384F3B5 /* Pods_FuelPump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17292A1E84FAC8A59E910957 /* Pods-FuelPump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.debug.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.debug.xcconfig"; sourceTree = "<group>"; };
-		4616F8CD29A0D6FB0040ED6F /* GetGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGasStationsUseCase.swift; sourceTree = "<group>"; };
+		4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllGasStationsUseCase.swift; sourceTree = "<group>"; };
 		4616F8CF29A0D8FC0040ED6F /* GasStationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationListViewModel.swift; sourceTree = "<group>"; };
 		463F5FC629773126003C9E39 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		463F5FC829773144003C9E39 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		46F74A60296DF8D8002BFF64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46F74A62296DF8DB002BFF64 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FuelPump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGasStationsUseCase.swift; sourceTree = "<group>"; };
 		C53F06939E8113B7B5E23F20 /* Pods-FuelPump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.release.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,7 +180,8 @@
 		46F3890D297C542F0090A5CB /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				4616F8CD29A0D6FB0040ED6F /* GetGasStationsUseCase.swift */,
+				4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */,
+				B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -440,11 +443,12 @@
 				46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */,
 				46F38917297C59D10090A5CB /* GetAllResponseDTO.swift in Sources */,
 				46F38913297C577B0090A5CB /* GasStationEndpoint.swift in Sources */,
-				4616F8CE29A0D6FB0040ED6F /* GetGasStationsUseCase.swift in Sources */,
+				4616F8CE29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift in Sources */,
 				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
 				46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */,
 				46F3890C297C541F0090A5CB /* DefaultGasStationRepository.swift in Sources */,
 				466B990D2979C2A800C9F4DF /* RealmDataManager.swift in Sources */,
+				B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */,
 				4616F8D029A0D8FC0040ED6F /* GasStationListViewModel.swift in Sources */,
 				4688A5FA29AA7D2D00BC52F8 /* GasStationRealm.swift in Sources */,
 				463F5FC929773144003C9E39 /* HttpClient.swift in Sources */,
@@ -603,6 +607,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -634,6 +639,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

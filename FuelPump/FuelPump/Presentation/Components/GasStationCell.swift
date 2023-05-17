@@ -24,6 +24,10 @@ struct GasStationCell: View {
             Spacer()
             GasStationIcon(iconName: gasStation.icon)
         }
+        .padding(10)
+        .background(.white)
+        .cornerRadius(10)
+        .shadow(color: .gray.opacity(0.4), radius: 3)
     }
 }
 
@@ -40,6 +44,7 @@ struct GasStationIcon: View {
         Image(iconName)
             .resizable()
             .frame(width: 25, height: 25)
+            .padding(5)
             .aspectRatio(contentMode: .fit)
             .background(Color.white)
             .clipShape(Circle())

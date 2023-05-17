@@ -11,6 +11,7 @@ import RealmSwift
 class RealmDataManager {
 
     private let realm: Realm?
+    private var notificationToken: NotificationToken?
 
     init(_ realm: Realm?) {
         self.realm = realm
@@ -18,6 +19,7 @@ class RealmDataManager {
 }
 
 extension RealmDataManager: DataManager {
+
     func create<T>(_ model: T.Type, completion: @escaping ((T) -> Void)) throws where T : Storable {
         guard let realm = realm, let model = model as? Object.Type else {
             throw RealmError.nilOrNotRealmSpecificModel
@@ -43,10 +45,8 @@ extension RealmDataManager: DataManager {
             throw RealmError.nilOrNotRealmSpecificModel
         }
 
-        for object in objects {
-            try realm.write {
-                realm.add(object)
-            }
+        try realm.write {
+            realm.add(objects)
         }
     }
 
@@ -83,7 +83,10 @@ extension RealmDataManager: DataManager {
         }
     }
     
-    func fetch<T>(_ model: T.Type, predicate: NSPredicate?, sorted: Sorted?, completion: (([T]) -> ())) where T : Storable {
+    func fetch<T>(_ model: T.Type,
+                  predicate: NSPredicate?,
+                  sorted: Sorted?,
+                  completion: (([T]) -> ())) where T : Storable {
         guard let realm = realm, let model = model as? Object.Type else { return }
         var objects = realm.objects(model)
 

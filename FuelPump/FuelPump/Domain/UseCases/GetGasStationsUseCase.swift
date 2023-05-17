@@ -2,14 +2,14 @@
 //  GetGasStationsUseCase.swift
 //  FuelPump
 //
-//  Created by Jose Mari on 18/2/23.
+//  Created by José María Márquez Crespo on 17/5/23.
 //
 
-import Combine
+import Foundation
 
 protocol GetGasStationsUseCase {
     var gasStationRepository: GasStationRepository { get set }
-    func execute() -> AnyPublisher<GetAllGasStation, Error>
+    func execute() -> [GasStation]
 }
 
 class DefaultGetGasStationsUseCase: GetGasStationsUseCase {
@@ -20,7 +20,7 @@ class DefaultGetGasStationsUseCase: GetGasStationsUseCase {
         self.gasStationRepository = gasStationRepository
     }
 
-    func execute() -> AnyPublisher<GetAllGasStation, Error> {
-        return gasStationRepository.getAllGasStations()
+    func execute() -> [GasStation] {
+        return gasStationRepository.getGasStations(limit: 10)
     }
 }

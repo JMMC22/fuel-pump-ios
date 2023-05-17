@@ -14,16 +14,22 @@ class GasStationListViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var error: Bool = false
 
+    private let getAllGasStationsUseCase: GetAllGasStationsUseCase
     private let getGasStationsUseCase: GetGasStationsUseCase
     private var cancellables = Set<AnyCancellable>()
 
-    init(getGasStationsUseCase: GetGasStationsUseCase) {
+    init(getAllGasStationsUseCase: GetAllGasStationsUseCase, getGasStationsUseCase: GetGasStationsUseCase) {
+        self.getAllGasStationsUseCase = getAllGasStationsUseCase
         self.getGasStationsUseCase = getGasStationsUseCase
+    }
+
+    func getGasStations() {
+        self.gasStations = getGasStationsUseCase.execute()
     }
 
     func getAllGasStations() {
         isLoading = true
-        getGasStationsUseCase
+        getAllGasStationsUseCase
             .execute()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: handleCompletion, receiveValue: handleSuccess)

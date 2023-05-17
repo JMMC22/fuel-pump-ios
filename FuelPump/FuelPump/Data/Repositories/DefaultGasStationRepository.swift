@@ -5,6 +5,7 @@
 //  Created by Jose Mari on 21/1/23.
 //
 
+import Foundation
 import Combine
 
 final class DefaultGasStationRepository {
@@ -20,13 +21,37 @@ final class DefaultGasStationRepository {
 }
 
 extension DefaultGasStationRepository: GasStationRepository {
+    
+    func getGasStations(limit: Int) -> [GasStation] {
+        var result: [GetAllGasStation] = []
+
+        self.cacheService.fetch(GetAllGasStationRealm.self,
+                                predicate: nil,
+                                sorted: nil) { response in
+            result = response.map { GetAllGasStation.mapFromRealmObject($0) }
+        }
+
+        return Array(result.first?.gasStations.prefix(limit) ?? [])
+    }
 
     func getAllGasStations() -> AnyPublisher<GetAllGasStation, Error> {
         let endpoint = GasStationEndpoint.getAll
         return httpClient.request(endpoint: endpoint, responseModel: GetAllResponseDTO.self)
             .map { response in
-                return response.toDomain()
+                let gasStations = response.toDomain()
+                self.updateGasStations(response: gasStations.mapToRealmObject())
+                return gasStations
             }
             .eraseToAnyPublisher()
+    }
+
+    private func updateGasStations(response: GetAllGasStationRealm) {
+        DispatchQueue.main.async {
+            do {
+                try self.cacheService.update(object: response)
+            } catch {
+                print("----- Error updateGasStations: \(error)")
+            }
+        }
     }
 }

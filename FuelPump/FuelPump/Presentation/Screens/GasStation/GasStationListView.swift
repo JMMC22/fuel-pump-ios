@@ -20,7 +20,7 @@ struct GasStationListView: View {
                       dismissButton: .default(Text("OK")))
             }
             .onAppear {
-                viewModel.getAllGasStations()
+                viewModel.getGasStations()
             }
     }
 }
@@ -31,11 +31,15 @@ struct GasStationList: View {
     var isLoading: Bool
 
     var body: some View {
-        List {
-            ForEach(gasStations, id: \.self) { gasStation in
-                GasStationCell(gasStation: gasStation)
+        ScrollView {
+            LazyVStack(spacing: 16) {
+                ForEach(gasStations, id: \.self) { gasStation in
+                    GasStationCell(gasStation: gasStation)
+                }
+                .redacted(reason: isLoading ? .placeholder : [])
             }
-            .redacted(reason: isLoading ? .placeholder : [])
+            .padding(.vertical, 24)
+            .padding(.horizontal, 16)
         }
     }
 }

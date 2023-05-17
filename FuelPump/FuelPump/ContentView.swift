@@ -19,7 +19,9 @@ private extension ContentView {
     func goToGasStationList() -> some View {
         let gasStationRepository = DefaultGasStationRepository()
         let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: gasStationRepository)
-        let gasStationListViewModel = GasStationListViewModel(getGasStationsUseCase: getGasStationsUseCase)
+        let getAllGasStationsUseCase = DefaultGetAllGasStationsUseCase(gasStationRepository: gasStationRepository)
+        let gasStationListViewModel = GasStationListViewModel(getAllGasStationsUseCase: getAllGasStationsUseCase,
+                                                              getGasStationsUseCase: getGasStationsUseCase)
         return GasStationListView(viewModel: gasStationListViewModel)
     }
 }
