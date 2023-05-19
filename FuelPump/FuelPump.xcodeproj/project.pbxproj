@@ -7,26 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4616F8CE29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */; };
+		4616F8D029A0D8FC0040ED6F /* GasStationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CF29A0D8FC0040ED6F /* GasStationListViewModel.swift */; };
 		463F5FC729773126003C9E39 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC629773126003C9E39 /* Endpoint.swift */; };
 		463F5FC929773144003C9E39 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC829773144003C9E39 /* HttpClient.swift */; };
 		463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FCA2977315C003C9E39 /* RequestError.swift */; };
 		466B990B2979C24800C9F4DF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B990A2979C24800C9F4DF /* DataManager.swift */; };
 		466B990D2979C2A800C9F4DF /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B990C2979C2A800C9F4DF /* RealmDataManager.swift */; };
+		4688A5F729AA779200BC52F8 /* GasStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688A5F629AA779200BC52F8 /* GasStationCell.swift */; };
+		4688A5FA29AA7D2D00BC52F8 /* GasStationRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688A5F929AA7D2D00BC52F8 /* GasStationRealm.swift */; };
+		4688A5FC29AA7FB900BC52F8 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4688A5FB29AA7FB900BC52F8 /* RealmProvider.swift */; };
+		46E1FC902979CCDA009FAE81 /* GasStationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E1FC8F2979CCDA009FAE81 /* GasStationListView.swift */; };
+		46E1FC942979CD75009FAE81 /* Configuration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 46E1FC932979CD75009FAE81 /* Configuration.xcconfig */; };
+		46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E1FC972979CE4D009FAE81 /* Configuration.swift */; };
+		46E2BE1C29AB889D0074EA4F /* GasCompanies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E2BE1B29AB889D0074EA4F /* GasCompanies.swift */; };
+		46F3890C297C541F0090A5CB /* DefaultGasStationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F3890B297C541F0090A5CB /* DefaultGasStationRepository.swift */; };
+		46F38910297C544A0090A5CB /* GasStationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F3890F297C544A0090A5CB /* GasStationRepository.swift */; };
+		46F38913297C577B0090A5CB /* GasStationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F38912297C577B0090A5CB /* GasStationEndpoint.swift */; };
+		46F38917297C59D10090A5CB /* GetAllResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F38916297C59D10090A5CB /* GetAllResponseDTO.swift */; };
+		46F3891A297C5B260090A5CB /* GasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F38919297C5B260090A5CB /* GasStation.swift */; };
 		46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */; };
 		46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F74A4D296DEFE8002BFF64 /* ContentView.swift */; };
 		46F74A50296DEFE9002BFF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A4F296DEFE9002BFF64 /* Assets.xcassets */; };
 		46F74A53296DEFE9002BFF64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A52296DEFE9002BFF64 /* Preview Assets.xcassets */; };
 		46F74A5F296DF8D8002BFF64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A61296DF8D8002BFF64 /* Localizable.strings */; };
+		B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */; };
 		F3C3A94A5C1F3A12C384F3B5 /* Pods_FuelPump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17292A1E84FAC8A59E910957 /* Pods-FuelPump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.debug.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.debug.xcconfig"; sourceTree = "<group>"; };
+		4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllGasStationsUseCase.swift; sourceTree = "<group>"; };
+		4616F8CF29A0D8FC0040ED6F /* GasStationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationListViewModel.swift; sourceTree = "<group>"; };
 		463F5FC629773126003C9E39 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		463F5FC829773144003C9E39 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		463F5FCA2977315C003C9E39 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		466B990A2979C24800C9F4DF /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		466B990C2979C2A800C9F4DF /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
+		4688A5F629AA779200BC52F8 /* GasStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationCell.swift; sourceTree = "<group>"; };
+		4688A5F929AA7D2D00BC52F8 /* GasStationRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationRealm.swift; sourceTree = "<group>"; };
+		4688A5FB29AA7FB900BC52F8 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		46E1FC8F2979CCDA009FAE81 /* GasStationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationListView.swift; sourceTree = "<group>"; };
+		46E1FC932979CD75009FAE81 /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
+		46E1FC952979CDDC009FAE81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46E1FC972979CE4D009FAE81 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		46E2BE1B29AB889D0074EA4F /* GasCompanies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasCompanies.swift; sourceTree = "<group>"; };
+		46F3890B297C541F0090A5CB /* DefaultGasStationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGasStationRepository.swift; sourceTree = "<group>"; };
+		46F3890F297C544A0090A5CB /* GasStationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationRepository.swift; sourceTree = "<group>"; };
+		46F38912297C577B0090A5CB /* GasStationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationEndpoint.swift; sourceTree = "<group>"; };
+		46F38916297C59D10090A5CB /* GetAllResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllResponseDTO.swift; sourceTree = "<group>"; };
+		46F38919297C5B260090A5CB /* GasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStation.swift; sourceTree = "<group>"; };
 		46F74A48296DEFE8002BFF64 /* FuelPump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuelPump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F74A4B296DEFE8002BFF64 /* FuelPumpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelPumpApp.swift; sourceTree = "<group>"; };
 		46F74A4D296DEFE8002BFF64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +65,7 @@
 		46F74A60296DF8D8002BFF64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46F74A62296DF8DB002BFF64 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FuelPump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGasStationsUseCase.swift; sourceTree = "<group>"; };
 		C53F06939E8113B7B5E23F20 /* Pods-FuelPump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.release.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,8 +114,118 @@
 			children = (
 				466B990A2979C24800C9F4DF /* DataManager.swift */,
 				466B990C2979C2A800C9F4DF /* RealmDataManager.swift */,
+				4688A5FB29AA7FB900BC52F8 /* RealmProvider.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		4688A5F529AA777900BC52F8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4688A5F629AA779200BC52F8 /* GasStationCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4688A5F829AA7D1B00BC52F8 /* Gas Station */ = {
+			isa = PBXGroup;
+			children = (
+				46F38919297C5B260090A5CB /* GasStation.swift */,
+				4688A5F929AA7D2D00BC52F8 /* GasStationRealm.swift */,
+			);
+			path = "Gas Station";
+			sourceTree = "<group>";
+		};
+		46E1FC8E2979CCCB009FAE81 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				46E1FC912979CCDD009FAE81 /* GasStation */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		46E1FC912979CCDD009FAE81 /* GasStation */ = {
+			isa = PBXGroup;
+			children = (
+				46E1FC8F2979CCDA009FAE81 /* GasStationListView.swift */,
+				4616F8CF29A0D8FC0040ED6F /* GasStationListViewModel.swift */,
+			);
+			path = GasStation;
+			sourceTree = "<group>";
+		};
+		46E1FC922979CD5D009FAE81 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				46E1FC932979CD75009FAE81 /* Configuration.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		46E1FC962979CE24009FAE81 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				46E1FC972979CE4D009FAE81 /* Configuration.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		46F3890A297C53FC0090A5CB /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				46F3890B297C541F0090A5CB /* DefaultGasStationRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		46F3890D297C542F0090A5CB /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */,
+				B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		46F3890E297C54340090A5CB /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				46F3890F297C544A0090A5CB /* GasStationRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		46F38911297C576A0090A5CB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				46F38914297C599A0090A5CB /* GasStation */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		46F38914297C599A0090A5CB /* GasStation */ = {
+			isa = PBXGroup;
+			children = (
+				46F38915297C59A60090A5CB /* DataTransfer */,
+				46F38912297C577B0090A5CB /* GasStationEndpoint.swift */,
+			);
+			path = GasStation;
+			sourceTree = "<group>";
+		};
+		46F38915297C59A60090A5CB /* DataTransfer */ = {
+			isa = PBXGroup;
+			children = (
+				46F38916297C59D10090A5CB /* GetAllResponseDTO.swift */,
+			);
+			path = DataTransfer;
+			sourceTree = "<group>";
+		};
+		46F38918297C5B0E0090A5CB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4688A5F829AA7D1B00BC52F8 /* Gas Station */,
+				46E2BE1B29AB889D0074EA4F /* GasCompanies.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		46F74A3F296DEFE8002BFF64 = {
@@ -116,6 +257,7 @@
 				46F74A5B296DF7CA002BFF64 /* Presentation */,
 				46F74A51296DEFE9002BFF64 /* Preview Content */,
 				46F74A5C296DF7D9002BFF64 /* Resources */,
+				46E1FC962979CE24009FAE81 /* Utils */,
 			);
 			path = FuelPump;
 			sourceTree = "<group>";
@@ -131,6 +273,8 @@
 		46F74A59296DF7BD002BFF64 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				46F38911297C576A0090A5CB /* Network */,
+				46F3890A297C53FC0090A5CB /* Repositories */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -138,6 +282,9 @@
 		46F74A5A296DF7C2002BFF64 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				46F38918297C5B0E0090A5CB /* Entities */,
+				46F3890E297C54340090A5CB /* Repositories */,
+				46F3890D297C542F0090A5CB /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -145,6 +292,8 @@
 		46F74A5B296DF7CA002BFF64 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4688A5F529AA777900BC52F8 /* Components */,
+				46E1FC8E2979CCCB009FAE81 /* Screens */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -152,6 +301,8 @@
 		46F74A5C296DF7D9002BFF64 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				46E1FC952979CDDC009FAE81 /* Info.plist */,
+				46E1FC922979CD5D009FAE81 /* Configuration */,
 				46F74A4F296DEFE9002BFF64 /* Assets.xcassets */,
 				46F74A61296DF8D8002BFF64 /* Localizable.strings */,
 			);
@@ -228,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46F74A53296DEFE9002BFF64 /* Preview Assets.xcassets in Resources */,
+				46E1FC942979CD75009FAE81 /* Configuration.xcconfig in Resources */,
 				46F74A5F296DF8D8002BFF64 /* Localizable.strings in Resources */,
 				46F74A50296DEFE9002BFF64 /* Assets.xcassets in Resources */,
 			);
@@ -282,13 +434,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F3891A297C5B260090A5CB /* GasStation.swift in Sources */,
+				46F38910297C544A0090A5CB /* GasStationRepository.swift in Sources */,
+				46E1FC902979CCDA009FAE81 /* GasStationListView.swift in Sources */,
+				4688A5FC29AA7FB900BC52F8 /* RealmProvider.swift in Sources */,
 				46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */,
 				466B990B2979C24800C9F4DF /* DataManager.swift in Sources */,
+				46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */,
+				46F38917297C59D10090A5CB /* GetAllResponseDTO.swift in Sources */,
+				46F38913297C577B0090A5CB /* GasStationEndpoint.swift in Sources */,
+				4616F8CE29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift in Sources */,
 				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
 				46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */,
+				46F3890C297C541F0090A5CB /* DefaultGasStationRepository.swift in Sources */,
 				466B990D2979C2A800C9F4DF /* RealmDataManager.swift in Sources */,
+				B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */,
+				4616F8D029A0D8FC0040ED6F /* GasStationListViewModel.swift in Sources */,
+				4688A5FA29AA7D2D00BC52F8 /* GasStationRealm.swift in Sources */,
 				463F5FC929773144003C9E39 /* HttpClient.swift in Sources */,
 				463F5FC729773126003C9E39 /* Endpoint.swift in Sources */,
+				4688A5F729AA779200BC52F8 /* GasStationCell.swift in Sources */,
+				46E2BE1C29AB889D0074EA4F /* GasCompanies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +475,7 @@
 /* Begin XCBuildConfiguration section */
 		46F74A54296DEFE9002BFF64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46E1FC932979CD75009FAE81 /* Configuration.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -357,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -369,6 +536,7 @@
 		};
 		46F74A55296DEFE9002BFF64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46E1FC932979CD75009FAE81 /* Configuration.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -411,7 +579,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -433,11 +601,13 @@
 				DEVELOPMENT_TEAM = HM99275N5A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FuelPump/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,11 +633,13 @@
 				DEVELOPMENT_TEAM = HM99275N5A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FuelPump/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

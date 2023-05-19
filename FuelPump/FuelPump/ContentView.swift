@@ -9,13 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("hello")
+        Group {
+            goToGasStationList()
         }
-        .padding()
+    }
+}
+
+private extension ContentView {
+    func goToGasStationList() -> some View {
+        let gasStationRepository = DefaultGasStationRepository()
+        let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: gasStationRepository)
+        let getAllGasStationsUseCase = DefaultGetAllGasStationsUseCase(gasStationRepository: gasStationRepository)
+        let gasStationListViewModel = GasStationListViewModel(getAllGasStationsUseCase: getAllGasStationsUseCase,
+                                                              getGasStationsUseCase: getGasStationsUseCase)
+        return GasStationListView(viewModel: gasStationListViewModel)
     }
 }
 
