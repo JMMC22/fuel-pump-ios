@@ -17,9 +17,9 @@ struct GasStationCell: View {
                 alignment: .leading
             ) {
                 Text(gasStation.address)
-                    .font(.system(size: 14))
+                    .fpTextStyle(.heading4)
                 Text(gasStation.city)
-                    .font(.system(size: 12))
+                    .fpTextStyle(.caption)
             }
             Spacer()
             GasStationIcon(iconName: gasStation.icon)
