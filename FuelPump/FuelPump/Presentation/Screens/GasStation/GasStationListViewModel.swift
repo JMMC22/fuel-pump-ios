@@ -22,6 +22,11 @@ class GasStationListViewModel: ObservableObject {
         self.getAllGasStationsUseCase = getAllGasStationsUseCase
         self.getGasStationsUseCase = getGasStationsUseCase
     }
+    
+    func viewDidLoad() {
+        self.getGasStations()
+        self.getAllGasStations()
+    }
 
     func getGasStations() {
         self.gasStations = getGasStationsUseCase.execute()

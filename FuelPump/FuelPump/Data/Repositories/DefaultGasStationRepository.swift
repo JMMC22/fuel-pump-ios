@@ -21,7 +21,7 @@ final class DefaultGasStationRepository {
 }
 
 extension DefaultGasStationRepository: GasStationRepository {
-    
+
     func getGasStations(limit: Int) -> [GasStation] {
         var result: [GetAllGasStation] = []
 

@@ -20,7 +20,7 @@ struct GasStationListView: View {
                       dismissButton: .default(Text("OK")))
             }
             .onAppear {
-                viewModel.getGasStations()
+                viewModel.viewDidLoad()
             }
     }
 }
