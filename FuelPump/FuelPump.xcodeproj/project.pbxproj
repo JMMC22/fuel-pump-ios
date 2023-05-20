@@ -44,6 +44,8 @@
 		B5295E052A17D1410061E2F1 /* FPTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E042A17D1410061E2F1 /* FPTypography.swift */; };
 		B5295E072A17D1B40061E2F1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E062A17D1B40061E2F1 /* Fonts.swift */; };
 		B5295E0A2A17D2BA0061E2F1 /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */; };
+		B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B0F2A190602005DB286 /* GasStationDTO.swift */; };
+		B58E9B122A19065E005DB286 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B112A19065E005DB286 /* Location.swift */; };
 		F3C3A94A5C1F3A12C384F3B5 /* Pods_FuelPump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		B5295E042A17D1410061E2F1 /* FPTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTypography.swift; sourceTree = "<group>"; };
 		B5295E062A17D1B40061E2F1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledFont.swift; sourceTree = "<group>"; };
+		B58E9B0F2A190602005DB286 /* GasStationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationDTO.swift; sourceTree = "<group>"; };
+		B58E9B112A19065E005DB286 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C53F06939E8113B7B5E23F20 /* Pods-FuelPump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.release.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,8 +233,8 @@
 		46F38914297C599A0090A5CB /* GasStation */ = {
 			isa = PBXGroup;
 			children = (
-				46F38915297C59A60090A5CB /* DataTransfer */,
 				46F38912297C577B0090A5CB /* GasStationEndpoint.swift */,
+				46F38915297C59A60090A5CB /* DataTransfer */,
 			);
 			path = GasStation;
 			sourceTree = "<group>";
@@ -238,6 +242,7 @@
 		46F38915297C59A60090A5CB /* DataTransfer */ = {
 			isa = PBXGroup;
 			children = (
+				B58E9B0F2A190602005DB286 /* GasStationDTO.swift */,
 				46F38916297C59D10090A5CB /* GetAllResponseDTO.swift */,
 			);
 			path = DataTransfer;
@@ -246,8 +251,9 @@
 		46F38918297C5B0E0090A5CB /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				4688A5F829AA7D1B00BC52F8 /* Gas Station */,
 				46E2BE1B29AB889D0074EA4F /* GasCompanies.swift */,
+				B58E9B112A19065E005DB286 /* Location.swift */,
+				4688A5F829AA7D1B00BC52F8 /* Gas Station */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				4688A5FC29AA7FB900BC52F8 /* RealmProvider.swift in Sources */,
 				46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */,
 				466B990B2979C24800C9F4DF /* DataManager.swift in Sources */,
+				B58E9B122A19065E005DB286 /* Location.swift in Sources */,
 				B5295E0A2A17D2BA0061E2F1 /* ScaledFont.swift in Sources */,
 				46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */,
 				46F38917297C59D10090A5CB /* GetAllResponseDTO.swift in Sources */,
@@ -518,6 +525,7 @@
 				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
 				46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */,
 				B5295E052A17D1410061E2F1 /* FPTypography.swift in Sources */,
+				B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */,
 				46F3890C297C541F0090A5CB /* DefaultGasStationRepository.swift in Sources */,
 				466B990D2979C2A800C9F4DF /* RealmDataManager.swift in Sources */,
 				B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */,
