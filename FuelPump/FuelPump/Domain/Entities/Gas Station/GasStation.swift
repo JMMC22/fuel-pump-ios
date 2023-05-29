@@ -75,6 +75,14 @@ extension GasStation {
         model.province = province
         model.company = company
         model.icon = GasStation.companyToIcon(company: company)
+        model.dieselA = dieselA
+        model.dieselB = dieselB
+        model.dieselPremium = dieselPremium
+        model.gasoline95_E5 = gasoline95_E5
+        model.gasoline95_E10 = gasoline95_E10
+        model.gasoline95_E5_Premium = gasoline95_E5_Premium
+        model.gasoline98_E5 = gasoline98_E5
+        model.gasoline98_E10 = gasoline98_E10
         return model
     }
     
