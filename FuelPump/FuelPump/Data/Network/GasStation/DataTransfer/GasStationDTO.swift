@@ -45,6 +45,16 @@ struct GasStationDTO: Decodable {
 
 extension GasStationDTO {
     func toDomain() -> GasStation {
+
+        let dieselAValue = dieselA?.formattedDouble ?? 0.0
+        let dieselBValue = dieselB?.formattedDouble ?? 0.0
+        let dieselPremiumValue = dieselPremium?.formattedDouble ?? 0.0
+        let gasoline95_E5Value = gasoline95_E5?.formattedDouble ?? 0.0
+        let gasoline95_E10Value = gasoline95_E10?.formattedDouble ?? 0.0
+        let gasoline95_E5_PremiumValue = gasoline95_E5_Premium?.formattedDouble ?? 0.0
+        let gasoline98_E5Value = gasoline98_E5?.formattedDouble ?? 0.0
+        let gasoline98_E10Value = gasoline98_E10?.formattedDouble ?? 0.0
+
         return .init(id: id,
                      location: Location(latitude: latitude ?? "",
                                         longitude: longitude ?? ""),
@@ -53,13 +63,13 @@ extension GasStationDTO {
                      province: province ?? "",
                      company: company ?? "",
                      icon: GasStation.companyToIcon(company: company ?? ""),
-                     dieselA: dieselA ?? "",
-                     dieselB: dieselB ?? "",
-                     dieselPremium: dieselPremium ?? "",
-                     gasoline95_E5: gasoline95_E5 ?? "",
-                     gasoline95_E10: gasoline95_E10 ?? "",
-                     gasoline95_E5_Premium: gasoline95_E5_Premium ?? "",
-                     gasoline98_E5: gasoline98_E5 ?? "",
-                     gasoline98_E10: gasoline98_E10 ?? "")
+                     dieselA: dieselAValue,
+                     dieselB: dieselBValue,
+                     dieselPremium: dieselPremiumValue,
+                     gasoline95_E5: gasoline95_E5Value,
+                     gasoline95_E10: gasoline95_E10Value,
+                     gasoline95_E5_Premium: gasoline95_E5_PremiumValue,
+                     gasoline98_E5: gasoline98_E5Value,
+                     gasoline98_E10: gasoline98_E10Value)
     }
 }

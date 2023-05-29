@@ -21,12 +21,12 @@ class GasStationRealm: Object {
     @Persisted var province: String
     @Persisted var company: String
     @Persisted var icon: String
-    @Persisted var dieselA: String
-    @Persisted var dieselB: String
-    @Persisted var dieselPremium: String
-    @Persisted var gasoline95_E5: String
-    @Persisted var gasoline95_E10: String
-    @Persisted var gasoline95_E5_Premium: String
-    @Persisted var gasoline98_E5: String
-    @Persisted var gasoline98_E10: String
+    @Persisted var dieselA: Double
+    @Persisted var dieselB: Double
+    @Persisted var dieselPremium: Double
+    @Persisted var gasoline95_E5: Double
+    @Persisted var gasoline95_E10: Double
+    @Persisted var gasoline95_E5_Premium: Double
+    @Persisted var gasoline98_E5: Double
+    @Persisted var gasoline98_E10: Double
 }

@@ -44,6 +44,7 @@
 		B5295E052A17D1410061E2F1 /* FPTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E042A17D1410061E2F1 /* FPTypography.swift */; };
 		B5295E072A17D1B40061E2F1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E062A17D1B40061E2F1 /* Fonts.swift */; };
 		B5295E0A2A17D2BA0061E2F1 /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */; };
+		B53985512A250CD600E92395 /* String+formattedDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53985502A250CD600E92395 /* String+formattedDouble.swift */; };
 		B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B0F2A190602005DB286 /* GasStationDTO.swift */; };
 		B58E9B122A19065E005DB286 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B112A19065E005DB286 /* Location.swift */; };
 		F3C3A94A5C1F3A12C384F3B5 /* Pods_FuelPump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */; };
@@ -92,6 +93,7 @@
 		B5295E042A17D1410061E2F1 /* FPTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTypography.swift; sourceTree = "<group>"; };
 		B5295E062A17D1B40061E2F1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledFont.swift; sourceTree = "<group>"; };
+		B53985502A250CD600E92395 /* String+formattedDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+formattedDouble.swift"; sourceTree = "<group>"; };
 		B58E9B0F2A190602005DB286 /* GasStationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationDTO.swift; sourceTree = "<group>"; };
 		B58E9B112A19065E005DB286 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C53F06939E8113B7B5E23F20 /* Pods-FuelPump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.release.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		46E1FC962979CE24009FAE81 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B539854F2A250CAD00E92395 /* Extensions */,
 				46E1FC972979CE4D009FAE81 /* Configuration.swift */,
 			);
 			path = Utils;
@@ -375,6 +378,14 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		B539854F2A250CAD00E92395 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B53985502A250CD600E92395 /* String+formattedDouble.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C838B309F04F4ED471DD80AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +528,7 @@
 				466B990B2979C24800C9F4DF /* DataManager.swift in Sources */,
 				B58E9B122A19065E005DB286 /* Location.swift in Sources */,
 				B5295E0A2A17D2BA0061E2F1 /* ScaledFont.swift in Sources */,
+				B53985512A250CD600E92395 /* String+formattedDouble.swift in Sources */,
 				46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */,
 				46F38917297C59D10090A5CB /* GetAllResponseDTO.swift in Sources */,
 				46F38913297C577B0090A5CB /* GasStationEndpoint.swift in Sources */,

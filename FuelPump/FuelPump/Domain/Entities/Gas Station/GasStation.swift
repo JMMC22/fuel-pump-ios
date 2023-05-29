@@ -16,14 +16,14 @@ struct GasStation: Equatable, Hashable {
     let province: String
     let company: String
     let icon: String
-    let dieselA: String
-    let dieselB: String
-    let dieselPremium: String
-    let gasoline95_E5: String
-    let gasoline95_E10: String
-    let gasoline95_E5_Premium: String
-    let gasoline98_E5: String
-    let gasoline98_E10: String
+    let dieselA: Double
+    let dieselB: Double
+    let dieselPremium: Double
+    let gasoline95_E5: Double
+    let gasoline95_E10: Double
+    let gasoline95_E5_Premium: Double
+    let gasoline98_E5: Double
+    let gasoline98_E10: Double
 
     static func companyToIcon(company: String) -> String {
         if let company = GasCompany(rawValue: company) {
@@ -107,14 +107,14 @@ extension GasStation {
                                                       province: "testProvince",
                                                       company: "companyTest",
                                                       icon: "default-icon",
-                                                      dieselA: "",
-                                                      dieselB: "",
-                                                      dieselPremium: "",
-                                                      gasoline95_E5: "",
-                                                      gasoline95_E10: "",
-                                                      gasoline95_E5_Premium: "",
-                                                      gasoline98_E5: "",
-                                                      gasoline98_E10: ""
+                                                      dieselA: 0.0,
+                                                      dieselB: 0.0,
+                                                      dieselPremium: 0.0,
+                                                      gasoline95_E5: 0.0,
+                                                      gasoline95_E10: 0.0,
+                                                      gasoline95_E5_Premium: 0.0,
+                                                      gasoline98_E5: 0.0,
+                                                      gasoline98_E10: 0.0
                                                      ),
                                            GasStation(id: UUID().uuidString,
                                                       location: Location(latitude: "",
@@ -124,14 +124,14 @@ extension GasStation {
                                                       province: "testProvince2",
                                                       company: "companyTest2",
                                                       icon: "default-icon",
-                                                      dieselA: "",
-                                                      dieselB: "",
-                                                      dieselPremium: "",
-                                                      gasoline95_E5: "",
-                                                      gasoline95_E10: "",
-                                                      gasoline95_E5_Premium: "",
-                                                      gasoline98_E5: "",
-                                                      gasoline98_E10: ""
+                                                      dieselA: 0.0,
+                                                      dieselB: 0.0,
+                                                      dieselPremium: 0.0,
+                                                      gasoline95_E5: 0.0,
+                                                      gasoline95_E10: 0.0,
+                                                      gasoline95_E5_Premium: 0.0,
+                                                      gasoline98_E5: 0.0,
+                                                      gasoline98_E10: 0.0
                                                      ),
                                            GasStation(id: UUID().uuidString,
                                                       location: Location(latitude: "",
@@ -141,13 +141,13 @@ extension GasStation {
                                                       province: "testProvince3",
                                                       company: "companyTest3",
                                                       icon: "default-icon",
-                                                      dieselA: "",
-                                                      dieselB: "",
-                                                      dieselPremium: "",
-                                                      gasoline95_E5: "",
-                                                      gasoline95_E10: "",
-                                                      gasoline95_E5_Premium: "",
-                                                      gasoline98_E5: "",
-                                                      gasoline98_E10: ""
+                                                      dieselA: 0.0,
+                                                      dieselB: 0.0,
+                                                      dieselPremium: 0.0,
+                                                      gasoline95_E5: 0.0,
+                                                      gasoline95_E10: 0.0,
+                                                      gasoline95_E5_Premium: 0.0,
+                                                      gasoline98_E5: 0.0,
+                                                      gasoline98_E10: 0.0
                                                      )]
 }
