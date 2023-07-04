@@ -48,6 +48,7 @@
 		B53985532A2517FF00E92395 /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53985522A2517FF00E92395 /* FuelType.swift */; };
 		B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B0F2A190602005DB286 /* GasStationDTO.swift */; };
 		B58E9B122A19065E005DB286 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B112A19065E005DB286 /* Location.swift */; };
+		B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF60F42A549CBC005C3D67 /* SplashView.swift */; };
 		F3C3A94A5C1F3A12C384F3B5 /* Pods_FuelPump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		B53985522A2517FF00E92395 /* FuelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelType.swift; sourceTree = "<group>"; };
 		B58E9B0F2A190602005DB286 /* GasStationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationDTO.swift; sourceTree = "<group>"; };
 		B58E9B112A19065E005DB286 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B5EF60F42A549CBC005C3D67 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		C53F06939E8113B7B5E23F20 /* Pods-FuelPump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.release.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 		46E1FC8E2979CCCB009FAE81 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B5EF60F32A549CA9005C3D67 /* Splash */,
 				46E1FC912979CCDD009FAE81 /* GasStation */,
 			);
 			path = Screens;
@@ -389,6 +392,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B5EF60F32A549CA9005C3D67 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				B5EF60F42A549CBC005C3D67 /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		C838B309F04F4ED471DD80AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,6 +560,7 @@
 				4688A5FA29AA7D2D00BC52F8 /* GasStationRealm.swift in Sources */,
 				463F5FC929773144003C9E39 /* HttpClient.swift in Sources */,
 				463F5FC729773126003C9E39 /* Endpoint.swift in Sources */,
+				B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */,
 				4688A5F729AA779200BC52F8 /* GasStationCell.swift in Sources */,
 				46E2BE1C29AB889D0074EA4F /* GasCompanies.swift in Sources */,
 			);
