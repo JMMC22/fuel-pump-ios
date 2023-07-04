@@ -10,11 +10,20 @@ import RealmSwift
 
 struct GasStation: Equatable, Hashable {
     let id: String
+    let location: Location
     let address: String
     let city: String
     let province: String
     let company: String
     let icon: String
+    let dieselA: Double
+    let dieselB: Double
+    let dieselPremium: Double
+    let gasoline95_E5: Double
+    let gasoline95_E10: Double
+    let gasoline95_E5_Premium: Double
+    let gasoline98_E5: Double
+    let gasoline98_E10: Double
 
     static func companyToIcon(company: String) -> String {
         if let company = GasCompany(rawValue: company) {
@@ -66,36 +75,87 @@ extension GasStation {
         model.province = province
         model.company = company
         model.icon = GasStation.companyToIcon(company: company)
+        model.dieselA = dieselA
+        model.dieselB = dieselB
+        model.dieselPremium = dieselPremium
+        model.gasoline95_E5 = gasoline95_E5
+        model.gasoline95_E10 = gasoline95_E10
+        model.gasoline95_E5_Premium = gasoline95_E5_Premium
+        model.gasoline98_E5 = gasoline98_E5
+        model.gasoline98_E10 = gasoline98_E10
         return model
     }
     
     static func mapFromRealmObject(_ gasStation: GasStationRealm) -> GasStation {
         return GasStation(id: gasStation._id,
+                          location: Location(latitude: gasStation.latitude,
+                                             longitude: gasStation.longitude),
                           address: gasStation.address,
                           city: gasStation.city,
                           province: gasStation.province,
                           company: gasStation.company,
-                          icon: gasStation.icon)
+                          icon: gasStation.icon,
+                          dieselA: gasStation.dieselA,
+                          dieselB: gasStation.dieselB,
+                          dieselPremium: gasStation.dieselPremium,
+                          gasoline95_E5: gasStation.gasoline95_E5,
+                          gasoline95_E10: gasStation.gasoline95_E10,
+                          gasoline95_E5_Premium: gasStation.gasoline95_E5_Premium,
+                          gasoline98_E5: gasStation.gasoline98_E5,
+                          gasoline98_E10: gasStation.gasoline98_E10)
     }
 }
 
 extension GasStation {
     static let mockedData: [GasStation] = [GasStation(id: UUID().uuidString,
+                                                      location: Location(latitude: "",
+                                                                         longitude: ""),
                                                       address: "c/test",
                                                       city: "testCity",
                                                       province: "testProvince",
                                                       company: "companyTest",
-                                                      icon: "default-icon"),
+                                                      icon: "default-icon",
+                                                      dieselA: 0.0,
+                                                      dieselB: 0.0,
+                                                      dieselPremium: 0.0,
+                                                      gasoline95_E5: 0.0,
+                                                      gasoline95_E10: 0.0,
+                                                      gasoline95_E5_Premium: 0.0,
+                                                      gasoline98_E5: 0.0,
+                                                      gasoline98_E10: 0.0
+                                                     ),
                                            GasStation(id: UUID().uuidString,
+                                                      location: Location(latitude: "",
+                                                                         longitude: ""),
                                                       address: "c/test2",
                                                       city: "testCity2",
                                                       province: "testProvince2",
                                                       company: "companyTest2",
-                                                      icon: "default-icon"),
+                                                      icon: "default-icon",
+                                                      dieselA: 0.0,
+                                                      dieselB: 0.0,
+                                                      dieselPremium: 0.0,
+                                                      gasoline95_E5: 0.0,
+                                                      gasoline95_E10: 0.0,
+                                                      gasoline95_E5_Premium: 0.0,
+                                                      gasoline98_E5: 0.0,
+                                                      gasoline98_E10: 0.0
+                                                     ),
                                            GasStation(id: UUID().uuidString,
+                                                      location: Location(latitude: "",
+                                                                         longitude: ""),
                                                       address: "c/test3",
                                                       city: "testCity3",
                                                       province: "testProvince3",
                                                       company: "companyTest3",
-                                                      icon: "default-icon")]
+                                                      icon: "default-icon",
+                                                      dieselA: 0.0,
+                                                      dieselB: 0.0,
+                                                      dieselPremium: 0.0,
+                                                      gasoline95_E5: 0.0,
+                                                      gasoline95_E10: 0.0,
+                                                      gasoline95_E5_Premium: 0.0,
+                                                      gasoline98_E5: 0.0,
+                                                      gasoline98_E10: 0.0
+                                                     )]
 }

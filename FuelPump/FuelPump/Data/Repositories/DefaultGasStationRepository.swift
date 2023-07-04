@@ -54,4 +54,28 @@ extension DefaultGasStationRepository: GasStationRepository {
             }
         }
     }
+
+    func maxPrice(of fuelType: FuelType) -> Double {
+        var maxPrice: Double = 0.0
+
+        cacheService.fetch(GasStationRealm.self, predicate: nil, sorted: Sorted(key: fuelType.rawValue)) { stations in
+            if let firstStation = stations.last {
+                maxPrice = firstStation.dieselA
+            }
+        }
+
+        return maxPrice
+    }
+
+    func minPrice(of fuelType: FuelType) -> Double {
+        var minPrice: Double = 0.0
+
+        cacheService.fetch(GasStationRealm.self, predicate: nil, sorted: Sorted(key: fuelType.rawValue)) { stations in
+            if let firstStation = stations.first {
+                minPrice = firstStation.dieselA
+            }
+        }
+
+        return minPrice
+    }
 }
