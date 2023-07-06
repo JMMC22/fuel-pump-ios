@@ -6,4 +6,6 @@
   
 */
 
-"hello" = "Hello, world!";
+"onboarding.welcome" = "¡Bienvenido!";
+"onboarding.description" = "Encuentra gasolineras cercanas al instante. Accede a precios actualizados y ahorra tiempo en tu búsqueda";
+"onboarding.permissions" = "Concede permisos de localización para comenzar a explorar";

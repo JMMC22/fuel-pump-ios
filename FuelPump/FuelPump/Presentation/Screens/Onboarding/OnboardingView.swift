@@ -16,7 +16,24 @@ struct OnboardingView: View {
     }
 
     var body: some View {
-        Text("OnboardingView")
+        VStack {
+
+            Image("onboarding")
+
+            VStack(spacing: 24) {
+                Text("onboarding.welcome")
+                    .fpTextStyle(.heading1, color: .black)
+                Text("onboarding.description")
+                    .fpTextStyle(.description, color: .textGray)
+                Text("onboarding.permissions")
+                    .fpTextStyle(.description, color: .textGray)
+            }
+            .multilineTextAlignment(.center)
+            .padding(.top, 65)
+            Spacer()
+        }
+        .padding(.vertical, 55)
+        .padding(.horizontal, 16)
     }
 }
 
