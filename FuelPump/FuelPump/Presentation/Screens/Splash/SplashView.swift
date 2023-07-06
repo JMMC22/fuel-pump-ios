@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct SplashView: View {
+
+    @State var isActive: Bool = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if self.isActive {
+                GasStationListView()
+            } else {
+                Rectangle()
+                    .fill(Color.primaryColor)
+                    .edgesIgnoringSafeArea(.all)
+                Image("splash-icon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150, height: 150)
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                withAnimation {
+                    self.isActive = true
+                }
+            }
+        }
     }
 }
 
