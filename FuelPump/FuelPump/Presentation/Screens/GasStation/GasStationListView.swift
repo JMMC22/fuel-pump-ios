@@ -9,7 +9,17 @@ import SwiftUI
 
 struct GasStationListView: View {
 
-    @StateObject var viewModel: GasStationListViewModel
+    @StateObject private var viewModel: GasStationListViewModel
+
+    init() {
+        let gasStationRepository = DefaultGasStationRepository()
+        let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: gasStationRepository)
+        let getAllGasStationsUseCase = DefaultGetAllGasStationsUseCase(gasStationRepository: gasStationRepository)
+        let gasStationListViewModel = GasStationListViewModel(getAllGasStationsUseCase: getAllGasStationsUseCase,
+                                                              getGasStationsUseCase: getGasStationsUseCase)
+        self._viewModel = StateObject(wrappedValue: GasStationListViewModel(getAllGasStationsUseCase: getAllGasStationsUseCase,
+                                                                            getGasStationsUseCase: getGasStationsUseCase))
+    }
 
     var body: some View {
         GasStationList(gasStations: viewModel.gasStations,
