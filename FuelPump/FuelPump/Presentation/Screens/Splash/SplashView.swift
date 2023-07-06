@@ -14,7 +14,7 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             if self.isActive {
-                GasStationListView()
+                OnboardingView()
             } else {
                 Rectangle()
                     .fill(Color.primaryColor)
