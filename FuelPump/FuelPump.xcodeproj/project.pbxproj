@@ -46,6 +46,7 @@
 		B5295E0A2A17D2BA0061E2F1 /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */; };
 		B53985512A250CD600E92395 /* String+formattedDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53985502A250CD600E92395 /* String+formattedDouble.swift */; };
 		B53985532A2517FF00E92395 /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53985522A2517FF00E92395 /* FuelType.swift */; };
+		B589E83F2A57333300D142C5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589E83E2A57333300D142C5 /* Colors.swift */; };
 		B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B0F2A190602005DB286 /* GasStationDTO.swift */; };
 		B58E9B122A19065E005DB286 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B112A19065E005DB286 /* Location.swift */; };
 		B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF60F42A549CBC005C3D67 /* SplashView.swift */; };
@@ -97,6 +98,7 @@
 		B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledFont.swift; sourceTree = "<group>"; };
 		B53985502A250CD600E92395 /* String+formattedDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+formattedDouble.swift"; sourceTree = "<group>"; };
 		B53985522A2517FF00E92395 /* FuelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelType.swift; sourceTree = "<group>"; };
+		B589E83E2A57333300D142C5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B58E9B0F2A190602005DB286 /* GasStationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationDTO.swift; sourceTree = "<group>"; };
 		B58E9B112A19065E005DB286 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B5EF60F42A549CBC005C3D67 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		B5295DF02A17CF960061E2F1 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				B589E83E2A57333300D142C5 /* Colors.swift */,
 				B5295E062A17D1B40061E2F1 /* Fonts.swift */,
 				B5295E042A17D1410061E2F1 /* FPTypography.swift */,
 				B5295DF12A17CFA40061E2F1 /* Fonts */,
@@ -535,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46F3891A297C5B260090A5CB /* GasStation.swift in Sources */,
+				B589E83F2A57333300D142C5 /* Colors.swift in Sources */,
 				46F38910297C544A0090A5CB /* GasStationRepository.swift in Sources */,
 				46E1FC902979CCDA009FAE81 /* GasStationListView.swift in Sources */,
 				4688A5FC29AA7FB900BC52F8 /* RealmProvider.swift in Sources */,
