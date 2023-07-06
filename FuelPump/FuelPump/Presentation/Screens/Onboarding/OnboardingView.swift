@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct OnboardingView: View {
+
+    @StateObject private var viewModel: OnboardingViewModel
+
+    init() {
+        self._viewModel = StateObject(wrappedValue: OnboardingViewModel())
+    }
+
     var body: some View {
         Text("OnboardingView")
     }
