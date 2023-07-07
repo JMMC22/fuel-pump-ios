@@ -53,6 +53,7 @@
 		B58E9B122A19065E005DB286 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B112A19065E005DB286 /* Location.swift */; };
 		B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF60F42A549CBC005C3D67 /* SplashView.swift */; };
 		B5FB2FFC2A582A410021015E /* FPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB2FFB2A582A410021015E /* FPButton.swift */; };
+		B5FB2FFF2A584DFA0021015E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB2FFE2A584DFA0021015E /* LocationManager.swift */; };
 		F3C3A94A5C1F3A12C384F3B5 /* Pods_FuelPump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		B58E9B112A19065E005DB286 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B5EF60F42A549CBC005C3D67 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		B5FB2FFB2A582A410021015E /* FPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPButton.swift; sourceTree = "<group>"; };
+		B5FB2FFE2A584DFA0021015E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C53F06939E8113B7B5E23F20 /* Pods-FuelPump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.release.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				46F38918297C5B0E0090A5CB /* Entities */,
+				B5FB2FFD2A584DDA0021015E /* Managers */,
 				46F3890E297C54340090A5CB /* Repositories */,
 				46F3890D297C542F0090A5CB /* UseCases */,
 			);
@@ -418,6 +421,14 @@
 				B5EF60F42A549CBC005C3D67 /* SplashView.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		B5FB2FFD2A584DDA0021015E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B5FB2FFE2A584DFA0021015E /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		C838B309F04F4ED471DD80AD /* Frameworks */ = {
@@ -572,6 +583,7 @@
 				4616F8CE29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift in Sources */,
 				B5295E072A17D1B40061E2F1 /* Fonts.swift in Sources */,
 				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
+				B5FB2FFF2A584DFA0021015E /* LocationManager.swift in Sources */,
 				46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */,
 				B5295E052A17D1410061E2F1 /* FPTypography.swift in Sources */,
 				B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */,

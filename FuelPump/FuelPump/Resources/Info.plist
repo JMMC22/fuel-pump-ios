@@ -28,5 +28,7 @@
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Esta app necesita tu localización para mostrarte la información más cercana a ti.</string>
 </dict>
 </plist>
