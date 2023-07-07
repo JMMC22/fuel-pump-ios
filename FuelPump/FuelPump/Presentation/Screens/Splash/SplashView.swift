@@ -17,7 +17,7 @@ struct SplashView: View {
                 OnboardingView()
             } else {
                 Rectangle()
-                    .fill(Color.primary)
+                    .fill(Color.primaryGreen)
                     .edgesIgnoringSafeArea(.all)
                 Image("splash-icon")
                     .resizable()

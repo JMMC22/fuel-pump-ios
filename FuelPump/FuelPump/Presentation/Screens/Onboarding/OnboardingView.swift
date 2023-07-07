@@ -30,7 +30,10 @@ struct OnboardingView: View {
             }
             .multilineTextAlignment(.center)
             .padding(.top, 65)
+
             Spacer()
+
+            FPButton(text: "Siguiente", action: {})
         }
         .padding(.vertical, 55)
         .padding(.horizontal, 16)

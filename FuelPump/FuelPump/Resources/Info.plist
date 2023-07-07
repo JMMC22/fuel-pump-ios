@@ -24,7 +24,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>primary</string>
+		<string>primary-green</string>
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
