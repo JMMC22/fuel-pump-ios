@@ -14,11 +14,8 @@ struct GasStationListView: View {
     init() {
         let gasStationRepository = DefaultGasStationRepository()
         let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: gasStationRepository)
-        let getAllGasStationsUseCase = DefaultGetAllGasStationsUseCase(gasStationRepository: gasStationRepository)
-        let gasStationListViewModel = GasStationListViewModel(getAllGasStationsUseCase: getAllGasStationsUseCase,
-                                                              getGasStationsUseCase: getGasStationsUseCase)
-        self._viewModel = StateObject(wrappedValue: GasStationListViewModel(getAllGasStationsUseCase: getAllGasStationsUseCase,
-                                                                            getGasStationsUseCase: getGasStationsUseCase))
+        let gasStationListViewModel = GasStationListViewModel(getGasStationsUseCase: getGasStationsUseCase)
+        self._viewModel = StateObject(wrappedValue: gasStationListViewModel)
     }
 
     var body: some View {

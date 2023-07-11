@@ -7,12 +7,12 @@
 
 import Combine
 
-protocol GetAllGasStationsUseCase {
+protocol FetchAllGasStationsUseCase {
     var gasStationRepository: GasStationRepository { get set }
-    func execute() -> AnyPublisher<GetAllGasStation, Error>
+    func execute() -> AnyPublisher<Void, Error>
 }
 
-class DefaultGetAllGasStationsUseCase: GetAllGasStationsUseCase {
+class DefaultFetchAllGasStationsUseCase: FetchAllGasStationsUseCase {
 
     var gasStationRepository: GasStationRepository
 
@@ -20,7 +20,7 @@ class DefaultGetAllGasStationsUseCase: GetAllGasStationsUseCase {
         self.gasStationRepository = gasStationRepository
     }
 
-    func execute() -> AnyPublisher<GetAllGasStation, Error> {
-        return gasStationRepository.getAllGasStations()
+    func execute() -> AnyPublisher<Void, Error> {
+        return gasStationRepository.fetchAllGasStations()
     }
 }

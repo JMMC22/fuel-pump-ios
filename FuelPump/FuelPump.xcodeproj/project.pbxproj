@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4616F8CE29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */; };
+		4616F8CE29A0D6FB0040ED6F /* FetchAllGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CD29A0D6FB0040ED6F /* FetchAllGasStationsUseCase.swift */; };
 		4616F8D029A0D8FC0040ED6F /* GasStationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616F8CF29A0D8FC0040ED6F /* GasStationListViewModel.swift */; };
 		463F5FC729773126003C9E39 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC629773126003C9E39 /* Endpoint.swift */; };
 		463F5FC929773144003C9E39 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F5FC829773144003C9E39 /* HttpClient.swift */; };
@@ -59,7 +59,7 @@
 
 /* Begin PBXFileReference section */
 		17292A1E84FAC8A59E910957 /* Pods-FuelPump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FuelPump.debug.xcconfig"; path = "Target Support Files/Pods-FuelPump/Pods-FuelPump.debug.xcconfig"; sourceTree = "<group>"; };
-		4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllGasStationsUseCase.swift; sourceTree = "<group>"; };
+		4616F8CD29A0D6FB0040ED6F /* FetchAllGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAllGasStationsUseCase.swift; sourceTree = "<group>"; };
 		4616F8CF29A0D8FC0040ED6F /* GasStationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationListViewModel.swift; sourceTree = "<group>"; };
 		463F5FC629773126003C9E39 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		463F5FC829773144003C9E39 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 		46F3890D297C542F0090A5CB /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				4616F8CD29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift */,
+				4616F8CD29A0D6FB0040ED6F /* FetchAllGasStationsUseCase.swift */,
 				B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */,
 			);
 			path = UseCases;
@@ -580,7 +580,7 @@
 				46F38917297C59D10090A5CB /* GetAllResponseDTO.swift in Sources */,
 				46F38913297C577B0090A5CB /* GasStationEndpoint.swift in Sources */,
 				B5FB2FFC2A582A410021015E /* FPButton.swift in Sources */,
-				4616F8CE29A0D6FB0040ED6F /* GetAllGasStationsUseCase.swift in Sources */,
+				4616F8CE29A0D6FB0040ED6F /* FetchAllGasStationsUseCase.swift in Sources */,
 				B5295E072A17D1B40061E2F1 /* Fonts.swift in Sources */,
 				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
 				B5FB2FFF2A584DFA0021015E /* LocationManager.swift in Sources */,

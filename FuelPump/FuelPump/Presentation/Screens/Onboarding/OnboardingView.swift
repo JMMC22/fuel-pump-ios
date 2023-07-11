@@ -12,7 +12,9 @@ struct OnboardingView: View {
     @StateObject private var viewModel: OnboardingViewModel
 
     init() {
-        self._viewModel = StateObject(wrappedValue: OnboardingViewModel())
+        let gasStationRepository = DefaultGasStationRepository()
+        let fetchAllGasStationsUseCase = DefaultFetchAllGasStationsUseCase(gasStationRepository: gasStationRepository)
+        self._viewModel = StateObject(wrappedValue: OnboardingViewModel(fetchAllGasStationsUseCase: fetchAllGasStationsUseCase))
     }
 
     var body: some View {
