@@ -30,13 +30,6 @@ class LocationManager: NSObject, ObservableObject {
 extension LocationManager: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .notDetermined:
-            self.requestLocationPermissions()
-            break
-        default:
-            status = manager.authorizationStatus
-            break
-        }
+        status = manager.authorizationStatus
     }
 }

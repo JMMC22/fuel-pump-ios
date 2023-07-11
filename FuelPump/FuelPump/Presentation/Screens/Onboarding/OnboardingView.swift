@@ -34,9 +34,13 @@ struct OnboardingView: View {
             Spacer()
 
             FPButton(text: "Siguiente", action: {})
+                .disabled(viewModel.isButtonEnabled == false)
         }
         .padding(.vertical, 55)
         .padding(.horizontal, 16)
+        .onAppear {
+            viewModel.viewDidLoad()
+        }
     }
 }
 
