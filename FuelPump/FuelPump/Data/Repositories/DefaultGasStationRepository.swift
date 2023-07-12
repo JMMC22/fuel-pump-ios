@@ -41,6 +41,9 @@ extension DefaultGasStationRepository: GasStationRepository {
                 let gasStations = response.toDomain()
                 self.updateGasStations(response: gasStations.mapToRealmObject())
             }
+            .mapError { error in
+                return error
+            }
             .eraseToAnyPublisher()
     }
 
@@ -49,7 +52,7 @@ extension DefaultGasStationRepository: GasStationRepository {
             do {
                 try self.cacheService.update(object: response)
             } catch {
-                print("----- Error updateGasStations: \(error)")
+                print("||DEBUG|| updateGasStations - ERROR: \(error)")
             }
         }
     }
