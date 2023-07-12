@@ -24,9 +24,11 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>primary</string>
+		<string>primary-green</string>
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Esta app necesita tu localización para mostrarte la información más cercana a ti.</string>
 </dict>
 </plist>

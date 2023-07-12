@@ -14,10 +14,10 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             if self.isActive {
-                GasStationListView()
+                OnboardingView()
             } else {
                 Rectangle()
-                    .fill(Color.primaryColor)
+                    .fill(Color.primaryGreen)
                     .edgesIgnoringSafeArea(.all)
                 Image("splash-icon")
                     .resizable()

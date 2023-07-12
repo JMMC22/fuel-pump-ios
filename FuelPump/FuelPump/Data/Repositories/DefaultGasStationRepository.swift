@@ -34,13 +34,15 @@ extension DefaultGasStationRepository: GasStationRepository {
         return Array(result.first?.gasStations.prefix(limit) ?? [])
     }
 
-    func getAllGasStations() -> AnyPublisher<GetAllGasStation, Error> {
+    func fetchAllGasStations() -> AnyPublisher<Void, Error> {
         let endpoint = GasStationEndpoint.getAll
         return httpClient.request(endpoint: endpoint, responseModel: GetAllResponseDTO.self)
             .map { response in
                 let gasStations = response.toDomain()
                 self.updateGasStations(response: gasStations.mapToRealmObject())
-                return gasStations
+            }
+            .mapError { error in
+                return error
             }
             .eraseToAnyPublisher()
     }
@@ -50,7 +52,7 @@ extension DefaultGasStationRepository: GasStationRepository {
             do {
                 try self.cacheService.update(object: response)
             } catch {
-                print("----- Error updateGasStations: \(error)")
+                print("||DEBUG|| updateGasStations - ERROR: \(error)")
             }
         }
     }
