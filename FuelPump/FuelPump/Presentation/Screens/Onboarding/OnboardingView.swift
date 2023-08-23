@@ -18,6 +18,10 @@ struct OnboardingView: View {
     }
 
     var body: some View {
+        ContentFlowCoordinator(state: viewModel, content: content)
+    }
+
+    @ViewBuilder private func content() -> some View {
         VStack {
 
             Image("onboarding")
@@ -35,8 +39,10 @@ struct OnboardingView: View {
 
             Spacer()
 
-            FPButton(text: "Siguiente", action: {})
-                .disabled(viewModel.isButtonEnabled == false)
+            FPButton(text: "button.next", action: {
+                viewModel.navigateToFuelSelector()
+            })
+            .disabled(viewModel.isButtonEnabled == false)
         }
         .padding(.vertical, 55)
         .padding(.horizontal, 16)

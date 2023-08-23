@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import Combine
 
-class OnboardingViewModel: ObservableObject {
+class OnboardingViewModel: ContentFlowState {
 
     @Published var isButtonEnabled: Bool = false
 
@@ -27,6 +27,10 @@ class OnboardingViewModel: ObservableObject {
         fetchAndSaveAllGasStations()
         locationManager.requestLocationPermissions()
         subscribeToLocationStatus()
+    }
+
+    func navigateToFuelSelector() {
+        // TODO: Navigate to fuel selector
     }
 }
 
