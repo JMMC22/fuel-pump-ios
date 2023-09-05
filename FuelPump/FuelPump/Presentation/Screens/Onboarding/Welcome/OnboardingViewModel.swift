@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import Combine
 
-class OnboardingViewModel: ContentFlowState {
+class OnboardingViewModel: OnboardingFlowState {
 
     @Published var isButtonEnabled: Bool = false
 
@@ -30,7 +30,7 @@ class OnboardingViewModel: ContentFlowState {
     }
 
     func navigateToFuelSelector() {
-        // TODO: Navigate to fuel selector
+        path.append(OnboardingLink.onboardingFuelSelector)
     }
 }
 

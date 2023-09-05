@@ -11,6 +11,7 @@ enum ContentLink: Hashable, Identifiable {
 
     case splash
     case onboarding
+    case onboardingFuelSelector
 
     var id: String {
         String(describing: self)
