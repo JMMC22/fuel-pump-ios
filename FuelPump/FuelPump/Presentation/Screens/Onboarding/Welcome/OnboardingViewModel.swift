@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import Combine
 
-class OnboardingViewModel: OnboardingFlowState {
+final class OnboardingViewModel: OnboardingFlowState {
 
     @Published var isButtonEnabled: Bool = false
 
