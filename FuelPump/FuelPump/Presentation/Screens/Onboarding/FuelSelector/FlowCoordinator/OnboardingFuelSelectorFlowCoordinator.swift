@@ -15,6 +15,7 @@ struct OnboardingFuelSelectorFlowCoordinator<Content: View>: View {
 
     var body: some View {
         content()
+            .navigationBarHidden(true)
             .navigationDestination(for: OnboardingFuelSelectorLink.self, destination: linkDestination)
     }
 

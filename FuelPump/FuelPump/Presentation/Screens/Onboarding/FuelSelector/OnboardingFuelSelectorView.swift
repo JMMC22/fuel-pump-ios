@@ -20,9 +20,13 @@ struct OnboardingFuelSelectorView: View {
     }
 
     @ViewBuilder private func content() -> some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 18) {
 
-            Text("Fuel Selector")
+            Text("onboarding.selector.title" )
+                .fpTextStyle(.heading1, color: .black)
+            
+            Text("onboarding.selector.subtitle" )
+                .fpTextStyle(.description, color: .textGray)
 
             Spacer()
 
@@ -30,8 +34,8 @@ struct OnboardingFuelSelectorView: View {
                 viewModel.navigateToGasStationList()
             })
         }
-        .padding(.vertical, 55)
-        .padding(.horizontal, 16)
+        .padding(.vertical, 51)
+        .padding(.horizontal, 34)
 
     }
 }
