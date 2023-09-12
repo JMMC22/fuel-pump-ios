@@ -28,12 +28,12 @@ struct OnboardingFuelSelectorView: View {
             Text("onboarding.selector.subtitle" )
                 .fpTextStyle(.description, color: .textGray)
 
-            ListSelector(options: viewModel.options, selectedOption: $viewModel.selectedOption)
+            ListSelector(options: viewModel.fuelOptions, selectedOption: $viewModel.fuelSelectedOption)
 
             Spacer()
 
             FPButton(text: "button.next", action: {
-                viewModel.navigateToGasStationList()
+                viewModel.saveUserFuelSelection()
             })
         }
         .padding(.vertical, 51)

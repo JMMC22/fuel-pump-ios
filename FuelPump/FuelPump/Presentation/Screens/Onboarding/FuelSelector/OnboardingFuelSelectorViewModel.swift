@@ -10,19 +10,20 @@ import SwiftUI
 
 final class OnboardingFuelSelectorViewModel: OnboardingFuelSelectorFlowState {
 
-    @Published var selectedOption: SelectorOption
-    @Published var options: [SelectorOption] = [
-        SelectorOption(key: "key1", value: "Valor 1"),
-        SelectorOption(key: "key2", value: "Valor 2"),
-        SelectorOption(key: "key3", value: "Valor 3")
-    ]
+    @Published var fuelOptions: [SelectorOption]
+    @Published var fuelSelectedOption: SelectorOption
 
     override init(path: Binding<NavigationPath>) {
-        self.selectedOption = SelectorOption(key: "key1", value: "Valor 1")
+        self.fuelOptions = FuelType.allCases.map({ SelectorOption(key: $0.rawValue, value: $0.rawValue)})
+        self.fuelSelectedOption = SelectorOption(key: FuelType.dieselA.rawValue, value: FuelType.dieselA.rawValue)
         super.init(path: path)
     }
 
     func navigateToGasStationList() {
         path.append(OnboardingFuelSelectorLink.gasStationsList)
+    }
+
+    func saveUserFuelSelection() {
+        print("||DEBUG|| User selection: \(self.fuelSelectedOption)")
     }
 }
