@@ -25,5 +25,6 @@ final class OnboardingFuelSelectorViewModel: OnboardingFuelSelectorFlowState {
 
     func saveUserFuelSelection() {
         print("||DEBUG|| User selection: \(self.fuelSelectedOption)")
+        navigateToGasStationList()
     }
 }

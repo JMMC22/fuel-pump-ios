@@ -55,6 +55,8 @@
 		B58C4F622A5F042D001FEE55 /* ContentFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C4F612A5F042D001FEE55 /* ContentFlowCoordinator.swift */; };
 		B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B0F2A190602005DB286 /* GasStationDTO.swift */; };
 		B58E9B122A19065E005DB286 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B112A19065E005DB286 /* Location.swift */; };
+		B5A9F3502AB0E30B00085536 /* UserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9F34F2AB0E30B00085536 /* UserRealm.swift */; };
+		B5A9F3522AB0E37F00085536 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9F3512AB0E37F00085536 /* User.swift */; };
 		B5BA8C042A9657AF006631F5 /* OnboardingFuelSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA8C032A9657AF006631F5 /* OnboardingFuelSelectorView.swift */; };
 		B5BA8C062A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA8C052A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift */; };
 		B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF60F42A549CBC005C3D67 /* SplashView.swift */; };
@@ -123,6 +125,8 @@
 		B58C4F612A5F042D001FEE55 /* ContentFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFlowCoordinator.swift; sourceTree = "<group>"; };
 		B58E9B0F2A190602005DB286 /* GasStationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationDTO.swift; sourceTree = "<group>"; };
 		B58E9B112A19065E005DB286 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B5A9F34F2AB0E30B00085536 /* UserRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRealm.swift; sourceTree = "<group>"; };
+		B5A9F3512AB0E37F00085536 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B5BA8C032A9657AF006631F5 /* OnboardingFuelSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFuelSelectorView.swift; sourceTree = "<group>"; };
 		B5BA8C052A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFuelSelectorViewModel.swift; sourceTree = "<group>"; };
 		B5EF60F42A549CBC005C3D67 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 				46E2BE1B29AB889D0074EA4F /* GasCompanies.swift */,
 				B58E9B112A19065E005DB286 /* Location.swift */,
 				4688A5F829AA7D1B00BC52F8 /* Gas Station */,
+				B5A9F34E2AB0E2F900085536 /* User */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -449,6 +454,15 @@
 				46F74A4D296DEFE8002BFF64 /* ContentView.swift */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		B5A9F34E2AB0E2F900085536 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9F3512AB0E37F00085536 /* User.swift */,
+				B5A9F34F2AB0E30B00085536 /* UserRealm.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		B5BA8C012A965787006631F5 /* Welcome */ = {
@@ -657,9 +671,11 @@
 				B58E9B122A19065E005DB286 /* Location.swift in Sources */,
 				B5295E0A2A17D2BA0061E2F1 /* ScaledFont.swift in Sources */,
 				B53985512A250CD600E92395 /* String+formattedDouble.swift in Sources */,
+				B5A9F3502AB0E30B00085536 /* UserRealm.swift in Sources */,
 				46E1FC982979CE4D009FAE81 /* Configuration.swift in Sources */,
 				46F38917297C59D10090A5CB /* GetAllResponseDTO.swift in Sources */,
 				B5315CCE2AA8C400000D0560 /* ListSelector.swift in Sources */,
+				B5A9F3522AB0E37F00085536 /* User.swift in Sources */,
 				46F38913297C577B0090A5CB /* GasStationEndpoint.swift in Sources */,
 				B5FB2FFC2A582A410021015E /* FPButton.swift in Sources */,
 				B58C4F622A5F042D001FEE55 /* ContentFlowCoordinator.swift in Sources */,
