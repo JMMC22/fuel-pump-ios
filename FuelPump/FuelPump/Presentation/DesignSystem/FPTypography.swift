@@ -43,7 +43,7 @@ struct FPTypography: ViewModifier {
         case .heading4: return content.scaledFont(type: .inter, weight: .bold, size: style.standardSize)
         case .body: return content.scaledFont(type: .inter, weight: .regular, size: style.standardSize)
         case .description: return content.scaledFont(type: .inter, weight: .light, size: style.standardSize)
-        case .list: return content.scaledFont(type: .inter, weight: .medium, size: style.standardSize)
+        case .list: return content.scaledFont(type: .inter, weight: .semiBold, size: style.standardSize)
         case .button: return content.scaledFont(type: .inter, weight: .extraBold, size: style.standardSize)
         case .caption: return content.scaledFont(type: .inter, weight: .regular, size: style.standardSize)
         }

@@ -28,6 +28,8 @@ struct OnboardingFuelSelectorView: View {
             Text("onboarding.selector.subtitle" )
                 .fpTextStyle(.description, color: .textGray)
 
+            ListSelector(options: viewModel.options, selectedOption: $viewModel.selectedOption)
+
             Spacer()
 
             FPButton(text: "button.next", action: {
