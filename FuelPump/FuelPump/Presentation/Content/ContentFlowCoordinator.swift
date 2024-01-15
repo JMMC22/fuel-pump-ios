@@ -44,7 +44,7 @@ struct ContentFlowCoordinator<Content: View>: View {
     }
 
     private func onboardingFuelSelectorDestination() -> some View {
-        let viewModel = OnboardingFuelSelectorViewModel(path: $state.path)
+        let viewModel = OnboardingFuelSelectorViewModel(path: $state.path, updateUserFuelUseCase: DefaultUpdateUserFuelTypeUseCase(userRepository: DefaultUserRepository()))
         let view = OnboardingFuelSelectorView(viewModel: viewModel)
         return view
     }

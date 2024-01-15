@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 protocol UserRepository {
-    func updateUserFuelType(_ fuelType: FuelType)
+    func updateUserFuelType(_ fuelType: FuelType) -> AnyPublisher<Void, Error>
+    func getUser() -> AnyPublisher<User?, Error>
 }

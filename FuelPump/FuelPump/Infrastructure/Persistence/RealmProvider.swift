@@ -17,6 +17,7 @@ struct RealmProvider {
 
     var realm: Realm? {
         do {
+            print("User Realm User file location: \(configuration.fileURL!.path)")
             return try Realm(configuration: configuration)
         } catch {
             print("RealmProvider: \(error)")

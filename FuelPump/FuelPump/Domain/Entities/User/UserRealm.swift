@@ -9,5 +9,6 @@ import Foundation
 import RealmSwift
 
 class UserRealm: Object {
+    @Persisted(primaryKey: true) var _id: String
     @Persisted var fuelType: String
 }

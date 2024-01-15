@@ -62,6 +62,8 @@
 		B5A9F3562AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9F3552AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift */; };
 		B5BA8C042A9657AF006631F5 /* OnboardingFuelSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA8C032A9657AF006631F5 /* OnboardingFuelSelectorView.swift */; };
 		B5BA8C062A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA8C052A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift */; };
+		B5D259612B558D1E00E80261 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D259602B558D1E00E80261 /* SplashViewModel.swift */; };
+		B5D259632B558FBA00E80261 /* GetUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D259622B558FBA00E80261 /* GetUserUseCase.swift */; };
 		B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF60F42A549CBC005C3D67 /* SplashView.swift */; };
 		B5FB1FC72AA79FF5006E503A /* OnboardingFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB1FC62AA79FF5006E503A /* OnboardingFlowCoordinator.swift */; };
 		B5FB1FC92AA7A00F006E503A /* OnboardingFlowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB1FC82AA7A00F006E503A /* OnboardingFlowState.swift */; };
@@ -135,6 +137,8 @@
 		B5A9F3552AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserFuelTypeUseCase.swift; sourceTree = "<group>"; };
 		B5BA8C032A9657AF006631F5 /* OnboardingFuelSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFuelSelectorView.swift; sourceTree = "<group>"; };
 		B5BA8C052A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFuelSelectorViewModel.swift; sourceTree = "<group>"; };
+		B5D259602B558D1E00E80261 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		B5D259622B558FBA00E80261 /* GetUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserUseCase.swift; sourceTree = "<group>"; };
 		B5EF60F42A549CBC005C3D67 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		B5FB1FC62AA79FF5006E503A /* OnboardingFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowCoordinator.swift; sourceTree = "<group>"; };
 		B5FB1FC82AA7A00F006E503A /* OnboardingFlowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowState.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 				4616F8CD29A0D6FB0040ED6F /* FetchAllGasStationsUseCase.swift */,
 				B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */,
 				B5A9F3552AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift */,
+				B5D259622B558FBA00E80261 /* GetUserUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				B5EF60F42A549CBC005C3D67 /* SplashView.swift */,
+				B5D259602B558D1E00E80261 /* SplashViewModel.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				46F3891A297C5B260090A5CB /* GasStation.swift in Sources */,
 				B5FB1FD12AA7A23E006E503A /* OnboardingFuelSelectorFlowState.swift in Sources */,
 				B5864E122AB99C640039F2B1 /* DefaultUserRepository.swift in Sources */,
+				B5D259632B558FBA00E80261 /* GetUserUseCase.swift in Sources */,
 				B5FB1FCF2AA7A227006E503A /* OnboardingFuelSelectorFlowCoordinator.swift in Sources */,
 				B5FB1FD32AA7A246006E503A /* OnboardingFuelSelectorLink.swift in Sources */,
 				B589E83F2A57333300D142C5 /* Colors.swift in Sources */,
@@ -711,6 +718,7 @@
 				B5BA8C042A9657AF006631F5 /* OnboardingFuelSelectorView.swift in Sources */,
 				463F5FC729773126003C9E39 /* Endpoint.swift in Sources */,
 				B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */,
+				B5D259612B558D1E00E80261 /* SplashViewModel.swift in Sources */,
 				B5BA8C062A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift in Sources */,
 				4688A5F729AA779200BC52F8 /* GasStationCell.swift in Sources */,
 				46E2BE1C29AB889D0074EA4F /* GasCompanies.swift in Sources */,

@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol UpdateUserFuelTypeUseCase {
     var userRepository: UserRepository { get set }
-    func execute(_ fuelType: FuelType)
+    func execute(_ fuelType: FuelType) -> AnyPublisher<Void, Error>
 }
 
 class DefaultUpdateUserFuelTypeUseCase: UpdateUserFuelTypeUseCase {
@@ -20,7 +21,7 @@ class DefaultUpdateUserFuelTypeUseCase: UpdateUserFuelTypeUseCase {
         self.userRepository = userRepository
     }
 
-    func execute(_ fuelType: FuelType) {
+    func execute(_ fuelType: FuelType) -> AnyPublisher<Void, Error> {
         return userRepository.updateUserFuelType(fuelType)
     }
 }

@@ -8,17 +8,19 @@
 import Foundation
 
 struct User {
-    let fuelType: String
+    let id: String
+    let fuelType: FuelType
 }
 
 extension User {
     func mapToRealmObject() -> UserRealm {
         let model = UserRealm()
-        model.fuelType = fuelType
+        model._id = id
+        model.fuelType = fuelType.rawValue
         return model
     }
 
     static func mapFromRealmObject(_ user: UserRealm) -> User {
-        return User(fuelType: user.fuelType)
+        return User(id: user._id, fuelType: FuelType(rawValue: user.fuelType) ?? .dieselA)
     }
 }
