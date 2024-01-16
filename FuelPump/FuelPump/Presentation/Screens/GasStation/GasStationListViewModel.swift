@@ -15,39 +15,43 @@ class GasStationListViewModel: ObservableObject {
     @Published var error: Bool = false
 
     private let getGasStationsUseCase: GetGasStationsUseCase
+    private let locationManager: LocationManager
     private var cancellables = Set<AnyCancellable>()
 
-    init(getGasStationsUseCase: GetGasStationsUseCase) {
+    init(getGasStationsUseCase: GetGasStationsUseCase, locationManager: LocationManager = LocationManager.shared) {
         self.getGasStationsUseCase = getGasStationsUseCase
+        self.locationManager = locationManager
     }
     
     func viewDidLoad() {
-        self.getGasStations()
+        locationManager.requestLocation()
+        subscribeToLocation()
+        subscribeToLocationStatus()
     }
 
-    func getGasStations() {
-        self.gasStations = getGasStationsUseCase.execute()
+    func getGasStations(latitude: Double, longitude: Double) {
+        self.gasStations = getGasStationsUseCase.execute(latitude: latitude, longitude: longitude)
+    }
+}
+
+extension GasStationListViewModel {
+    private func subscribeToLocationStatus() {
+        locationManager.$status.sink { status in
+            switch status {
+            case .notDetermined:
+                self.locationManager.requestLocationPermissions()
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("||DEBUG|| Location permissions: APPROVED")
+                self.locationManager.requestLocation()
+            default:
+                print("||DEBUG|| Location permissions: DENIED")
+            }
+        }.store(in: &cancellables)
     }
 
-//    func getAllGasStations() {
-//        isLoading = true
-//        getAllGasStationsUseCase
-//            .execute()
-//            .receive(on: DispatchQueue.main)
-//            .sink(receiveCompletion: handleCompletion, receiveValue: handleSuccess)
-//            .store(in: &cancellables)
-//    }
-//
-//    private func handleCompletion(completion: Subscribers.Completion<Error>) {
-//        switch completion {
-//        case .finished:
-//            isLoading = false
-//        case .failure(_):
-//            self.error = true
-//        }
-//    }
-//
-//    private func handleSuccess(response: GetAllGasStation) {
-//        self.gasStations = response.gasStations
-//    }
+    private func subscribeToLocation() {
+        locationManager.$lastLocation.sink { location in
+            self.getGasStations(latitude: location.latitude, longitude: location.longitude)
+        }.store(in: &cancellables)
+    }
 }

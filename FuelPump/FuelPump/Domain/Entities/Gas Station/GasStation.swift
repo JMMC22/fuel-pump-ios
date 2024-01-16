@@ -72,6 +72,8 @@ extension GasStation {
         model._id = id
         model.address = address
         model.city = city
+        model.latitude = location.latitude.replacingOccurrences(of: ",", with: ".")
+        model.longitude = location.longitude.replacingOccurrences(of: ",", with: ".")
         model.province = province
         model.company = company
         model.icon = GasStation.companyToIcon(company: company)
