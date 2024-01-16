@@ -28,6 +28,8 @@ struct ContentFlowCoordinator<Content: View>: View {
             splashDestination()
         case .onboarding:
             onboardingDestination()
+        case .onboardingFuelSelector:
+            onboardingFuelSelectorDestination()
         }
     }
 
@@ -38,6 +40,12 @@ struct ContentFlowCoordinator<Content: View>: View {
 
     private func onboardingDestination() -> some View {
         let view = OnboardingView()
+        return view
+    }
+
+    private func onboardingFuelSelectorDestination() -> some View {
+        let viewModel = OnboardingFuelSelectorViewModel(path: $state.path, updateUserFuelUseCase: DefaultUpdateUserFuelTypeUseCase(userRepository: DefaultUserRepository()))
+        let view = OnboardingFuelSelectorView(viewModel: viewModel)
         return view
     }
 }

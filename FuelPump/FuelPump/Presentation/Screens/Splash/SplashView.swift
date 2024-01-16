@@ -9,12 +9,17 @@ import SwiftUI
 
 struct SplashView: View {
 
+    @StateObject private var viewModel: SplashViewModel = SplashViewModel()
     @State var isActive: Bool = false
 
     var body: some View {
         ZStack {
-            if self.isActive {
-                OnboardingView()
+            if viewModel.isActive {
+                if viewModel.isUser {
+                    GasStationListView()
+                } else {
+                    OnboardingView()
+                }
             } else {
                 Rectangle()
                     .fill(Color.primaryGreen)
@@ -28,7 +33,7 @@ struct SplashView: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation {
-                    self.isActive = true
+                    viewModel.viewDidLoad()
                 }
             }
         }

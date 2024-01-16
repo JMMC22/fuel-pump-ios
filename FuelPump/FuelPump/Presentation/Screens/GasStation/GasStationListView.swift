@@ -26,7 +26,7 @@ struct GasStationListView: View {
                       message: Text ("Vaya, parece que ha habido un error."),
                       dismissButton: .default(Text("OK")))
             }
-            .onAppear {
+            .task {
                 viewModel.viewDidLoad()
             }
     }

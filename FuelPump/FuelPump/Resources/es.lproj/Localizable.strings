@@ -10,4 +10,7 @@
 "onboarding.description" = "Encuentra gasolineras cercanas al instante. Accede a precios actualizados y ahorra tiempo en tu búsqueda";
 "onboarding.permissions" = "Concede permisos de localización para comenzar a explorar";
 
+"onboarding.selector.title" = "Elige tu tipo de combustible";
+"onboarding.selector.subtitle" = "Seleccione una opción:";
+
 "button.next" = "Siguiente";

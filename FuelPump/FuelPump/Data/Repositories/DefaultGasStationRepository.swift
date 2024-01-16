@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreLocation
 
 final class DefaultGasStationRepository {
 
@@ -22,17 +23,42 @@ final class DefaultGasStationRepository {
 
 extension DefaultGasStationRepository: GasStationRepository {
 
-    func getGasStations(limit: Int) -> [GasStation] {
-        var result: [GetAllGasStation] = []
+    func getGasStations(latitude: Double, longitude: Double, limit: Int)  -> [GasStation] {
+        var allGasStations: [GetAllGasStation] = []
 
         self.cacheService.fetch(GetAllGasStationRealm.self,
                                 predicate: nil,
                                 sorted: nil) { response in
-            result = response.map { GetAllGasStation.mapFromRealmObject($0) }
+            allGasStations = response.map { GetAllGasStation.mapFromRealmObject($0) }
         }
 
-        return Array(result.first?.gasStations.prefix(limit) ?? [])
+        guard let gasStations = allGasStations.first?.gasStations else {
+            return []
+        }
+
+        guard !latitude.isZero, !longitude.isZero else {
+            return Array(gasStations.prefix(limit))
+        }
+        
+        let userLocation = Location(latitude: String(latitude), longitude: String(longitude))
+
+        let sortedGasStations = gasStations.sorted {
+            let distance1 = calculateHaversineDistance(from: $0.location, to: userLocation)
+            let distance2 = calculateHaversineDistance(from: $1.location, to: userLocation)
+
+            return distance1 < distance2
+        }
+
+        return Array(sortedGasStations.prefix(limit))
     }
+
+    func calculateHaversineDistance(from source: Location, to destination: Location) -> Double {
+        let sourceLocation = CLLocation(latitude: Double(source.latitude) ?? 0.0, longitude: Double(source.longitude) ?? 0.0)
+        let destinationLocation = CLLocation(latitude: Double(destination.latitude) ?? 0.0, longitude: Double(destination.longitude) ?? 0.0)
+
+        return sourceLocation.distance(from: destinationLocation)
+    }
+
 
     func fetchAllGasStations() -> AnyPublisher<Void, Error> {
         let endpoint = GasStationEndpoint.getAll

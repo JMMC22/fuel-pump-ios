@@ -18,7 +18,7 @@ struct OnboardingView: View {
     }
 
     var body: some View {
-        ContentFlowCoordinator(state: viewModel, content: content)
+        OnboardingFlowCoordinator(state: viewModel, content: content)
     }
 
     @ViewBuilder private func content() -> some View {
