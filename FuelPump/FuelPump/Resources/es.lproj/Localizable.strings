@@ -13,4 +13,8 @@
 "onboarding.selector.title" = "Elige tu tipo de combustible";
 "onboarding.selector.subtitle" = "Seleccione una opción:";
 
+"gas.station.details.address" = "Dirección";
+"gas.station.details.schedule" = "Horario";
+
 "button.next" = "Siguiente";
+"button.navigate.station" = "Ir hasta la estación";

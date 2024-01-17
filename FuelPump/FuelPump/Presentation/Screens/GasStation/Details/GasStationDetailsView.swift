@@ -20,7 +20,8 @@ struct GasStationDetailsView: View {
                                        companyIcon: viewModel.companyIcon,
                                        address: viewModel.address,
                                        schedule: viewModel.schedule,
-                                       prices: viewModel.fuelPrices)
+                                       prices: viewModel.fuelPrices,
+                                       addressURL: viewModel.addressURL)
     }
 }
 
@@ -31,26 +32,30 @@ struct GasStationDetailsContainerView: View {
     let address: String
     let schedule: String
     let prices: [FuelType: Double]
-    
+    let addressURL: URL?
+
     init(companyName: String, 
          companyIcon: String,
          address: String,
          schedule: String,
-         prices: [FuelType: Double]) {
+         prices: [FuelType: Double],
+         addressURL: URL?) {
         self.companyName = companyName
         self.companyIcon = companyIcon
         self.address = address
         self.schedule = schedule
         self.prices = prices
+        self.addressURL = addressURL
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 24) {
             companyContent
             informationContent
             pricesList
+            navigationButton
         }
-        .padding(16)
+        .padding(EdgeInsets(top: 24, leading: 16, bottom: 16, trailing: 16))
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
@@ -110,6 +115,17 @@ struct GasStationDetailsContainerView: View {
             }
         }
     }
+
+    @ViewBuilder
+    private var navigationButton: some View {
+        if let addressURL {
+            FPButton(text: "button.navigate.station") {
+                if UIApplication.shared.canOpenURL(addressURL) {
+                    UIApplication.shared.open(addressURL, options: [:], completionHandler: nil)
+                }
+            }
+        }
+    }
 }
 
 struct GasStationDetailsContainerView_Previews: PreviewProvider {
@@ -121,6 +137,7 @@ struct GasStationDetailsContainerView_Previews: PreviewProvider {
                                        prices: [.dieselA: 1.5,
                                                 .dieselB: 1.5,
                                                 .gasoline95_E5: 1.5
-                                               ])
+                                               ],
+                                       addressURL: nil)
     }
 }

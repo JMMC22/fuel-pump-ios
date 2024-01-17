@@ -14,6 +14,7 @@ class GasStationDetailsViewModel: ObservableObject {
     @Published var address: String = ""
     @Published var schedule: String = ""
     @Published var fuelPrices: [FuelType: Double] = [:]
+    @Published var addressURL: URL?
 
     private let station: GasStation
 
@@ -24,5 +25,6 @@ class GasStationDetailsViewModel: ObservableObject {
         self.address = station.address
         self.schedule = station.schedule
         self.fuelPrices = station.prices
+        self.addressURL = URL(string: "maps://?saddr=&daddr=\(station.location.latitude),\(station.location.longitude)")
     }
 }
