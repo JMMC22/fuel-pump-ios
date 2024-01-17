@@ -12,7 +12,7 @@ struct GasStationListFlowCoordinator<Content: View>: View {
 
     @ObservedObject var state: GasStationListFlowState
     let content: () -> Content
-    
+
     @State private var sheetHeight: CGFloat = 0
 
     var body: some View {
@@ -36,20 +36,20 @@ struct GasStationListFlowCoordinator<Content: View>: View {
 
     @ViewBuilder private func linkDestination(link: GasStationListLink) -> some View {
         switch link {
-        case .details:
-            gasStationsDetailsDestination()
+        case .details(let station):
+            gasStationsDetailsDestination(station)
         }
     }
 
     @ViewBuilder private func sheetContent(item: GasStationListLink) -> some View {
             switch item {
-            case .details:
-                gasStationsDetailsDestination()
+            case .details(let station):
+                gasStationsDetailsDestination(station)
             }
         }
 
-    private func gasStationsDetailsDestination() -> some View {
-        let view = GasStationDetailsView()
+    private func gasStationsDetailsDestination(_ station: GasStation) -> some View {
+        let view = GasStationDetailsView(station)
         return view
     }
 }

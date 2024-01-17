@@ -49,7 +49,7 @@ struct GasStationList: View {
                 ForEach(gasStations, id: \.self) { gasStation in
                     GasStationCell(gasStation: gasStation)
                         .onTapGesture {
-                            viewModel.navigateToGasStationDetails()
+                            viewModel.navigateToGasStationDetails(gasStation)
                         }
                 }
                 .redacted(reason: isLoading ? .placeholder : [])

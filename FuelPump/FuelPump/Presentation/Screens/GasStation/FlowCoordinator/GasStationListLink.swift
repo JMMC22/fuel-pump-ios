@@ -9,7 +9,7 @@ import Foundation
 
 enum GasStationListLink: Hashable, Identifiable {
 
-    case details
+    case details(_ station: GasStation)
 
     var id: String {
         String(describing: self)

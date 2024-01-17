@@ -33,8 +33,8 @@ class GasStationListViewModel: GasStationListFlowState {
         self.gasStations = getGasStationsUseCase.execute(latitude: latitude, longitude: longitude)
     }
 
-    func navigateToGasStationDetails() {
-        presentedItem = .details
+    func navigateToGasStationDetails(_ station: GasStation) {
+        presentedItem = .details(station)
     }
 }
 
