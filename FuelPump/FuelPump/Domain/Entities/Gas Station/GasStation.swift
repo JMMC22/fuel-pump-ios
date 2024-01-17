@@ -45,6 +45,27 @@ struct GasStation: Equatable, Hashable {
             return "default-icon"
         }
     }
+
+    func getFavouriteFuelPrice(_ fuel: FuelType) -> Double {
+        switch fuel {
+        case .dieselA:
+            return dieselA
+        case .dieselB:
+            return dieselB
+        case .dieselPremium:
+            return dieselPremium
+        case .gasoline95_E5:
+            return gasoline95_E5
+        case .gasoline95_E10:
+            return gasoline95_E10
+        case .gasoline95_E5_Premium:
+            return gasoline95_E5_Premium
+        case .gasoline98_E5:
+            return gasoline98_E5
+        case .gasoline98_E10:
+            return gasoline98_E10
+        }
+    }
 }
 
 struct GetAllGasStation: Equatable {

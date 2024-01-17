@@ -12,14 +12,16 @@ struct GasStationListView: View {
     @StateObject private var viewModel: GasStationListViewModel
 
     init() {
-        let gasStationRepository = DefaultGasStationRepository()
-        let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: gasStationRepository)
-        let gasStationListViewModel = GasStationListViewModel(getGasStationsUseCase: getGasStationsUseCase)
+        let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: DefaultGasStationRepository())
+        let getUserUseCase = DefaultGetUserUseCase(userRepository: DefaultUserRepository())
+        let gasStationListViewModel = GasStationListViewModel(getGasStationsUseCase: getGasStationsUseCase,
+                                                              getUserUseCase: getUserUseCase)
         self._viewModel = StateObject(wrappedValue: gasStationListViewModel)
     }
 
     var body: some View {
         GasStationList(gasStations: viewModel.gasStations,
+                       favouriteFuel: viewModel.favouriteFuel,
                        isLoading: viewModel.isLoading)
             .alert(isPresented: $viewModel.error) {
                 Alert(title: Text("Error"),
@@ -34,14 +36,15 @@ struct GasStationListView: View {
 
 struct GasStationList: View {
 
-    var gasStations: [GasStation]
-    var isLoading: Bool
+    let gasStations: [GasStation]
+    let favouriteFuel: FuelType
+    let isLoading: Bool
 
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
                 ForEach(gasStations, id: \.self) { gasStation in
-                    GasStationCell(gasStation: gasStation)
+                    GasStationCell(gasStation: gasStation, favouriteFuel: favouriteFuel)
                 }
                 .redacted(reason: isLoading ? .placeholder : [])
             }
@@ -53,6 +56,6 @@ struct GasStationList: View {
 
 struct GasStationList_Previews: PreviewProvider {
     static var previews: some View {
-        GasStationList(gasStations: GasStation.mockedData, isLoading: false)
+        GasStationList(gasStations: GasStation.mockedData, favouriteFuel: .dieselA, isLoading: false)
     }
 }

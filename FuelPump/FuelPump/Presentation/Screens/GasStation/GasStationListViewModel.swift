@@ -13,17 +13,25 @@ class GasStationListViewModel: ObservableObject {
     @Published var gasStations: [GasStation] = []
     @Published var isLoading: Bool = false
     @Published var error: Bool = false
+    @Published var favouriteFuel: FuelType = .dieselA
 
     private let getGasStationsUseCase: GetGasStationsUseCase
+    private let getUserUseCase: GetUserUseCase
     private let locationManager: LocationManager
     private var cancellables = Set<AnyCancellable>()
 
-    init(getGasStationsUseCase: GetGasStationsUseCase, locationManager: LocationManager = LocationManager.shared) {
+    private var userLocation: Location = Location(latitude: "", longitude: "")
+
+    init(getGasStationsUseCase: GetGasStationsUseCase,
+         getUserUseCase: GetUserUseCase,
+         locationManager: LocationManager = LocationManager.shared) {
         self.getGasStationsUseCase = getGasStationsUseCase
+        self.getUserUseCase = getUserUseCase
         self.locationManager = locationManager
     }
     
     func viewDidLoad() {
+        getUser()
         locationManager.requestLocation()
         subscribeToLocation()
         subscribeToLocationStatus()
@@ -53,5 +61,29 @@ extension GasStationListViewModel {
         locationManager.$lastLocation.sink { location in
             self.getGasStations(latitude: location.latitude, longitude: location.longitude)
         }.store(in: &cancellables)
+    }
+}
+
+// MARK: - Get User
+extension GasStationListViewModel {
+    private func getUser() {
+        getUserUseCase.execute()
+            .sink(receiveCompletion: handleCompletion, receiveValue: handleResponse)
+            .store(in: &cancellables)
+    }
+
+    private func handleCompletion(completion: Subscribers.Completion<Error>) {
+        switch completion {
+        case .finished:
+            print("||DEBUG|| getUser: Finished")
+        case .failure(let error):
+            print("Error: \(error)")
+        }
+    }
+
+    private func handleResponse(user: User?) {
+        if let user {
+            favouriteFuel = user.fuelType
+        }
     }
 }
