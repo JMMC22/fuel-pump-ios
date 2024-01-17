@@ -19,8 +19,13 @@ struct GasStationListView: View {
     }
 
     var body: some View {
+        GasStationListFlowCoordinator(state: viewModel, content: content)
+    }
+
+    private func content() -> some View {
         GasStationList(gasStations: viewModel.gasStations,
-                       isLoading: viewModel.isLoading)
+                       isLoading: viewModel.isLoading,
+                       viewModel: viewModel)
             .alert(isPresented: $viewModel.error) {
                 Alert(title: Text("Error"),
                       message: Text ("Vaya, parece que ha habido un error."),
@@ -36,23 +41,21 @@ struct GasStationList: View {
 
     var gasStations: [GasStation]
     var isLoading: Bool
+    @ObservedObject var viewModel: GasStationListViewModel
 
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
                 ForEach(gasStations, id: \.self) { gasStation in
                     GasStationCell(gasStation: gasStation)
+                        .onTapGesture {
+                            viewModel.navigateToGasStationDetails()
+                        }
                 }
                 .redacted(reason: isLoading ? .placeholder : [])
             }
             .padding(.vertical, 24)
             .padding(.horizontal, 16)
         }
-    }
-}
-
-struct GasStationList_Previews: PreviewProvider {
-    static var previews: some View {
-        GasStationList(gasStations: GasStation.mockedData, isLoading: false)
     }
 }

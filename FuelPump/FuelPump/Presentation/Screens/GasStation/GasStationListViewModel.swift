@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class GasStationListViewModel: ObservableObject {
+class GasStationListViewModel: GasStationListFlowState {
 
     @Published var gasStations: [GasStation] = []
     @Published var isLoading: Bool = false
@@ -31,6 +31,10 @@ class GasStationListViewModel: ObservableObject {
 
     func getGasStations(latitude: Double, longitude: Double) {
         self.gasStations = getGasStationsUseCase.execute(latitude: latitude, longitude: longitude)
+    }
+
+    func navigateToGasStationDetails() {
+        presentedItem = .details
     }
 }
 
