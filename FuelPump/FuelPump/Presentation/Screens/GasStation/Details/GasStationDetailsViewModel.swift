@@ -13,6 +13,7 @@ class GasStationDetailsViewModel: ObservableObject {
     @Published var companyIcon: String = ""
     @Published var address: String = ""
     @Published var schedule: String = ""
+    @Published var fuelPrices: [FuelType: Double] = [:]
 
     private let station: GasStation
 
@@ -22,5 +23,6 @@ class GasStationDetailsViewModel: ObservableObject {
         self.companyIcon = GasStation.companyToIcon(company: station.company)
         self.address = station.address
         self.schedule = station.schedule
+        self.fuelPrices = station.prices
     }
 }

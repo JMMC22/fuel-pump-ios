@@ -19,7 +19,8 @@ struct GasStationDetailsView: View {
         GasStationDetailsContainerView(companyName: viewModel.companyName,
                                        companyIcon: viewModel.companyIcon,
                                        address: viewModel.address,
-                                       schedule: viewModel.schedule)
+                                       schedule: viewModel.schedule,
+                                       prices: viewModel.fuelPrices)
     }
 }
 
@@ -29,21 +30,25 @@ struct GasStationDetailsContainerView: View {
     let companyIcon: String
     let address: String
     let schedule: String
+    let prices: [FuelType: Double]
     
     init(companyName: String, 
          companyIcon: String,
          address: String,
-         schedule: String) {
+         schedule: String,
+         prices: [FuelType: Double]) {
         self.companyName = companyName
         self.companyIcon = companyIcon
         self.address = address
         self.schedule = schedule
+        self.prices = prices
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             companyContent
             informationContent
+            pricesList
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -65,8 +70,11 @@ struct GasStationDetailsContainerView: View {
     
     private var informationContent: some View {
         VStack(alignment: .leading, spacing: 8) {
-            addressContent
-            scheduleContent
+            VStack(alignment: .leading, spacing: 8) {
+                addressContent
+                scheduleContent
+            }
+            Divider()
         }
     }
 
@@ -86,5 +94,33 @@ struct GasStationDetailsContainerView: View {
             Text(schedule)
                 .fpTextStyle(.description, color: .textGray)
         }
+    }
+
+    private var pricesList: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            ForEach(prices.map({ $0.key })) { fuel in
+                if let price = prices[fuel], price.isZero == false {
+                    HStack {
+                        Text(fuel.rawValue)
+                            .fpTextStyle(.heading4, color: .black)
+                        Text(String(price) + " €/L")
+                            .fpTextStyle(.heading4, color: .textGray)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct GasStationDetailsContainerView_Previews: PreviewProvider {
+    static var previews: some View {
+        GasStationDetailsContainerView(companyName: "NOMBRE",
+                                       companyIcon: "default-icon",
+                                       address: "DIRECCIÓN",
+                                       schedule: "L-D 24H",
+                                       prices: [.dieselA: 1.5,
+                                                .dieselB: 1.5,
+                                                .gasoline95_E5: 1.5
+                                               ])
     }
 }
