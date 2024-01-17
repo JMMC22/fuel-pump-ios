@@ -7,11 +7,6 @@
 
 import RealmSwift
 
-class GetAllGasStationRealm: Object {
-    @Persisted(primaryKey: true) var _date: String
-    @Persisted var gasStations: List<GasStationRealm>
-}
-
 class GasStationRealm: Object {
     @Persisted(primaryKey: true) var _id: String
     @Persisted var latitude: String
