@@ -12,12 +12,23 @@ struct GasStationListFlowCoordinator<Content: View>: View {
 
     @ObservedObject var state: GasStationListFlowState
     let content: () -> Content
+    
+    @State private var sheetHeight: CGFloat = 0
 
     var body: some View {
         NavigationStack(path: $state.path) {
             ZStack {
                 content()
-                    .sheet(item: $state.presentedItem, content: sheetContent)
+                    .sheet(item: $state.presentedItem) { item in
+                        sheetContent(item: item)
+                            .readHeight()
+                            .onPreferenceChange(HeightPreferenceKey.self) { height in
+                                if let height {
+                                    self.sheetHeight = height
+                                }
+                            }
+                            .presentationDetents([.height(self.sheetHeight)])
+                    }
             }
             .navigationDestination(for: GasStationListLink.self, destination: linkDestination)
         }

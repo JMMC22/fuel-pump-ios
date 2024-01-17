@@ -58,6 +58,7 @@
 		B58E42A82B57B93F00DC0ABA /* GasStationListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E42A72B57B93F00DC0ABA /* GasStationListFlowCoordinator.swift */; };
 		B58E42AA2B57B94800DC0ABA /* GasStationListFlowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E42A92B57B94800DC0ABA /* GasStationListFlowState.swift */; };
 		B58E42AC2B57B95200DC0ABA /* GasStationListLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E42AB2B57B95200DC0ABA /* GasStationListLink.swift */; };
+		B58E42AE2B57C25600DC0ABA /* ReadHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E42AD2B57C25600DC0ABA /* ReadHeight.swift */; };
 		B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B0F2A190602005DB286 /* GasStationDTO.swift */; };
 		B58E9B122A19065E005DB286 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E9B112A19065E005DB286 /* Location.swift */; };
 		B5A9F3502AB0E30B00085536 /* UserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9F34F2AB0E30B00085536 /* UserRealm.swift */; };
@@ -137,6 +138,7 @@
 		B58E42A72B57B93F00DC0ABA /* GasStationListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationListFlowCoordinator.swift; sourceTree = "<group>"; };
 		B58E42A92B57B94800DC0ABA /* GasStationListFlowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationListFlowState.swift; sourceTree = "<group>"; };
 		B58E42AB2B57B95200DC0ABA /* GasStationListLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationListLink.swift; sourceTree = "<group>"; };
+		B58E42AD2B57C25600DC0ABA /* ReadHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadHeight.swift; sourceTree = "<group>"; };
 		B58E9B0F2A190602005DB286 /* GasStationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationDTO.swift; sourceTree = "<group>"; };
 		B58E9B112A19065E005DB286 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B5A9F34F2AB0E30B00085536 /* UserRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRealm.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */,
+				B58E42AD2B57C25600DC0ABA /* ReadHeight.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				B5D259632B558FBA00E80261 /* GetUserUseCase.swift in Sources */,
 				B5FB1FCF2AA7A227006E503A /* OnboardingFuelSelectorFlowCoordinator.swift in Sources */,
 				B5FB1FD32AA7A246006E503A /* OnboardingFuelSelectorLink.swift in Sources */,
+				B58E42AE2B57C25600DC0ABA /* ReadHeight.swift in Sources */,
 				B589E83F2A57333300D142C5 /* Colors.swift in Sources */,
 				B58C4F5C2A5F02F6001FEE55 /* ContentFlowState.swift in Sources */,
 				46F38910297C544A0090A5CB /* GasStationRepository.swift in Sources */,
