@@ -11,6 +11,7 @@ struct GasStationDTO: Decodable {
     let id: String
     let latitude: String?
     let longitude: String?
+    let schedule: String?
     let address: String?
     let city: String?
     let province: String?
@@ -28,6 +29,7 @@ struct GasStationDTO: Decodable {
         case id = "IDEESS"
         case latitude = "Latitud"
         case longitude = "Longitud (WGS84)"
+        case schedule = "Horario"
         case address = "Dirección"
         case city = "Municipio"
         case province = "Provincia"
@@ -59,6 +61,7 @@ extension GasStationDTO {
                      location: Location(latitude: latitude ?? "",
                                         longitude: longitude ?? ""),
                      address: address ?? "",
+                     schedule: schedule ?? "",
                      city: city ?? "",
                      province: province ?? "",
                      company: company ?? "",

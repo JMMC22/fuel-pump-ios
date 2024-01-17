@@ -12,6 +12,7 @@ struct GasStation: Equatable, Hashable {
     let id: String
     let location: Location
     let address: String
+    let schedule: String
     let city: String
     let province: String
     let company: String
@@ -71,6 +72,7 @@ extension GasStation {
         let model = GasStationRealm()
         model._id = id
         model.address = address
+        model.schedule = schedule
         model.city = city
         model.latitude = location.latitude.replacingOccurrences(of: ",", with: ".")
         model.longitude = location.longitude.replacingOccurrences(of: ",", with: ".")
@@ -93,6 +95,7 @@ extension GasStation {
                           location: Location(latitude: gasStation.latitude,
                                              longitude: gasStation.longitude),
                           address: gasStation.address,
+                          schedule: gasStation.schedule,
                           city: gasStation.city,
                           province: gasStation.province,
                           company: gasStation.company,
@@ -113,6 +116,7 @@ extension GasStation {
                                                       location: Location(latitude: "",
                                                                          longitude: ""),
                                                       address: "c/test",
+                                                      schedule: "",
                                                       city: "testCity",
                                                       province: "testProvince",
                                                       company: "companyTest",
@@ -130,6 +134,7 @@ extension GasStation {
                                                       location: Location(latitude: "",
                                                                          longitude: ""),
                                                       address: "c/test2",
+                                                      schedule: "",
                                                       city: "testCity2",
                                                       province: "testProvince2",
                                                       company: "companyTest2",
@@ -147,6 +152,7 @@ extension GasStation {
                                                       location: Location(latitude: "",
                                                                          longitude: ""),
                                                       address: "c/test3",
+                                                      schedule: "",
                                                       city: "testCity3",
                                                       province: "testProvince3",
                                                       company: "companyTest3",

@@ -8,9 +8,19 @@
 import Foundation
 
 class GasStationDetailsViewModel: ObservableObject {
+
+    @Published var companyName: String = ""
+    @Published var companyIcon: String = ""
+    @Published var address: String = ""
+    @Published var schedule: String = ""
+
     private let station: GasStation
 
     init(station: GasStation) {
         self.station = station
+        self.companyName = GasCompany(rawValue: station.company)?.rawValue ?? ""
+        self.companyIcon = GasStation.companyToIcon(company: station.company)
+        self.address = station.address
+        self.schedule = station.schedule
     }
 }
