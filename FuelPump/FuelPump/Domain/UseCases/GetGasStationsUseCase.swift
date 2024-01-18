@@ -9,7 +9,7 @@ import Foundation
 
 protocol GetGasStationsUseCase {
     var gasStationRepository: GasStationRepository { get set }
-    func execute(latitude: Double, longitude: Double) -> [GasStation]
+    func execute(latitude: Double, longitude: Double) -> GasStationsResult
 }
 
 class DefaultGetGasStationsUseCase: GetGasStationsUseCase {
@@ -20,7 +20,7 @@ class DefaultGetGasStationsUseCase: GetGasStationsUseCase {
         self.gasStationRepository = gasStationRepository
     }
 
-    func execute(latitude: Double, longitude: Double) -> [GasStation] {
+    func execute(latitude: Double, longitude: Double) -> GasStationsResult {
         return gasStationRepository.getGasStations(latitude: latitude, longitude: longitude, limit: 10)
     }
 }

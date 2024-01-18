@@ -20,7 +20,7 @@ struct GasStationListView: View {
     }
 
     var body: some View {
-        GasStationList(gasStations: viewModel.gasStations,
+        GasStationList(gasStations: viewModel.result.gasStations,
                        favouriteFuel: viewModel.favouriteFuel,
                        isLoading: viewModel.isLoading)
             .alert(isPresented: $viewModel.error) {

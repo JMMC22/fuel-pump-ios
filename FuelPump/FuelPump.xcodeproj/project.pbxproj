@@ -64,6 +64,8 @@
 		B5A9F3562AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9F3552AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift */; };
 		B5BA8C042A9657AF006631F5 /* OnboardingFuelSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA8C032A9657AF006631F5 /* OnboardingFuelSelectorView.swift */; };
 		B5BA8C062A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA8C052A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift */; };
+		B5BB7DBC2B590E2800EF8F69 /* GasStationsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB7DBB2B590E2800EF8F69 /* GasStationsResult.swift */; };
+		B5BB7DBF2B590E9D00EF8F69 /* FuelRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB7DBE2B590E9D00EF8F69 /* FuelRange.swift */; };
 		B5D259612B558D1E00E80261 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D259602B558D1E00E80261 /* SplashViewModel.swift */; };
 		B5D259632B558FBA00E80261 /* GetUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D259622B558FBA00E80261 /* GetUserUseCase.swift */; };
 		B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF60F42A549CBC005C3D67 /* SplashView.swift */; };
@@ -141,6 +143,8 @@
 		B5A9F3552AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserFuelTypeUseCase.swift; sourceTree = "<group>"; };
 		B5BA8C032A9657AF006631F5 /* OnboardingFuelSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFuelSelectorView.swift; sourceTree = "<group>"; };
 		B5BA8C052A9657BB006631F5 /* OnboardingFuelSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFuelSelectorViewModel.swift; sourceTree = "<group>"; };
+		B5BB7DBB2B590E2800EF8F69 /* GasStationsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationsResult.swift; sourceTree = "<group>"; };
+		B5BB7DBE2B590E9D00EF8F69 /* FuelRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelRange.swift; sourceTree = "<group>"; };
 		B5D259602B558D1E00E80261 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		B5D259622B558FBA00E80261 /* GetUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserUseCase.swift; sourceTree = "<group>"; };
 		B5EF60F42A549CBC005C3D67 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -318,9 +322,10 @@
 		46F38918297C5B0E0090A5CB /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				B53985522A2517FF00E92395 /* FuelType.swift */,
 				46E2BE1B29AB889D0074EA4F /* GasCompanies.swift */,
+				B5BB7DBB2B590E2800EF8F69 /* GasStationsResult.swift */,
 				B58E9B112A19065E005DB286 /* Location.swift */,
+				B5BB7DBD2B590E7C00EF8F69 /* Fuel */,
 				4688A5F829AA7D1B00BC52F8 /* Gas Station */,
 				B5A9F34E2AB0E2F900085536 /* User */,
 			);
@@ -521,6 +526,15 @@
 			path = FuelSelector;
 			sourceTree = "<group>";
 		};
+		B5BB7DBD2B590E7C00EF8F69 /* Fuel */ = {
+			isa = PBXGroup;
+			children = (
+				B53985522A2517FF00E92395 /* FuelType.swift */,
+				B5BB7DBE2B590E9D00EF8F69 /* FuelRange.swift */,
+			);
+			path = Fuel;
+			sourceTree = "<group>";
+		};
 		B5EF60F32A549CA9005C3D67 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,6 +720,7 @@
 				B58E42BA2B582F9700DC0ABA /* GasStationIcon.swift in Sources */,
 				4688A5FC29AA7FB900BC52F8 /* RealmProvider.swift in Sources */,
 				46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */,
+				B5BB7DBF2B590E9D00EF8F69 /* FuelRange.swift in Sources */,
 				466B990B2979C24800C9F4DF /* DataManager.swift in Sources */,
 				B5FB1FC72AA79FF5006E503A /* OnboardingFlowCoordinator.swift in Sources */,
 				B58E9B122A19065E005DB286 /* Location.swift in Sources */,
@@ -747,6 +762,7 @@
 				4688A5F729AA779200BC52F8 /* GasStationCell.swift in Sources */,
 				46E2BE1C29AB889D0074EA4F /* GasCompanies.swift in Sources */,
 				B589E8422A5737C200D142C5 /* OnboardingView.swift in Sources */,
+				B5BB7DBC2B590E2800EF8F69 /* GasStationsResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

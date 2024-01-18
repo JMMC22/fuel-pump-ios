@@ -23,7 +23,7 @@ final class DefaultGasStationRepository {
 
 extension DefaultGasStationRepository: GasStationRepository {
 
-    func getGasStations(latitude: Double, longitude: Double, limit: Int)  -> [GasStation] {
+    func getGasStations(latitude: Double, longitude: Double, limit: Int)  -> GasStationsResult {
         var allGasStations: [GetAllGasStation] = []
 
         self.cacheService.fetch(GetAllGasStationRealm.self,
@@ -33,11 +33,12 @@ extension DefaultGasStationRepository: GasStationRepository {
         }
 
         guard let gasStations = allGasStations.first?.gasStations else {
-            return []
+            return GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0)
         }
 
         guard !latitude.isZero, !longitude.isZero else {
-            return Array(gasStations.prefix(limit))
+            let gasStations = Array(gasStations.prefix(limit))
+            return GasStationsResult(gasStations: gasStations, maxPrice: 0.0, minPrice: 0.0)
         }
         
         let userLocation = Location(latitude: String(latitude), longitude: String(longitude))
@@ -49,7 +50,7 @@ extension DefaultGasStationRepository: GasStationRepository {
             return distance1 < distance2
         }
 
-        return Array(sortedGasStations.prefix(limit))
+        return GasStationsResult(gasStations: Array(sortedGasStations.prefix(limit)), maxPrice: 0.0, minPrice: 0.0)
     }
 
     func calculateHaversineDistance(from source: Location, to destination: Location) -> Double {
