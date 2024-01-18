@@ -15,9 +15,11 @@ class GasStationCellViewModel: ObservableObject {
     @Published var address: String = ""
     @Published var price: String = ""
     @Published var color: Color = .green
+    @Published var distance: String = ""
 
     private let gasStation: GasStation
     private let favouriteFuel: FuelType
+    private let locationManager: LocationManager = .shared
 
     init(gasStation: GasStation, fuel: FuelType, maxPrice: Double, minPrice: Double) {
         self.gasStation = gasStation
@@ -28,5 +30,6 @@ class GasStationCellViewModel: ObservableObject {
         self.price = String(gasStation.getFavouriteFuelPrice(favouriteFuel)) + " €/L"
         let range = gasStation.getFuelRange(favouriteFuel, maxPrice: maxPrice, minPrice: minPrice)
         self.color = range == .high ? .redStatus : range == .middle ? .orangeStatus : .greenStatus
+        self.distance = String(Int(locationManager.getDistance(to: gasStation.location))) + " m"
     }
 }

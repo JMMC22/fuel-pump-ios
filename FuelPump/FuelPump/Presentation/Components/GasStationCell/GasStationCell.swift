@@ -24,9 +24,14 @@ struct GasStationCell: View {
         HStack {
             HStack {
                 GasStationIcon(iconName: viewModel.companyIcon)
-                VStack(alignment: .leading) {
-                    Text(viewModel.companyName)
-                        .fpTextStyle(.heading4)
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(alignment: .center, spacing: 4) {
+                        Text(viewModel.companyName)
+                            .fpTextStyle(.heading4)
+                        Text(viewModel.distance)
+                            .fpTextStyle(.caption, color: .textGray)
+                    }
+
                     Text(viewModel.address)
                         .fpTextStyle(.caption, color: .textGray)
                         .lineLimit(1)

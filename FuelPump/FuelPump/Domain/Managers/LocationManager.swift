@@ -31,6 +31,11 @@ class LocationManager: NSObject, ObservableObject {
     func requestLocation() {
         locationManager.startUpdatingLocation()
     }
+
+    func getDistance(to destination: Location) -> Double {
+        let userLocation = Location(latitude: lastLocation.latitude.description, longitude: lastLocation.longitude.description)
+        return userLocation.calculateDistance(to: destination)
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
