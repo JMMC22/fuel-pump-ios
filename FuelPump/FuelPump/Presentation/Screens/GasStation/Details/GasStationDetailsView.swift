@@ -65,14 +65,13 @@ struct GasStationDetailsContainerView: View {
 
     private var companyContent: some View {
         VStack(spacing: 8) {
-            HStack(alignment: .center) {
+            HStack {
+                GasStationIcon(iconName: companyIcon)
                 Text(companyName)
                     .fpTextStyle(.heading4, color: .black)
                 Text(distance)
                     .fpTextStyle(.list, color: .textGray)
                 Spacer()
-                
-                GasStationIcon(iconName: companyIcon)
             }
             Divider()
         }

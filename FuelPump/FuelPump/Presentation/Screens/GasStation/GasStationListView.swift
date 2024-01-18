@@ -24,10 +24,13 @@ struct GasStationListView: View {
     }
 
     private func content() -> some View {
-        GasStationList(result: viewModel.result,
-                       favouriteFuel: viewModel.favouriteFuel,
-                       isLoading: viewModel.isLoading) { station in
-            viewModel.navigateToGasStationDetails(station)
+        ScrollView {
+            VStack(alignment: .leading) {
+                title
+                list
+            }
+            .padding(.vertical, 24)
+            .padding(.horizontal, 16)
         }
         .alert(isPresented: $viewModel.error) {
             Alert(title: Text("Error"),
@@ -38,40 +41,17 @@ struct GasStationListView: View {
             viewModel.viewDidLoad()
         }
     }
-}
 
-struct GasStationList: View {
-
-    let result: GasStationsResult
-    let favouriteFuel: FuelType
-    let isLoading: Bool
-    let showDetails: (GasStation) -> ()
-
-    var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 16) {
-                ForEach(result.gasStations, id: \.self) { gasStation in
-                    GasStationCell(gasStation: gasStation,
-                                   fuel: favouriteFuel,
-                                   maxPrice: result.maxPrice,
-                                   minPrice: result.minPrice)
-                    .onTapGesture {
-                        showDetails(gasStation)
-                    }
-                }
-                .redacted(reason: isLoading ? .placeholder : [])
-            }
-            .padding(.vertical, 24)
-            .padding(.horizontal, 16)
-        }
+    private var title: some View {
+        Text("list.title")
+            .fpTextStyle(.heading1, color: .black)
     }
-}
 
-struct GasStationList_Previews: PreviewProvider {
-    static var previews: some View {
-        GasStationList(result: GasStationsResult(gasStations: GasStation.mockedData,
-                                                 maxPrice: 1.8, minPrice: 1.0),
-                       favouriteFuel: .dieselA,
-                       isLoading: false) { _ in }
+    private var list: some View {
+        GasStationList(result: viewModel.result,
+                       favouriteFuel: viewModel.favouriteFuel,
+                       isLoading: viewModel.isLoading) { station in
+            viewModel.navigateToGasStationDetails(station)
+        }
     }
 }
