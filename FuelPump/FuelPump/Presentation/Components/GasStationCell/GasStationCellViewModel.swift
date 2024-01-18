@@ -19,10 +19,11 @@ class GasStationCellViewModel: ObservableObject {
 
     private let gasStation: GasStation
     private let favouriteFuel: FuelType
-    private let locationManager: LocationManager = .shared
+    private let locationManager: LocationManager
 
-    init(gasStation: GasStation, fuel: FuelType, maxPrice: Double, minPrice: Double) {
+    init(gasStation: GasStation, fuel: FuelType, maxPrice: Double, minPrice: Double, locationManager: LocationManager = .shared) {
         self.gasStation = gasStation
+        self.locationManager = locationManager
         self.favouriteFuel = fuel
         self.companyIcon = gasStation.icon
         self.companyName = gasStation.company

@@ -17,6 +17,7 @@ struct GasStationDetailsView: View {
 
     var body: some View {
         GasStationDetailsContainerView(companyName: viewModel.companyName,
+                                       distance: viewModel.distance,
                                        companyIcon: viewModel.companyIcon,
                                        address: viewModel.address,
                                        schedule: viewModel.schedule,
@@ -28,19 +29,22 @@ struct GasStationDetailsView: View {
 struct GasStationDetailsContainerView: View {
 
     let companyName: String
+    let distance: String
     let companyIcon: String
     let address: String
     let schedule: String
     let prices: [FuelType: Double]
     let addressURL: URL?
 
-    init(companyName: String, 
+    init(companyName: String,
+         distance: String,
          companyIcon: String,
          address: String,
          schedule: String,
          prices: [FuelType: Double],
          addressURL: URL?) {
         self.companyName = companyName
+        self.distance = distance
         self.companyIcon = companyIcon
         self.address = address
         self.schedule = schedule
@@ -61,9 +65,11 @@ struct GasStationDetailsContainerView: View {
 
     private var companyContent: some View {
         VStack(spacing: 8) {
-            HStack {
+            HStack(alignment: .center) {
                 Text(companyName)
                     .fpTextStyle(.heading4, color: .black)
+                Text(distance)
+                    .fpTextStyle(.list, color: .textGray)
                 Spacer()
                 Image(companyIcon)
                     .resizable()
@@ -131,6 +137,7 @@ struct GasStationDetailsContainerView: View {
 struct GasStationDetailsContainerView_Previews: PreviewProvider {
     static var previews: some View {
         GasStationDetailsContainerView(companyName: "NOMBRE",
+                                       distance: "100 m",
                                        companyIcon: "default-icon",
                                        address: "DIRECCIÓN",
                                        schedule: "L-D 24H",
