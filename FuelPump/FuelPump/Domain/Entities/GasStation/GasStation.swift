@@ -26,6 +26,21 @@ struct GasStation: Equatable, Hashable {
     let gasoline98_E5: Double
     let gasoline98_E10: Double
 
+    var prices: [FuelType: Double] {
+        [
+            .dieselA: dieselA,
+            .dieselB: dieselB,
+            .dieselPremium: dieselPremium,
+            .gasoline95_E5: gasoline95_E5,
+            .gasoline95_E10: gasoline95_E10,
+            .gasoline95_E5_Premium: gasoline95_E5_Premium,
+            .gasoline98_E5: gasoline98_E5,
+            .gasoline98_E10: gasoline98_E10
+        ]
+    }
+}
+
+extension GasStation {
     static func companyToIcon(company: String) -> String {
         if let company = GasCompany(rawValue: company) {
             switch company {
@@ -46,18 +61,40 @@ struct GasStation: Equatable, Hashable {
             return "default-icon"
         }
     }
+    
+    func getFavouriteFuelPrice(_ fuel: FuelType) -> Double {
+        switch fuel {
+        case .dieselA:
+            return dieselA
+        case .dieselB:
+            return dieselB
+        case .dieselPremium:
+            return dieselPremium
+        case .gasoline95_E5:
+            return gasoline95_E5
+        case .gasoline95_E10:
+            return gasoline95_E10
+        case .gasoline95_E5_Premium:
+            return gasoline95_E5_Premium
+        case .gasoline98_E5:
+            return gasoline98_E5
+        case .gasoline98_E10:
+            return gasoline98_E10
+        }
+    }
 
-    var prices: [FuelType: Double] {
-        [
-            .dieselA: dieselA,
-            .dieselB: dieselB,
-            .dieselPremium: dieselPremium,
-            .gasoline95_E5: gasoline95_E5,
-            .gasoline95_E10: gasoline95_E10,
-            .gasoline95_E5_Premium: gasoline95_E5_Premium,
-            .gasoline98_E5: gasoline98_E5,
-            .gasoline98_E10: gasoline98_E10
-        ]
+    func getFuelRange(_ fuel: FuelType, maxPrice: Double, minPrice: Double) -> FuelRange {
+        let totalRange = maxPrice - minPrice
+        let range = totalRange / 3
+        let price = getFavouriteFuelPrice(fuel)
+
+        if price < (minPrice + range) {
+            return .low
+        } else if price > (maxPrice - range) {
+            return .high
+        } else {
+            return .middle
+        }
     }
 }
 
@@ -115,7 +152,7 @@ extension GasStation {
                                                       province: "testProvince",
                                                       company: "companyTest",
                                                       icon: "default-icon",
-                                                      dieselA: 0.0,
+                                                      dieselA: 1.1,
                                                       dieselB: 0.0,
                                                       dieselPremium: 0.0,
                                                       gasoline95_E5: 0.0,
@@ -133,7 +170,7 @@ extension GasStation {
                                                       province: "testProvince2",
                                                       company: "companyTest2",
                                                       icon: "default-icon",
-                                                      dieselA: 0.0,
+                                                      dieselA: 1.4,
                                                       dieselB: 0.0,
                                                       dieselPremium: 0.0,
                                                       gasoline95_E5: 0.0,
@@ -151,7 +188,7 @@ extension GasStation {
                                                       province: "testProvince3",
                                                       company: "companyTest3",
                                                       icon: "default-icon",
-                                                      dieselA: 0.0,
+                                                      dieselA: 1.7,
                                                       dieselB: 0.0,
                                                       dieselPremium: 0.0,
                                                       gasoline95_E5: 0.0,

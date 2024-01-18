@@ -12,9 +12,10 @@ struct GasStationListView: View {
     @StateObject private var viewModel: GasStationListViewModel
 
     init() {
-        let gasStationRepository = DefaultGasStationRepository()
-        let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: gasStationRepository)
-        let gasStationListViewModel = GasStationListViewModel(getGasStationsUseCase: getGasStationsUseCase)
+        let getGasStationsUseCase = DefaultGetGasStationsUseCase(gasStationRepository: DefaultGasStationRepository())
+        let getUserUseCase = DefaultGetUserUseCase(userRepository: DefaultUserRepository())
+        let gasStationListViewModel = GasStationListViewModel(getGasStationsUseCase: getGasStationsUseCase,
+                                                              getUserUseCase: getUserUseCase)
         self._viewModel = StateObject(wrappedValue: gasStationListViewModel)
     }
 
@@ -23,39 +24,54 @@ struct GasStationListView: View {
     }
 
     private func content() -> some View {
-        GasStationList(gasStations: viewModel.gasStations,
-                       isLoading: viewModel.isLoading,
-                       viewModel: viewModel)
-            .alert(isPresented: $viewModel.error) {
-                Alert(title: Text("Error"),
-                      message: Text ("Vaya, parece que ha habido un error."),
-                      dismissButton: .default(Text("OK")))
-            }
-            .task {
-                viewModel.viewDidLoad()
-            }
+        GasStationList(result: viewModel.result,
+                       favouriteFuel: viewModel.favouriteFuel,
+                       isLoading: viewModel.isLoading) { station in
+            viewModel.navigateToGasStationDetails(station)
+        }
+        .alert(isPresented: $viewModel.error) {
+            Alert(title: Text("Error"),
+                  message: Text ("Vaya, parece que ha habido un error."),
+                  dismissButton: .default(Text("OK")))
+        }
+        .task {
+            viewModel.viewDidLoad()
+        }
     }
 }
 
 struct GasStationList: View {
 
-    var gasStations: [GasStation]
-    var isLoading: Bool
-    @ObservedObject var viewModel: GasStationListViewModel
+    let result: GasStationsResult
+    let favouriteFuel: FuelType
+    let isLoading: Bool
+    let showDetails: (GasStation) -> ()
 
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
-                ForEach(gasStations, id: \.self) { gasStation in
-                    GasStationCell(gasStation: gasStation)
-                        .onTapGesture {
-                            viewModel.navigateToGasStationDetails(gasStation)
-                        }
+                ForEach(result.gasStations, id: \.self) { gasStation in
+                    GasStationCell(gasStation: gasStation,
+                                   fuel: favouriteFuel,
+                                   maxPrice: result.maxPrice,
+                                   minPrice: result.minPrice)
+                    .onTapGesture {
+                        showDetails(gasStation)
+                    }
                 }
                 .redacted(reason: isLoading ? .placeholder : [])
             }
             .padding(.vertical, 24)
             .padding(.horizontal, 16)
         }
+    }
+}
+
+struct GasStationList_Previews: PreviewProvider {
+    static var previews: some View {
+        GasStationList(result: GasStationsResult(gasStations: GasStation.mockedData,
+                                                 maxPrice: 1.8, minPrice: 1.0),
+                       favouriteFuel: .dieselA,
+                       isLoading: false) { _ in }
     }
 }
