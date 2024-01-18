@@ -108,7 +108,7 @@ struct GasStationDetailsContainerView: View {
 
     private var pricesList: some View {
         VStack(alignment: .leading, spacing: 4) {
-            ForEach(prices.map({ $0.key })) { fuel in
+            ForEach(FuelType.allCases) { fuel in
                 if let price = prices[fuel], price.isZero == false {
                     HStack {
                         Text(fuel.rawValue)

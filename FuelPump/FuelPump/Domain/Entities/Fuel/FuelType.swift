@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FuelType: String, CaseIterable, Identifiable {
+enum FuelType: String, CaseIterable {
     case dieselA = "Diésel A"
     case dieselB = "Diésel B"
     case dieselPremium = "Diésel A+"
@@ -16,7 +16,9 @@ enum FuelType: String, CaseIterable, Identifiable {
     case gasoline95_E5_Premium = "Gasolina 95 E5 Premium"
     case gasoline98_E5 = "Gasolina 98 E5"
     case gasoline98_E10 = "Gasolina 98 E10"
+}
 
+extension FuelType: Identifiable {
     var id: String {
         return rawValue
     }
