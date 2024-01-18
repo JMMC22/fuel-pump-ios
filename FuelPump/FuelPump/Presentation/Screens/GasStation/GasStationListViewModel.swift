@@ -38,7 +38,7 @@ class GasStationListViewModel: ObservableObject {
     }
 
     func getGasStations(latitude: Double, longitude: Double) {
-        let response = getGasStationsUseCase.execute(latitude: latitude, longitude: longitude)
+        let response = getGasStationsUseCase.execute(latitude: latitude, longitude: longitude, fuel: favouriteFuel)
         handleGetGasStations(response)
     }
 

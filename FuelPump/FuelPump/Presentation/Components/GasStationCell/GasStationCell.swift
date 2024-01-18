@@ -10,36 +10,81 @@ import SwiftUI
 struct GasStationCell: View {
 
     @StateObject private var viewModel: GasStationCellViewModel
-    
-    init(gasStation: GasStation, favouriteFuel: FuelType) {
+
+    init(gasStation: GasStation, fuel: FuelType, maxPrice: Double, minPrice: Double) {
         self._viewModel = StateObject(wrappedValue: GasStationCellViewModel(gasStation: gasStation,
-                                                                            favouriteFuel: favouriteFuel))
+                                                                            fuel: fuel,
+                                                                            maxPrice: maxPrice,
+                                                                            minPrice: minPrice))
     }
+
+    private var cornerRadius: CGFloat { return 5 }
 
     var body: some View {
         HStack {
-            GasStationIcon(iconName: viewModel.companyIcon)
-            VStack(alignment: .leading) {
-                Text(viewModel.companyName)
-                    .fpTextStyle(.heading4)
-                Text(viewModel.address)
-                    .fpTextStyle(.caption, color: .textGray)
+            HStack {
+                GasStationIcon(iconName: viewModel.companyIcon)
+                VStack(alignment: .leading) {
+                    Text(viewModel.companyName)
+                        .fpTextStyle(.heading4)
+                    Text(viewModel.address)
+                        .fpTextStyle(.caption, color: .textGray)
+                        .lineLimit(1)
+                }
             }
-
+            .padding(.horizontal, 16)
+            
             Spacer()
 
             Text(viewModel.price)
-                .fpTextStyle(.heading4)
+                .fpTextStyle(.heading4, color: .white)
+                .padding()
+                .background(
+                    Rectangle()
+                        .fill(viewModel.color)
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: cornerRadius,
+                                bottomLeadingRadius: 0,
+                                bottomTrailingRadius: 0,
+                                topTrailingRadius: 0
+                            )
+                        )
+                )
         }
-        .padding(10)
         .background(.white)
-        .cornerRadius(10)
-        .shadow(color: .gray.opacity(0.4), radius: 3)
+        .clipShape(backgroundShape)
+        .overlay(leftDivider, alignment: .leading)
+        .shadow(color: .gray.opacity(0.4), radius: 2)
+    }
+    
+    private var backgroundShape: some Shape {
+        .rect(
+            topLeadingRadius: cornerRadius,
+            bottomLeadingRadius: cornerRadius,
+            bottomTrailingRadius: cornerRadius,
+            topTrailingRadius: 0
+        )
+    }
+
+    private var leftDivider: some View {
+        Rectangle()
+            .fill(viewModel.color)
+            .clipShape(
+                .rect(
+                    topLeadingRadius: cornerRadius,
+                    bottomLeadingRadius: cornerRadius,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 0
+                )
+            )
+            .frame(width: 5)
     }
 }
 
 struct GasStationCell_Previews: PreviewProvider {
     static var previews: some View {
-        GasStationCell(gasStation: GasStation.mockedData.first!, favouriteFuel: .dieselA)
+        GasStationCell(gasStation: GasStation.mockedData.first!, fuel: .dieselA, maxPrice: 1.8, minPrice: 1.0)
+            .padding(16)
     }
 }

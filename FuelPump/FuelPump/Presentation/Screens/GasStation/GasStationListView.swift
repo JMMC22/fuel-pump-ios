@@ -20,7 +20,7 @@ struct GasStationListView: View {
     }
 
     var body: some View {
-        GasStationList(gasStations: viewModel.result.gasStations,
+        GasStationList(result: viewModel.result,
                        favouriteFuel: viewModel.favouriteFuel,
                        isLoading: viewModel.isLoading)
             .alert(isPresented: $viewModel.error) {
@@ -36,15 +36,18 @@ struct GasStationListView: View {
 
 struct GasStationList: View {
 
-    let gasStations: [GasStation]
+    let result: GasStationsResult
     let favouriteFuel: FuelType
     let isLoading: Bool
 
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
-                ForEach(gasStations, id: \.self) { gasStation in
-                    GasStationCell(gasStation: gasStation, favouriteFuel: favouriteFuel)
+                ForEach(result.gasStations, id: \.self) { gasStation in
+                    GasStationCell(gasStation: gasStation,
+                                   fuel: favouriteFuel,
+                                   maxPrice: result.maxPrice,
+                                   minPrice: result.minPrice)
                 }
                 .redacted(reason: isLoading ? .placeholder : [])
             }
@@ -56,6 +59,9 @@ struct GasStationList: View {
 
 struct GasStationList_Previews: PreviewProvider {
     static var previews: some View {
-        GasStationList(gasStations: GasStation.mockedData, favouriteFuel: .dieselA, isLoading: false)
+        GasStationList(result: GasStationsResult(gasStations: GasStation.mockedData,
+                                                 maxPrice: 1.8, minPrice: 1.0),
+                       favouriteFuel: .dieselA,
+                       isLoading: false)
     }
 }
