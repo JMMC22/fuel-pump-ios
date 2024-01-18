@@ -32,7 +32,7 @@ struct GasStationCell: View {
                         .lineLimit(1)
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 8)
             
             Spacer()
 

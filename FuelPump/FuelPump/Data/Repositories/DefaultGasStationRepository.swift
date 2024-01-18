@@ -38,11 +38,10 @@ extension DefaultGasStationRepository: GasStationRepository {
             return GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0)
         }
 
-        let maxPrice = maxPrice(of: fuel)
-        let minPrice = minPrice(of: fuel)
-
         guard !latitude.isZero, !longitude.isZero else {
             let gasStations = Array(allGasStations.prefix(limit))
+            let maxPrice = maxPrice(of: fuel, stations: gasStations)
+            let minPrice = minPrice(of: fuel, stations: gasStations)
             return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice)
         }
 
@@ -55,7 +54,10 @@ extension DefaultGasStationRepository: GasStationRepository {
             return distance1 < distance2
         }
 
-        return GasStationsResult(gasStations: Array(sortedGasStations.prefix(limit)), maxPrice: maxPrice, minPrice: minPrice)
+        let gasStations = Array(sortedGasStations.prefix(limit))
+        let maxPrice = maxPrice(of: fuel, stations: gasStations)
+        let minPrice = minPrice(of: fuel, stations: gasStations)
+        return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice)
     }
 
     private func updateGasStations(response: GetAllGasStationRealm) {
@@ -66,32 +68,6 @@ extension DefaultGasStationRepository: GasStationRepository {
                 print("||DEBUG|| updateGasStations - ERROR: \(error)")
             }
         }
-    }
-
-    func maxPrice(of fuelType: FuelType) -> Double {
-        var maxPrice: Double = 0.0
-
-        cacheService.fetch(GasStationRealm.self, predicate: nil, sorted: Sorted(key: fuelType.description)) { stations in
-            if let lastStation = stations.last {
-                maxPrice = GasStation.mapFromRealmObject(lastStation).getFavouriteFuelPrice(fuelType)
-            }
-        }
-
-        return maxPrice
-    }
-
-    func minPrice(of fuelType: FuelType) -> Double {
-        var minPrice: Double = 0.0
-
-        let nonZeroPredicate = NSPredicate(format: "\(fuelType.description) != 0")
-
-        cacheService.fetch(GasStationRealm.self, predicate: nonZeroPredicate, sorted: Sorted(key: fuelType.description)) { stations in
-            if let firstStation = stations.first {
-                minPrice = GasStation.mapFromRealmObject(firstStation).getFavouriteFuelPrice(fuelType)
-            }
-        }
-
-        return minPrice
     }
 }
 
@@ -108,5 +84,18 @@ extension DefaultGasStationRepository {
                 return error
             }
             .eraseToAnyPublisher()
+    }
+}
+
+// MARK: - Logic functions
+extension DefaultGasStationRepository {
+    func maxPrice(of fuelType: FuelType, stations: [GasStation]) -> Double {
+        return stations.max(by: { $0.getFavouriteFuelPrice(fuelType) <
+                                  $1.getFavouriteFuelPrice(fuelType)})?.getFavouriteFuelPrice(fuelType) ?? 0
+    }
+
+    func minPrice(of fuelType: FuelType, stations: [GasStation]) -> Double {
+        return stations.max(by: { $0.getFavouriteFuelPrice(fuelType) >
+                                  $1.getFavouriteFuelPrice(fuelType)})?.getFavouriteFuelPrice(fuelType) ?? 0
     }
 }
