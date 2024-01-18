@@ -23,43 +23,56 @@ final class DefaultGasStationRepository {
 
 extension DefaultGasStationRepository: GasStationRepository {
 
-    func getGasStations(latitude: Double, longitude: Double, limit: Int)  -> [GasStation] {
-        var allGasStations: [GetAllGasStation] = []
+    func getGasStations(latitude: Double, longitude: Double, fuel: FuelType, limit: Int = 10)  -> GasStationsResult {
+        var allGasStations: [GasStation] = []
 
-        self.cacheService.fetch(GetAllGasStationRealm.self,
-                                predicate: nil,
+        let nonZeroPredicate = NSPredicate(format: "\(fuel.description) != 0")
+
+        self.cacheService.fetch(GasStationRealm.self,
+                                predicate: nonZeroPredicate,
                                 sorted: nil) { response in
-            allGasStations = response.map { GetAllGasStation.mapFromRealmObject($0) }
+            allGasStations = response.map { GasStation.mapFromRealmObject($0) }
         }
 
-        guard let gasStations = allGasStations.first?.gasStations else {
-            return []
+        guard allGasStations.isEmpty == false else {
+            return GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0)
         }
 
         guard !latitude.isZero, !longitude.isZero else {
-            return Array(gasStations.prefix(limit))
+            let gasStations = Array(allGasStations.prefix(limit))
+            let maxPrice = maxPrice(of: fuel, stations: gasStations)
+            let minPrice = minPrice(of: fuel, stations: gasStations)
+            return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice)
         }
-        
+
         let userLocation = Location(latitude: String(latitude), longitude: String(longitude))
 
-        let sortedGasStations = gasStations.sorted {
-            let distance1 = calculateHaversineDistance(from: $0.location, to: userLocation)
-            let distance2 = calculateHaversineDistance(from: $1.location, to: userLocation)
+        let sortedGasStations = allGasStations.sorted {
+            let distance1 = userLocation.calculateDistance(to: $0.location)
+            let distance2 = userLocation.calculateDistance(to: $1.location)
 
             return distance1 < distance2
         }
 
-        return Array(sortedGasStations.prefix(limit))
+        let gasStations = Array(sortedGasStations.prefix(limit))
+        let maxPrice = maxPrice(of: fuel, stations: gasStations)
+        let minPrice = minPrice(of: fuel, stations: gasStations)
+        return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice)
     }
 
-    func calculateHaversineDistance(from source: Location, to destination: Location) -> Double {
-        let sourceLocation = CLLocation(latitude: Double(source.latitude) ?? 0.0, longitude: Double(source.longitude) ?? 0.0)
-        let destinationLocation = CLLocation(latitude: Double(destination.latitude) ?? 0.0, longitude: Double(destination.longitude) ?? 0.0)
-
-        return sourceLocation.distance(from: destinationLocation)
+    private func updateGasStations(response: GetAllGasStationRealm) {
+        DispatchQueue.main.async {
+            do {
+                try self.cacheService.update(object: response)
+            } catch {
+                print("||DEBUG|| updateGasStations - ERROR: \(error)")
+            }
+        }
     }
+}
 
-
+// MARK: - Network Requests
+extension DefaultGasStationRepository {
     func fetchAllGasStations() -> AnyPublisher<Void, Error> {
         let endpoint = GasStationEndpoint.getAll
         return httpClient.request(endpoint: endpoint, responseModel: GetAllResponseDTO.self)
@@ -72,38 +85,17 @@ extension DefaultGasStationRepository: GasStationRepository {
             }
             .eraseToAnyPublisher()
     }
+}
 
-    private func updateGasStations(response: GetAllGasStationRealm) {
-        DispatchQueue.main.async {
-            do {
-                try self.cacheService.update(object: response)
-            } catch {
-                print("||DEBUG|| updateGasStations - ERROR: \(error)")
-            }
-        }
+// MARK: - Logic functions
+extension DefaultGasStationRepository {
+    func maxPrice(of fuelType: FuelType, stations: [GasStation]) -> Double {
+        return stations.max(by: { $0.getFavouriteFuelPrice(fuelType) <
+                                  $1.getFavouriteFuelPrice(fuelType)})?.getFavouriteFuelPrice(fuelType) ?? 0
     }
 
-    func maxPrice(of fuelType: FuelType) -> Double {
-        var maxPrice: Double = 0.0
-
-        cacheService.fetch(GasStationRealm.self, predicate: nil, sorted: Sorted(key: fuelType.rawValue)) { stations in
-            if let firstStation = stations.last {
-                maxPrice = firstStation.dieselA
-            }
-        }
-
-        return maxPrice
-    }
-
-    func minPrice(of fuelType: FuelType) -> Double {
-        var minPrice: Double = 0.0
-
-        cacheService.fetch(GasStationRealm.self, predicate: nil, sorted: Sorted(key: fuelType.rawValue)) { stations in
-            if let firstStation = stations.first {
-                minPrice = firstStation.dieselA
-            }
-        }
-
-        return minPrice
+    func minPrice(of fuelType: FuelType, stations: [GasStation]) -> Double {
+        return stations.max(by: { $0.getFavouriteFuelPrice(fuelType) >
+                                  $1.getFavouriteFuelPrice(fuelType)})?.getFavouriteFuelPrice(fuelType) ?? 0
     }
 }
