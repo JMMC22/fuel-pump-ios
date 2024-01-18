@@ -71,9 +71,8 @@ struct GasStationDetailsContainerView: View {
                 Text(distance)
                     .fpTextStyle(.list, color: .textGray)
                 Spacer()
-                Image(companyIcon)
-                    .resizable()
-                    .frame(width: 24, height: 24)
+                
+                GasStationIcon(iconName: companyIcon)
             }
             Divider()
         }
