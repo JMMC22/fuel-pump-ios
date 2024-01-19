@@ -8,33 +8,22 @@
 import SwiftUI
 
 struct SplashView: View {
-
-    @StateObject private var viewModel: SplashViewModel = SplashViewModel()
-    @State var isActive: Bool = false
+    
+    @Binding var animationEnded: Bool
 
     var body: some View {
         ZStack {
-            if viewModel.isActive {
-                if viewModel.isUser {
-                    GasStationListView()
-                } else {
-                    OnboardingView()
-                }
-            } else {
-                Rectangle()
-                    .fill(Color.primaryGreen)
-                    .edgesIgnoringSafeArea(.all)
-                Image("splash-icon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 150)
-            }
+            Rectangle()
+                .fill(Color.primaryGreen)
+                .edgesIgnoringSafeArea(.all)
+            Image("splash-icon")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                withAnimation {
-                    viewModel.viewDidLoad()
-                }
+                animationEnded = true
             }
         }
     }
@@ -42,6 +31,6 @@ struct SplashView: View {
 
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
-        SplashView()
+        SplashView(animationEnded: .constant(false))
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class GasStationListViewModel: GasStationListFlowState {
+class GasStationListViewModel: ObservableObject {
 
     @Published var result: GasStationsResult = GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0)
     @Published var isLoading: Bool = false
@@ -46,10 +46,6 @@ class GasStationListViewModel: GasStationListFlowState {
         result.gasStations = response.gasStations
         result.maxPrice = response.maxPrice
         result.minPrice = response.minPrice
-    }
-
-    func navigateToGasStationDetails(_ station: GasStation) {
-        presentedItem = .details(station)
     }
 }
 
