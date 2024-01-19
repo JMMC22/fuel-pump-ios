@@ -18,6 +18,12 @@ enum FuelType: String, CaseIterable {
     case gasoline98_E10 = "Gasolina 98 E10"
 }
 
+extension FuelType: Identifiable {
+    var id: String {
+        return rawValue
+    }
+}
+
 extension FuelType {
     var description: String {
         switch self {

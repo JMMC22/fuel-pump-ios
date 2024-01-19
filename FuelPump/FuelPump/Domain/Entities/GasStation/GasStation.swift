@@ -12,6 +12,7 @@ struct GasStation: Equatable, Hashable {
     let id: String
     let location: Location
     let address: String
+    let schedule: String
     let city: String
     let province: String
     let company: String
@@ -24,6 +25,19 @@ struct GasStation: Equatable, Hashable {
     let gasoline95_E5_Premium: Double
     let gasoline98_E5: Double
     let gasoline98_E10: Double
+
+    var prices: [FuelType: Double] {
+        [
+            .dieselA: dieselA,
+            .dieselB: dieselB,
+            .dieselPremium: dieselPremium,
+            .gasoline95_E5: gasoline95_E5,
+            .gasoline95_E10: gasoline95_E10,
+            .gasoline95_E5_Premium: gasoline95_E5_Premium,
+            .gasoline98_E5: gasoline98_E5,
+            .gasoline98_E10: gasoline98_E10
+        ]
+    }
 }
 
 extension GasStation {
@@ -84,30 +98,12 @@ extension GasStation {
     }
 }
 
-struct GetAllGasStation: Equatable {
-    let date: String
-    let gasStations: [GasStation]
-}
-
-extension GetAllGasStation {
-    func mapToRealmObject() -> GetAllGasStationRealm {
-        let model = GetAllGasStationRealm()
-        model._date = date
-        model.gasStations.append(objectsIn: gasStations.map({ $0.mapToRealmObject() }))
-        return model
-    }
-    
-    static func mapFromRealmObject(_ gasStation: GetAllGasStationRealm) -> GetAllGasStation {
-        return GetAllGasStation(date: gasStation._date,
-                                gasStations: gasStation.gasStations.map({ GasStation.mapFromRealmObject($0) }))
-    }
-}
-
 extension GasStation {
     func mapToRealmObject() -> GasStationRealm {
         let model = GasStationRealm()
         model._id = id
         model.address = address
+        model.schedule = schedule
         model.city = city
         model.latitude = location.latitude.replacingOccurrences(of: ",", with: ".")
         model.longitude = location.longitude.replacingOccurrences(of: ",", with: ".")
@@ -130,6 +126,7 @@ extension GasStation {
                           location: Location(latitude: gasStation.latitude,
                                              longitude: gasStation.longitude),
                           address: gasStation.address,
+                          schedule: gasStation.schedule,
                           city: gasStation.city,
                           province: gasStation.province,
                           company: gasStation.company,
@@ -150,6 +147,7 @@ extension GasStation {
                                                       location: Location(latitude: "",
                                                                          longitude: ""),
                                                       address: "c/test",
+                                                      schedule: "",
                                                       city: "testCity",
                                                       province: "testProvince",
                                                       company: "companyTest",
@@ -167,6 +165,7 @@ extension GasStation {
                                                       location: Location(latitude: "",
                                                                          longitude: ""),
                                                       address: "c/test2",
+                                                      schedule: "",
                                                       city: "testCity2",
                                                       province: "testProvince2",
                                                       company: "companyTest2",
@@ -184,6 +183,7 @@ extension GasStation {
                                                       location: Location(latitude: "",
                                                                          longitude: ""),
                                                       address: "c/test3",
+                                                      schedule: "",
                                                       city: "testCity3",
                                                       province: "testProvince3",
                                                       company: "companyTest3",

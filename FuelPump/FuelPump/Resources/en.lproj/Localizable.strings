@@ -13,4 +13,10 @@
 "onboarding.selector.title" = "Elige tu tipo de combustible";
 "onboarding.selector.subtitle" = "Seleccione una opción:";
 
+"list.title" = "Encuentra las gasolineras más rentables";
+
+"gas.station.details.address" = "Dirección";
+"gas.station.details.schedule" = "Horario";
+
 "button.next" = "Siguiente";
+"button.navigate.station" = "Ir hasta la estación";
