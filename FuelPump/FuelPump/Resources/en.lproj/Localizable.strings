@@ -20,3 +20,5 @@
 
 "button.next" = "Siguiente";
 "button.navigate.station" = "Ir hasta la estación";
+"action.sheet.open.in" = "Abrir en";
+"action.sheet.dismiss" = "Cerrar";

@@ -14,7 +14,6 @@ class GasStationDetailsViewModel: ObservableObject {
     @Published var address: String = ""
     @Published var schedule: String = ""
     @Published var fuelPrices: [FuelType: Double] = [:]
-    @Published var addressURL: URL?
     @Published var distance: String = ""
 
     private let station: GasStation
@@ -28,7 +27,13 @@ class GasStationDetailsViewModel: ObservableObject {
         self.address = station.address
         self.schedule = station.schedule
         self.fuelPrices = station.prices
-        self.addressURL = URL(string: "maps://?saddr=&daddr=\(station.location.latitude),\(station.location.longitude)")
         self.distance = String(Int(locationManager.getDistance(to: station.location))) + " m"
+    }
+}
+
+extension GasStationDetailsViewModel {
+    func getMapAppURL(_ app: MapApp) -> URL? {
+        return URL(string: app.appUrl(location: Location(latitude: station.location.latitude,
+                                                         longitude: station.location.longitude)))
     }
 }
