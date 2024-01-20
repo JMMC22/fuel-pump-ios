@@ -9,23 +9,20 @@ import Foundation
 import SwiftUI
 import Combine
 
-final class OnboardingFuelSelectorViewModel: OnboardingFuelSelectorFlowState {
+final class OnboardingFuelSelectorViewModel: ObservableObject {
 
     @Published var fuelOptions: [SelectorOption]
     @Published var fuelSelectedOption: SelectorOption
-    
+
+    @Published var page: AppCoordinator.Page?
+
     private let updateUserFuelUseCase: UpdateUserFuelTypeUseCase
     private var cancellables = Set<AnyCancellable>()
 
-    init(path: Binding<NavigationPath>, updateUserFuelUseCase: UpdateUserFuelTypeUseCase) {
+    init(updateUserFuelUseCase: UpdateUserFuelTypeUseCase = DefaultUpdateUserFuelTypeUseCase(userRepository: DefaultUserRepository())) {
         self.fuelOptions = FuelType.allCases.map({ SelectorOption(key: $0.rawValue, value: $0.rawValue)})
         self.fuelSelectedOption = SelectorOption(key: FuelType.dieselA.rawValue, value: FuelType.dieselA.rawValue)
         self.updateUserFuelUseCase = updateUserFuelUseCase
-        super.init(path: path)
-    }
-
-    func navigateToGasStationList() {
-        path.append(OnboardingFuelSelectorLink.gasStationsList)
     }
 
     func saveUserFuelSelection() {
@@ -42,5 +39,9 @@ final class OnboardingFuelSelectorViewModel: OnboardingFuelSelectorFlowState {
         case .failure(let error):
             print("||ERROR|| saveUserFuelSelection: \(error.localizedDescription)")
         }
+    }
+
+    func navigateToGasStationList() {
+        page = .gasStationsList
     }
 }

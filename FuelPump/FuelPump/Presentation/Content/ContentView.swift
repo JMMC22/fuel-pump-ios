@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @StateObject private var viewModel = ContentViewModel()
+
     var body: some View {
-        NavigationStack {
-            SplashView()
+        Group {
+            content()
+        }
+        .task {
+            viewModel.viewDidLoad()
+        }
+    }
+    
+    @ViewBuilder
+    private func content() -> some View {
+        if !viewModel.isLoading, viewModel.splashAnimationEnded {
+            if viewModel.isLogged {
+                AppCoordinatorView(rootPage: .gasStationsList)
+            } else {
+                AppCoordinatorView(rootPage: .onboarding)
+            }
+        } else {
+            SplashView(animationEnded: $viewModel.splashAnimationEnded)
         }
     }
 }

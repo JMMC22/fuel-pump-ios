@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GasStationListView: View {
 
+    @EnvironmentObject private var coordinator: AppCoordinator
     @StateObject private var viewModel: GasStationListViewModel
 
     init() {
@@ -20,7 +21,7 @@ struct GasStationListView: View {
     }
 
     var body: some View {
-        GasStationListFlowCoordinator(state: viewModel, content: content)
+        content()
     }
 
     private func content() -> some View {
@@ -40,6 +41,7 @@ struct GasStationListView: View {
         .task {
             viewModel.viewDidLoad()
         }
+        .toolbar(.hidden)
     }
 
     private var title: some View {
@@ -51,7 +53,7 @@ struct GasStationListView: View {
         GasStationList(result: viewModel.result,
                        favouriteFuel: viewModel.favouriteFuel,
                        isLoading: viewModel.isLoading) { station in
-            viewModel.navigateToGasStationDetails(station)
+            coordinator.presentedItem = .gasStationDetails(station)
         }
     }
 }

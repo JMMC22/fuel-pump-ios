@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
 
+    @EnvironmentObject private var coordinator: AppCoordinator
     @StateObject private var viewModel: OnboardingViewModel
 
     init() {
@@ -18,10 +19,6 @@ struct OnboardingView: View {
     }
 
     var body: some View {
-        OnboardingFlowCoordinator(state: viewModel, content: content)
-    }
-
-    @ViewBuilder private func content() -> some View {
         VStack {
 
             Image("onboarding")
@@ -40,7 +37,7 @@ struct OnboardingView: View {
             Spacer()
 
             FPButton(text: "button.next", action: {
-                viewModel.navigateToFuelSelector()
+                coordinator.push(.fuelselector)
             })
             .disabled(viewModel.isButtonEnabled == false)
         }
@@ -49,6 +46,7 @@ struct OnboardingView: View {
         .onAppear {
             viewModel.viewDidLoad()
         }
+        .toolbar(.hidden)
     }
 }
 

@@ -9,17 +9,14 @@ import SwiftUI
 
 struct OnboardingFuelSelectorView: View {
 
+    @EnvironmentObject private var coordinator: AppCoordinator
     @StateObject private var viewModel: OnboardingFuelSelectorViewModel
 
-    init(viewModel: OnboardingFuelSelectorViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init() {
+        self._viewModel = StateObject(wrappedValue: OnboardingFuelSelectorViewModel())
     }
 
     var body: some View {
-        OnboardingFuelSelectorFlowCoordinator(state: viewModel, content: content)
-    }
-
-    @ViewBuilder private func content() -> some View {
         VStack(alignment: .leading, spacing: 18) {
 
             Text("onboarding.selector.title" )
@@ -38,6 +35,11 @@ struct OnboardingFuelSelectorView: View {
         }
         .padding(.vertical, 51)
         .padding(.horizontal, 34)
-
+        .onReceive(viewModel.$page) { page in
+            if let page {
+                coordinator.push(page)
+            }
+        }
+        .toolbar(.hidden)
     }
 }
