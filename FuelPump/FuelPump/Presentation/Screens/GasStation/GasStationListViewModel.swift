@@ -82,9 +82,9 @@ extension GasStationListViewModel {
     private func handleCompletion(completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
-            print("||DEBUG|| getUser: Finished")
+            print("||DEBUG|| getUser operation: Successfully completed.")
         case .failure(let error):
-            print("Error: \(error)")
+            print("||ERROR|| getUser operation failed with error: \(error)")
         }
     }
 
