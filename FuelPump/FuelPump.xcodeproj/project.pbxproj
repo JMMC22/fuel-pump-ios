@@ -73,6 +73,9 @@
 		B5BB7DBF2B590E9D00EF8F69 /* FuelRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB7DBE2B590E9D00EF8F69 /* FuelRange.swift */; };
 		B5BB7DC22B59625300EF8F69 /* GasStationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB7DC12B59625300EF8F69 /* GasStationList.swift */; };
 		B5D259632B558FBA00E80261 /* GetUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D259622B558FBA00E80261 /* GetUserUseCase.swift */; };
+		B5D678B52B5C021C008D365D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D678B42B5C021C008D365D /* MainView.swift */; };
+		B5D678B72B5C0228008D365D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D678B62B5C0228008D365D /* MainViewModel.swift */; };
+		B5D678BA2B5C02B7008D365D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D678B92B5C02B7008D365D /* SettingsView.swift */; };
 		B5EF60F52A549CBC005C3D67 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF60F42A549CBC005C3D67 /* SplashView.swift */; };
 		B5FB2FFC2A582A410021015E /* FPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB2FFB2A582A410021015E /* FPButton.swift */; };
 		B5FB2FFF2A584DFA0021015E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB2FFE2A584DFA0021015E /* LocationManager.swift */; };
@@ -151,6 +154,9 @@
 		B5BB7DBE2B590E9D00EF8F69 /* FuelRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelRange.swift; sourceTree = "<group>"; };
 		B5BB7DC12B59625300EF8F69 /* GasStationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStationList.swift; sourceTree = "<group>"; };
 		B5D259622B558FBA00E80261 /* GetUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserUseCase.swift; sourceTree = "<group>"; };
+		B5D678B42B5C021C008D365D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B5D678B62B5C0228008D365D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B5D678B92B5C02B7008D365D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B5EF60F42A549CBC005C3D67 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		B5FB2FFB2A582A410021015E /* FPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPButton.swift; sourceTree = "<group>"; };
 		B5FB2FFE2A584DFA0021015E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -230,7 +236,9 @@
 			isa = PBXGroup;
 			children = (
 				46E1FC912979CCDD009FAE81 /* GasStation */,
+				B5D678B32B5C0170008D365D /* Main */,
 				B589E8402A5737B100D142C5 /* Onboarding */,
+				B5D678B82B5C02A8008D365D /* Settings */,
 				B5EF60F32A549CA9005C3D67 /* Splash */,
 			);
 			path = Screens;
@@ -569,6 +577,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B5D678B32B5C0170008D365D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B5D678B42B5C021C008D365D /* MainView.swift */,
+				B5D678B62B5C0228008D365D /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B5D678B82B5C02A8008D365D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B5D678B92B5C02B7008D365D /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		B5EF60F32A549CA9005C3D67 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,12 +781,15 @@
 				B5A9F3542AB0E45900085536 /* UserRepository.swift in Sources */,
 				B527BC3A2B5AB54D00408960 /* AppCoordinatorView.swift in Sources */,
 				B5295E052A17D1410061E2F1 /* FPTypography.swift in Sources */,
+				B5D678B72B5C0228008D365D /* MainViewModel.swift in Sources */,
 				B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */,
 				46F3890C297C541F0090A5CB /* DefaultGasStationRepository.swift in Sources */,
 				B53985532A2517FF00E92395 /* FuelType.swift in Sources */,
 				466B990D2979C2A800C9F4DF /* RealmDataManager.swift in Sources */,
+				B5D678BA2B5C02B7008D365D /* SettingsView.swift in Sources */,
 				B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */,
 				4616F8D029A0D8FC0040ED6F /* GasStationListViewModel.swift in Sources */,
+				B5D678B52B5C021C008D365D /* MainView.swift in Sources */,
 				4688A5FA29AA7D2D00BC52F8 /* GasStationRealm.swift in Sources */,
 				B58E42A52B57B8CB00DC0ABA /* GasStationDetailsView.swift in Sources */,
 				463F5FC929773144003C9E39 /* HttpClient.swift in Sources */,

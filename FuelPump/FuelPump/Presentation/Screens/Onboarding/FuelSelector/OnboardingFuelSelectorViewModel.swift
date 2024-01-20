@@ -35,13 +35,13 @@ final class OnboardingFuelSelectorViewModel: ObservableObject {
     private func handleCompletion(completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
-            navigateToGasStationList()
+            navigateToMain()
         case .failure(let error):
             print("||ERROR|| saveUserFuelSelection: \(error.localizedDescription)")
         }
     }
 
-    func navigateToGasStationList() {
-        page = .gasStationsList
+    private func navigateToMain() {
+        page = .main
     }
 }
