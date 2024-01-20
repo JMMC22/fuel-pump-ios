@@ -23,7 +23,7 @@ struct FPButton: View {
     var body: some View {
         Button(action: { action() }, label: {
             Text(LocalizedStringKey(text))
-                .fpTextStyle(.button, color: .white)
+                .FPFont(.Inter(16, weight: .extraBold), color: .white)
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity)
         })

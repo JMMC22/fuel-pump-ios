@@ -46,7 +46,7 @@ struct GasStationListView: View {
 
     private var title: some View {
         Text("list.title")
-            .fpTextStyle(.heading1, color: .black)
+            .FPFont(.Inter(24, weight: .bold), color: .black)
     }
 
     private var list: some View {

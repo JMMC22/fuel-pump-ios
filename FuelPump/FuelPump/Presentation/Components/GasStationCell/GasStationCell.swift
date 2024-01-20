@@ -27,13 +27,13 @@ struct GasStationCell: View {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(alignment: .center, spacing: 4) {
                         Text(viewModel.companyName)
-                            .fpTextStyle(.heading4)
+                            .FPFont(.Inter(16, weight: .bold), color: .black)
                         Text(viewModel.distance)
-                            .fpTextStyle(.caption, color: .textGray)
+                            .FPFont(.Inter(12, weight: .regular), color: .textGray)
                     }
 
                     Text(viewModel.address)
-                        .fpTextStyle(.caption, color: .textGray)
+                        .FPFont(.Inter(12, weight: .regular), color: .textGray)
                         .lineLimit(1)
                 }
             }
@@ -42,7 +42,7 @@ struct GasStationCell: View {
             Spacer()
 
             Text(viewModel.price)
-                .fpTextStyle(.heading4, color: .white)
+                .FPFont(.Inter(16, weight: .bold), color: .white)
                 .padding()
                 .background(
                     Rectangle()

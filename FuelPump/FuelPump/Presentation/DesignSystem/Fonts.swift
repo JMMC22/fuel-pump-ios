@@ -40,6 +40,6 @@ extension Font {
 
 extension UIFont {
     class func font(type: FontType, weight: FontWeight, size: CGFloat) -> UIFont {
-        return UIFont(name: type.name + weight.name, size: size)!
+        return UIFont(name: type.name + weight.name, size: size) ?? UIFont.systemFont(ofSize: size)
     }
 }
