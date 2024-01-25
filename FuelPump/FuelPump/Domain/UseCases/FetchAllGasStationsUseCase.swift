@@ -16,7 +16,7 @@ class DefaultFetchAllGasStationsUseCase: FetchAllGasStationsUseCase {
 
     var gasStationRepository: GasStationRepository
 
-    init(gasStationRepository: GasStationRepository) {
+    init(gasStationRepository: GasStationRepository = DefaultGasStationRepository()) {
         self.gasStationRepository = gasStationRepository
     }
 
