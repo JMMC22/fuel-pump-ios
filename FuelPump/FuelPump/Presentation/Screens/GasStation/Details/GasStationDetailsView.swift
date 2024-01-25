@@ -10,6 +10,7 @@ import SwiftUI
 struct GasStationDetailsView: View {
 
     @StateObject private var viewModel: GasStationDetailsViewModel
+    @State private var showAppsSelector: Bool = false
 
     init(_ station: GasStation) {
         self._viewModel = StateObject(wrappedValue: GasStationDetailsViewModel(station: station))
@@ -22,7 +23,33 @@ struct GasStationDetailsView: View {
                                        address: viewModel.address,
                                        schedule: viewModel.schedule,
                                        prices: viewModel.fuelPrices,
-                                       addressURL: viewModel.addressURL)
+                                       showAppsSelector: $showAppsSelector)
+        .actionSheet(isPresented: $showAppsSelector) {
+            ActionSheet(
+                title: Text("action.sheet.open.in"),
+                message: nil,
+                buttons: getDirectionApps()
+            )
+        }
+    }
+    
+    private func getDirectionApps() -> [ActionSheet.Button] {
+        let buttons: [ActionSheet.Button] = MapApp.availableApps.map { navigationApp in
+            ActionSheet.Button.default(
+                Text(navigationApp.appName),
+                action: {
+                    navigateToApp(navigationApp)
+                }
+            )
+        }
+
+        let cancelAction = ActionSheet.Button.cancel(Text("action.sheet.dismiss"))
+        return buttons + [cancelAction]
+    }
+
+    private func navigateToApp(_ app: MapApp) {
+        guard let url = viewModel.getMapAppURL(app) else { return }
+        UIApplication.shared.open(url, options: [:])
     }
 }
 
@@ -34,7 +61,7 @@ struct GasStationDetailsContainerView: View {
     let address: String
     let schedule: String
     let prices: [FuelType: Double]
-    let addressURL: URL?
+    @Binding var showAppsSelector: Bool
 
     init(companyName: String,
          distance: String,
@@ -42,14 +69,14 @@ struct GasStationDetailsContainerView: View {
          address: String,
          schedule: String,
          prices: [FuelType: Double],
-         addressURL: URL?) {
+         showAppsSelector: Binding<Bool> = .constant(false)) {
         self.companyName = companyName
         self.distance = distance
         self.companyIcon = companyIcon
         self.address = address
         self.schedule = schedule
         self.prices = prices
-        self.addressURL = addressURL
+        self._showAppsSelector = showAppsSelector
     }
 
     var body: some View {
@@ -122,12 +149,8 @@ struct GasStationDetailsContainerView: View {
 
     @ViewBuilder
     private var navigationButton: some View {
-        if let addressURL {
-            FPButton(text: "button.navigate.station") {
-                if UIApplication.shared.canOpenURL(addressURL) {
-                    UIApplication.shared.open(addressURL, options: [:], completionHandler: nil)
-                }
-            }
+        FPButton(text: "button.navigate.station") {
+            showAppsSelector = true
         }
     }
 }
@@ -142,7 +165,6 @@ struct GasStationDetailsContainerView_Previews: PreviewProvider {
                                        prices: [.dieselA: 1.5,
                                                 .dieselB: 1.5,
                                                 .gasoline95_E5: 1.5
-                                               ],
-                                       addressURL: nil)
+                                               ])
     }
 }

@@ -18,7 +18,9 @@ extension AppCoordinator {
         case fuelselector
         case gasStationDetails(_ station: GasStation)
         case gasStationsList
+        case main
         case onboarding
+        case settings
         
         var id: String {
             String(describing: self)
@@ -46,7 +48,7 @@ extension AppCoordinator {
     func dismissSheet() {
         self.presentedItem = nil
     }
-    
+
     @ViewBuilder
     func build(page: AppCoordinator.Page) -> some View {
         switch page {
@@ -56,8 +58,12 @@ extension AppCoordinator {
             GasStationDetailsView(station)
         case .gasStationsList:
             GasStationListView()
+        case .main:
+            MainView()
         case .onboarding:
             OnboardingView()
+        case .settings:
+            SettingsView()
         }
     }
 }

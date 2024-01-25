@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SplashView: View {
-    
+
+    @StateObject private var viewModel: SplashViewModel = SplashViewModel()
     @Binding var animationEnded: Bool
 
     var body: some View {
@@ -22,6 +23,7 @@ struct SplashView: View {
                 .frame(width: 150, height: 150)
         }
         .onAppear {
+            viewModel.viewDidLoad()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 animationEnded = true
             }
