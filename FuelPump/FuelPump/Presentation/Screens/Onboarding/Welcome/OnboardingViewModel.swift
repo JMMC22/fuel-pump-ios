@@ -8,23 +8,20 @@
 import Foundation
 import CoreLocation
 import Combine
+import BackgroundTasks
 
 final class OnboardingViewModel: ObservableObject {
 
     @Published var isButtonEnabled: Bool = false
 
     private let locationManager: LocationManager
-    private let fetchAllGasStationsUseCase: FetchAllGasStationsUseCase
     private var cancellables = Set<AnyCancellable>()
 
-    init(locationManager: LocationManager = LocationManager.shared,
-         fetchAllGasStationsUseCase: FetchAllGasStationsUseCase) {
+    init(locationManager: LocationManager = LocationManager.shared) {
         self.locationManager = locationManager
-        self.fetchAllGasStationsUseCase = fetchAllGasStationsUseCase
     }
 
     func viewDidLoad() {
-        fetchAndSaveAllGasStations()
         locationManager.requestLocationPermissions()
         subscribeToLocationStatus()
     }
@@ -44,29 +41,6 @@ extension OnboardingViewModel {
                 self.isButtonEnabled = false
             }
         }.store(in: &cancellables)
-    }
-}
-
-extension OnboardingViewModel {
-    private func fetchAndSaveAllGasStations() {
-        fetchAllGasStationsUseCase
-            .execute()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: handleCompletion, receiveValue: handleSuccess)
-            .store(in: &cancellables)
-    }
-
-    private func handleCompletion(completion: Subscribers.Completion<Error>) {
-        switch completion {
-        case .finished:
-            print("||DEBUG|| fetchAllGasStationsUseCase: FINISHED")
-        case .failure(_):
-            print("||DEBUG|| fetchAllGasStationsUseCase: ERROR")
-        }
-    }
-
-    private func handleSuccess() {
-        print("||DEBUG|| fetchAllGasStationsUseCase: OK")
     }
 }
 

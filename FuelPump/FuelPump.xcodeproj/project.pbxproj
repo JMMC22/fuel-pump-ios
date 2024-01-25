@@ -31,8 +31,8 @@
 		46F74A50296DEFE9002BFF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A4F296DEFE9002BFF64 /* Assets.xcassets */; };
 		46F74A53296DEFE9002BFF64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A52296DEFE9002BFF64 /* Preview Assets.xcassets */; };
 		46F74A5F296DF8D8002BFF64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A61296DF8D8002BFF64 /* Localizable.strings */; };
-		B50D5C722B5BA90D00707269 /* MapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C712B5BA90D00707269 /* MapApp.swift */; };
 		B50D5C702B5BA4E600707269 /* FPFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C6F2B5BA4E600707269 /* FPFont.swift */; };
+		B50D5C722B5BA90D00707269 /* MapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C712B5BA90D00707269 /* MapApp.swift */; };
 		B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */; };
 		B527BC382B5AB29600408960 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B527BC372B5AB29600408960 /* AppCoordinator.swift */; };
 		B527BC3A2B5AB54D00408960 /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B527BC392B5AB54D00408960 /* AppCoordinatorView.swift */; };
@@ -114,8 +114,8 @@
 		46F74A60296DF8D8002BFF64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46F74A62296DF8DB002BFF64 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FuelPump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B50D5C712B5BA90D00707269 /* MapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApp.swift; sourceTree = "<group>"; };
 		B50D5C6F2B5BA4E600707269 /* FPFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPFont.swift; sourceTree = "<group>"; };
+		B50D5C712B5BA90D00707269 /* MapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApp.swift; sourceTree = "<group>"; };
 		B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGasStationsUseCase.swift; sourceTree = "<group>"; };
 		B527BC372B5AB29600408960 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B527BC392B5AB54D00408960 /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
@@ -796,7 +796,6 @@
 				B5A9F3562AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift in Sources */,
 				B5A9F3542AB0E45900085536 /* UserRepository.swift in Sources */,
 				B527BC3A2B5AB54D00408960 /* AppCoordinatorView.swift in Sources */,
-				B5295E052A17D1410061E2F1 /* FPTypography.swift in Sources */,
 				B5D678B72B5C0228008D365D /* MainViewModel.swift in Sources */,
 				B58E9B102A190602005DB286 /* GasStationDTO.swift in Sources */,
 				46F3890C297C541F0090A5CB /* DefaultGasStationRepository.swift in Sources */,
@@ -967,6 +966,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FuelPump/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Esta app necesita tu localización para mostrarte la información más cercana a ti.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -998,6 +998,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FuelPump/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Esta app necesita tu localización para mostrarte la información más cercana a ti.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
