@@ -31,6 +31,7 @@ class GasStationCellViewModel: ObservableObject {
         self.price = String(gasStation.getFavouriteFuelPrice(favouriteFuel)) + " €/L"
         let range = gasStation.getFuelRange(favouriteFuel, maxPrice: maxPrice, minPrice: minPrice)
         self.color = range == .high ? .redStatus : range == .middle ? .orangeStatus : .greenStatus
-        self.distance = String(Int(locationManager.getDistance(to: gasStation.location))) + " m"
+        let distance = locationManager.getDistance(to: gasStation.location)
+        self.distance = distance < 1000 ? "\(distance) m" : String(format: "%.1f km", (distance / 1000))
     }
 }
