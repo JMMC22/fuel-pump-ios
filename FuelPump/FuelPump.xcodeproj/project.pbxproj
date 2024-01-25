@@ -31,6 +31,7 @@
 		46F74A50296DEFE9002BFF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A4F296DEFE9002BFF64 /* Assets.xcassets */; };
 		46F74A53296DEFE9002BFF64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A52296DEFE9002BFF64 /* Preview Assets.xcassets */; };
 		46F74A5F296DF8D8002BFF64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A61296DF8D8002BFF64 /* Localizable.strings */; };
+		B50D5C722B5BA90D00707269 /* MapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C712B5BA90D00707269 /* MapApp.swift */; };
 		B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */; };
 		B527BC382B5AB29600408960 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B527BC372B5AB29600408960 /* AppCoordinator.swift */; };
 		B527BC3A2B5AB54D00408960 /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B527BC392B5AB54D00408960 /* AppCoordinatorView.swift */; };
@@ -113,6 +114,7 @@
 		46F74A60296DF8D8002BFF64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46F74A62296DF8DB002BFF64 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FuelPump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50D5C712B5BA90D00707269 /* MapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApp.swift; sourceTree = "<group>"; };
 		B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGasStationsUseCase.swift; sourceTree = "<group>"; };
 		B527BC372B5AB29600408960 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B527BC392B5AB54D00408960 /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				B5BB7DBD2B590E7C00EF8F69 /* Fuel */,
 				4688A5F829AA7D1B00BC52F8 /* GasStation */,
 				B58E42B22B58198500DC0ABA /* GetAllGasStation */,
+				B50D5C732B5BAA0D00707269 /* MapApp */,
 				B5A9F34E2AB0E2F900085536 /* User */,
 			);
 			path = Entities;
@@ -425,6 +428,14 @@
 				46F74A61296DF8D8002BFF64 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B50D5C732B5BAA0D00707269 /* MapApp */ = {
+			isa = PBXGroup;
+			children = (
+				B50D5C712B5BA90D00707269 /* MapApp.swift */,
+			);
+			path = MapApp;
 			sourceTree = "<group>";
 		};
 		B527BC362B5AB28200408960 /* Navigation */ = {
@@ -758,6 +769,7 @@
 				46E1FC902979CCDA009FAE81 /* GasStationListView.swift in Sources */,
 				B58E42BA2B582F9700DC0ABA /* GasStationIcon.swift in Sources */,
 				B58E42B02B57C3F500DC0ABA /* GasStationDetailsViewModel.swift in Sources */,
+				B50D5C722B5BA90D00707269 /* MapApp.swift in Sources */,
 				4688A5FC29AA7FB900BC52F8 /* RealmProvider.swift in Sources */,
 				46F74A4E296DEFE8002BFF64 /* ContentView.swift in Sources */,
 				B5BB7DBF2B590E9D00EF8F69 /* FuelRange.swift in Sources */,
