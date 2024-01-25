@@ -20,3 +20,6 @@
 
 "button.next" = "Siguiente";
 "button.navigate.station" = "Ir hasta la estación";
+
+"main.home" = "Inicio";
+"main.settings" = "Configuración";
