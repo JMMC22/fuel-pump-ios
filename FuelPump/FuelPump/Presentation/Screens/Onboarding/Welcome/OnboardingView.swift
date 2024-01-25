@@ -25,11 +25,11 @@ struct OnboardingView: View {
 
             VStack(spacing: 24) {
                 Text("onboarding.welcome")
-                    .fpTextStyle(.heading1, color: .black)
+                    .FPFont(.Inter(24, weight: .bold), color: .black)
                 Text("onboarding.description")
-                    .fpTextStyle(.description, color: .textGray)
+                    .FPFont(.Inter(14, weight: .light), color: .textGray)
                 Text("onboarding.permissions")
-                    .fpTextStyle(.description, color: .textGray)
+                    .FPFont(.Inter(14, weight: .light), color: .textGray)
             }
             .multilineTextAlignment(.center)
             .padding(.top, 65)

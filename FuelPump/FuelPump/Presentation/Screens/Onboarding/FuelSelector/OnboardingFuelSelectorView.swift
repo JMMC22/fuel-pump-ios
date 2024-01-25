@@ -20,10 +20,10 @@ struct OnboardingFuelSelectorView: View {
         VStack(alignment: .leading, spacing: 18) {
 
             Text("onboarding.selector.title" )
-                .fpTextStyle(.heading1, color: .black)
+                .FPFont(.Inter(24, weight: .bold), color: .black)
             
             Text("onboarding.selector.subtitle" )
-                .fpTextStyle(.description, color: .textGray)
+                .FPFont(.Inter(14, weight: .light), color: .textGray)
 
             ListSelector(options: viewModel.fuelOptions, selectedOption: $viewModel.fuelSelectedOption)
 

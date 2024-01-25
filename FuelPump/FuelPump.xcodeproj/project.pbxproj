@@ -32,6 +32,7 @@
 		46F74A53296DEFE9002BFF64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A52296DEFE9002BFF64 /* Preview Assets.xcassets */; };
 		46F74A5F296DF8D8002BFF64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46F74A61296DF8D8002BFF64 /* Localizable.strings */; };
 		B50D5C722B5BA90D00707269 /* MapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C712B5BA90D00707269 /* MapApp.swift */; };
+		B50D5C702B5BA4E600707269 /* FPFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C6F2B5BA4E600707269 /* FPFont.swift */; };
 		B50FBE982A1543B00037D4E6 /* GetGasStationsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */; };
 		B527BC382B5AB29600408960 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B527BC372B5AB29600408960 /* AppCoordinator.swift */; };
 		B527BC3A2B5AB54D00408960 /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B527BC392B5AB54D00408960 /* AppCoordinatorView.swift */; };
@@ -46,7 +47,6 @@
 		B5295E012A17CFBC0061E2F1 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5295DF82A17CFBB0061E2F1 /* Inter-SemiBold.ttf */; };
 		B5295E022A17CFBC0061E2F1 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5295DF92A17CFBB0061E2F1 /* Inter-Light.ttf */; };
 		B5295E032A17CFBC0061E2F1 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5295DFA2A17CFBC0061E2F1 /* Inter-Bold.ttf */; };
-		B5295E052A17D1410061E2F1 /* FPTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E042A17D1410061E2F1 /* FPTypography.swift */; };
 		B5295E072A17D1B40061E2F1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E062A17D1B40061E2F1 /* Fonts.swift */; };
 		B5295E0A2A17D2BA0061E2F1 /* ScaledFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */; };
 		B5315CCE2AA8C400000D0560 /* ListSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5315CCD2AA8C400000D0560 /* ListSelector.swift */; };
@@ -115,6 +115,7 @@
 		46F74A62296DF8DB002BFF64 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9DBD40EE42B600023C4EEC89 /* Pods_FuelPump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FuelPump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50D5C712B5BA90D00707269 /* MapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApp.swift; sourceTree = "<group>"; };
+		B50D5C6F2B5BA4E600707269 /* FPFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPFont.swift; sourceTree = "<group>"; };
 		B50FBE972A1543B00037D4E6 /* GetGasStationsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGasStationsUseCase.swift; sourceTree = "<group>"; };
 		B527BC372B5AB29600408960 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B527BC392B5AB54D00408960 /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
@@ -129,7 +130,6 @@
 		B5295DF82A17CFBB0061E2F1 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		B5295DF92A17CFBB0061E2F1 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		B5295DFA2A17CFBC0061E2F1 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
-		B5295E042A17D1410061E2F1 /* FPTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTypography.swift; sourceTree = "<group>"; };
 		B5295E062A17D1B40061E2F1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		B5295E092A17D2BA0061E2F1 /* ScaledFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledFont.swift; sourceTree = "<group>"; };
 		B5315CCD2AA8C400000D0560 /* ListSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelector.swift; sourceTree = "<group>"; };
@@ -452,7 +452,7 @@
 			children = (
 				B589E83E2A57333300D142C5 /* Colors.swift */,
 				B5295E062A17D1B40061E2F1 /* Fonts.swift */,
-				B5295E042A17D1410061E2F1 /* FPTypography.swift */,
+				B50D5C6F2B5BA4E600707269 /* FPFont.swift */,
 				B5295DF12A17CFA40061E2F1 /* Fonts */,
 				B5295E082A17D2AB0061E2F1 /* Modifiers */,
 			);
@@ -792,6 +792,7 @@
 				463F5FCB2977315C003C9E39 /* RequestError.swift in Sources */,
 				B5FB2FFF2A584DFA0021015E /* LocationManager.swift in Sources */,
 				46F74A4C296DEFE8002BFF64 /* FuelPumpApp.swift in Sources */,
+				B50D5C702B5BA4E600707269 /* FPFont.swift in Sources */,
 				B5A9F3562AB0E4D100085536 /* UpdateUserFuelTypeUseCase.swift in Sources */,
 				B5A9F3542AB0E45900085536 /* UserRepository.swift in Sources */,
 				B527BC3A2B5AB54D00408960 /* AppCoordinatorView.swift in Sources */,

@@ -35,7 +35,7 @@ struct ListSelectorRow: View {
             Spacer()
             Image(isOptionSelected ? "selector-selected" : "selector-unselected")
         }
-        .fpTextStyle(.list, color: .black)
+        .FPFont(.Inter(14, weight: .semiBold), color: .black)
         .onTapGesture {
             onSelect(option)
         }

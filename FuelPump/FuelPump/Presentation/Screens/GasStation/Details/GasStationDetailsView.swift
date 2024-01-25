@@ -95,9 +95,9 @@ struct GasStationDetailsContainerView: View {
             HStack {
                 GasStationIcon(iconName: companyIcon)
                 Text(companyName)
-                    .fpTextStyle(.heading4, color: .black)
+                    .FPFont(.Inter(16, weight: .bold), color: .black)
                 Text(distance)
-                    .fpTextStyle(.list, color: .textGray)
+                    .FPFont(.Inter(14, weight: .semiBold), color: .black)
                 Spacer()
             }
             Divider()
@@ -117,18 +117,18 @@ struct GasStationDetailsContainerView: View {
     private var addressContent: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("gas.station.details.address")
-                .fpTextStyle(.list, color: .black)
+                .FPFont(.Inter(14, weight: .semiBold), color: .black)
             Text(address)
-                .fpTextStyle(.description, color: .textGray)
+                .FPFont(.Inter(14, weight: .light), color: .black)
         }
     }
 
     private var scheduleContent: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("gas.station.details.schedule")
-                .fpTextStyle(.list, color: .black)
+                .FPFont(.Inter(14, weight: .semiBold), color: .black)
             Text(schedule)
-                .fpTextStyle(.description, color: .textGray)
+                .FPFont(.Inter(14, weight: .light), color: .black)
         }
     }
 
@@ -138,9 +138,9 @@ struct GasStationDetailsContainerView: View {
                 if let price = prices[fuel], price.isZero == false {
                     HStack {
                         Text(fuel.rawValue)
-                            .fpTextStyle(.heading4, color: .black)
+                            .FPFont(.Inter(16, weight: .bold), color: .black)
                         Text(String(price) + " €/L")
-                            .fpTextStyle(.heading4, color: .textGray)
+                            .FPFont(.Inter(16, weight: .bold), color: .textGray)
                     }
                 }
             }
