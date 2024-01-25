@@ -24,7 +24,7 @@ struct ContentView: View {
     private func content() -> some View {
         if !viewModel.isLoading, viewModel.splashAnimationEnded {
             if viewModel.isLogged {
-                AppCoordinatorView(rootPage: .gasStationsList)
+                MainView()
             } else {
                 AppCoordinatorView(rootPage: .onboarding)
             }
