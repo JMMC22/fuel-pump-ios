@@ -11,7 +11,7 @@ struct SettingsView: View {
 
     var body: some View {
         Text("Settings")
-            .fpTextStyle(.heading1, color: .black)
+            .FPFont(.Inter(24, weight: .bold), color: .black)
     }
 }
 
