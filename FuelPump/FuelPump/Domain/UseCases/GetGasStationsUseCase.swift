@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol GetGasStationsUseCase {
     var gasStationRepository: GasStationRepository { get set }
-    func execute(latitude: Double, longitude: Double, fuel: FuelType) -> GasStationsResult
+    func execute(by fuel: FuelType, latitude: Double, longitude: Double) -> AnyPublisher<GasStationsResult, Error>
 }
 
 class DefaultGetGasStationsUseCase: GetGasStationsUseCase {
@@ -20,7 +21,7 @@ class DefaultGetGasStationsUseCase: GetGasStationsUseCase {
         self.gasStationRepository = gasStationRepository
     }
 
-    func execute(latitude: Double, longitude: Double, fuel: FuelType) -> GasStationsResult {
-        return gasStationRepository.getGasStations(latitude: latitude, longitude: longitude, fuel: fuel, limit: 10)
+    func execute(by fuel: FuelType, latitude: Double, longitude: Double) -> AnyPublisher<GasStationsResult, Error> {
+        return gasStationRepository.getNearestGasStations(by: fuel, latitude: latitude, longitude: longitude, limit: 10)
     }
 }

@@ -36,17 +36,9 @@ class GasStationListViewModel: ObservableObject {
         subscribeToLocation()
         subscribeToLocationStatus()
     }
-
-    func getGasStations(latitude: Double, longitude: Double) {
-        let response = getGasStationsUseCase.execute(latitude: latitude, longitude: longitude, fuel: favouriteFuel)
-        handleGetGasStations(response)
-    }
-
-    private func handleGetGasStations(_ response: GasStationsResult) {
-        result = response
-    }
 }
 
+// MARK: - Location
 extension GasStationListViewModel {
     private func subscribeToLocationStatus() {
         locationManager.$status.sink { status in
@@ -90,5 +82,28 @@ extension GasStationListViewModel {
         if let user {
             favouriteFuel = user.fuelType
         }
+    }
+}
+
+// MARK: - Get Gas Stations
+extension GasStationListViewModel {
+    func getGasStations(latitude: Double, longitude: Double) {
+        getGasStationsUseCase.execute(by: favouriteFuel, latitude: latitude, longitude: longitude)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: handleGetGasStationsCompletion, receiveValue: handleGetGasStationsResponse)
+            .store(in: &cancellables)
+    }
+    
+    private func handleGetGasStationsCompletion(completion: Subscribers.Completion<Error>) {
+        switch completion {
+        case .finished:
+            print("||DEBUG|| getGasStations operation: Successfully completed.")
+        case .failure(let error):
+            print("||ERROR|| getGasStations operation failed with error: \(error)")
+        }
+    }
+
+    private func handleGetGasStationsResponse(result: GasStationsResult) {
+        self.result = result
     }
 }

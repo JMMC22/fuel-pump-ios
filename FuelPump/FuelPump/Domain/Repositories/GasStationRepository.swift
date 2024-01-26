@@ -9,7 +9,7 @@ import Combine
 
 protocol GasStationRepository {
     func fetchAllGasStations() -> AnyPublisher<Void, Error>
-    func getGasStations(latitude: Double, longitude: Double, fuel: FuelType, limit: Int)  -> GasStationsResult
+    func getNearestGasStations(by fuel: FuelType, latitude: Double, longitude: Double, limit: Int) -> AnyPublisher<GasStationsResult, Error>
     func maxPrice(of fuelType: FuelType, stations: [GasStation]) -> Double
     func minPrice(of fuelType: FuelType, stations: [GasStation]) -> Double
 }

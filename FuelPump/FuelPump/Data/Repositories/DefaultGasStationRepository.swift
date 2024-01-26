@@ -8,6 +8,12 @@
 import Foundation
 import Combine
 import CoreLocation
+import RealmSwift
+
+enum ErrorGasStationRepository: Error {
+    case noGasStationsFound
+    case realmNotAvailable
+}
 
 final class DefaultGasStationRepository {
 
@@ -22,37 +28,41 @@ final class DefaultGasStationRepository {
 }
 
 extension DefaultGasStationRepository: GasStationRepository {
-
-    func getGasStations(latitude: Double, longitude: Double, fuel: FuelType, limit: Int = 10)  -> GasStationsResult {
-        var allGasStations: [GasStation] = []
-        var date: String = ""
     
-        self.cacheService.fetch(GetAllGasStationRealm.self,
-                                predicate: nil,
-                                sorted: nil) { response in
-            if let last = response.last {
-                let result = GetAllGasStation.mapFromRealmObject(last)
-
-                let nonZeroPredicate = NSPredicate(format: "\(fuel.description) != 0")
-                allGasStations = last.gasStations.filter(nonZeroPredicate).compactMap({ GasStation.mapFromRealmObject($0) })
-                date = result.date
-            }
+    func getNearestGasStations(by fuel: FuelType, latitude: Double, longitude: Double, limit: Int = 10) -> AnyPublisher<GasStationsResult, Error> {
+        guard let realm = RealmProvider.default else {
+            return Fail(error: ErrorGasStationRepository.realmNotAvailable).eraseToAnyPublisher()
         }
-
-        guard allGasStations.isEmpty == false else {
-            return GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0, date: date)
+        
+        let results = realm.objects(GetAllGasStationRealm.self)
+        
+        return results.collectionPublisher
+            .tryMap { response in
+                guard let lastResult = response.last else {
+                    throw ErrorGasStationRepository.noGasStationsFound
+                }
+                
+                let result = GetAllGasStation.mapFromRealmObject(lastResult)
+                return self.handleGetAllGasStation(result.gasStations, fuel: fuel, latitude: latitude, longitude: longitude)
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private func handleGetAllGasStation(_ stations: [GasStation], fuel: FuelType, latitude: Double, longitude: Double, limit: Int = 10) -> GasStationsResult {
+        guard stations.isEmpty == false else {
+            return GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0, date: "")
         }
 
         guard !latitude.isZero, !longitude.isZero else {
-            let gasStations = Array(allGasStations.prefix(limit))
+            let gasStations = Array(stations.prefix(limit))
             let maxPrice = maxPrice(of: fuel, stations: gasStations)
             let minPrice = minPrice(of: fuel, stations: gasStations)
-            return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: date)
+            return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: "")
         }
 
         let userLocation = Location(latitude: String(latitude), longitude: String(longitude))
 
-        let sortedGasStations = allGasStations.sorted {
+        let sortedGasStations = stations.sorted {
             let distance1 = userLocation.calculateDistance(to: $0.location)
             let distance2 = userLocation.calculateDistance(to: $1.location)
 
@@ -62,7 +72,7 @@ extension DefaultGasStationRepository: GasStationRepository {
         let gasStations = Array(sortedGasStations.prefix(limit))
         let maxPrice = maxPrice(of: fuel, stations: gasStations)
         let minPrice = minPrice(of: fuel, stations: gasStations)
-        return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: date)
+        return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: "")
     }
 
     private func updateGasStations(response: GetAllGasStationRealm) {
