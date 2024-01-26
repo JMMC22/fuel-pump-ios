@@ -7,7 +7,7 @@ target 'FuelPump' do
 
   # Pods for FuelPump
   pod 'SwiftLint', '~> 0.50.3'
-  pod 'RealmSwift', '~> 10'
+  pod 'RealmSwift', '~> 10.46.0'
 
 end
 
