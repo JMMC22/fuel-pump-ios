@@ -28,7 +28,7 @@ class GasStationDetailsViewModel: ObservableObject {
         self.schedule = station.schedule
         self.fuelPrices = station.prices
         let distance = locationManager.getDistance(to: station.location)
-        self.distance = distance < 1000 ? "\(distance) m" : String(format: "%.1f km", (distance / 1000))
+        self.distance = distance < 1000 ? "\(Int(distance)) m" : String(format: "%.1f km", (distance / 1000))
     }
 }
 
