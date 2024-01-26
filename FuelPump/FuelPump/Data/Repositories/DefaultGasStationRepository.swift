@@ -25,24 +25,29 @@ extension DefaultGasStationRepository: GasStationRepository {
 
     func getGasStations(latitude: Double, longitude: Double, fuel: FuelType, limit: Int = 10)  -> GasStationsResult {
         var allGasStations: [GasStation] = []
-
-        let nonZeroPredicate = NSPredicate(format: "\(fuel.description) != 0")
-
-        self.cacheService.fetch(GasStationRealm.self,
-                                predicate: nonZeroPredicate,
+        var date: String = ""
+    
+        self.cacheService.fetch(GetAllGasStationRealm.self,
+                                predicate: nil,
                                 sorted: nil) { response in
-            allGasStations = response.map { GasStation.mapFromRealmObject($0) }
+            if let last = response.last {
+                let result = GetAllGasStation.mapFromRealmObject(last)
+
+                let nonZeroPredicate = NSPredicate(format: "\(fuel.description) != 0")
+                allGasStations = last.gasStations.filter(nonZeroPredicate).compactMap({ GasStation.mapFromRealmObject($0) })
+                date = result.date
+            }
         }
 
         guard allGasStations.isEmpty == false else {
-            return GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0)
+            return GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0, date: date)
         }
 
         guard !latitude.isZero, !longitude.isZero else {
             let gasStations = Array(allGasStations.prefix(limit))
             let maxPrice = maxPrice(of: fuel, stations: gasStations)
             let minPrice = minPrice(of: fuel, stations: gasStations)
-            return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice)
+            return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: date)
         }
 
         let userLocation = Location(latitude: String(latitude), longitude: String(longitude))
@@ -57,7 +62,7 @@ extension DefaultGasStationRepository: GasStationRepository {
         let gasStations = Array(sortedGasStations.prefix(limit))
         let maxPrice = maxPrice(of: fuel, stations: gasStations)
         let minPrice = minPrice(of: fuel, stations: gasStations)
-        return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice)
+        return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: date)
     }
 
     private func updateGasStations(response: GetAllGasStationRealm) {

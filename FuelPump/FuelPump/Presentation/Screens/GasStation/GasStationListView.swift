@@ -27,6 +27,7 @@ struct GasStationListView: View {
     private func content() -> some View {
         ScrollView {
             VStack(alignment: .leading) {
+                Text(viewModel.result.date)
                 title
                 list
             }

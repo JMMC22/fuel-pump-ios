@@ -10,7 +10,7 @@ import Combine
 
 class GasStationListViewModel: ObservableObject {
 
-    @Published var result: GasStationsResult = GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0)
+    @Published var result: GasStationsResult = GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0, date: "")
     @Published var isLoading: Bool = false
     @Published var error: Bool = false
     @Published var favouriteFuel: FuelType = .dieselA
@@ -43,9 +43,7 @@ class GasStationListViewModel: ObservableObject {
     }
 
     private func handleGetGasStations(_ response: GasStationsResult) {
-        result.gasStations = response.gasStations
-        result.maxPrice = response.maxPrice
-        result.minPrice = response.minPrice
+        result = response
     }
 }
 

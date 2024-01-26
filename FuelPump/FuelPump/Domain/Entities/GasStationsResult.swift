@@ -11,4 +11,5 @@ struct GasStationsResult {
     var gasStations: [GasStation]
     var maxPrice: Double
     var minPrice: Double
+    var date: String
 }

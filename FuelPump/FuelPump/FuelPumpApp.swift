@@ -39,9 +39,9 @@ extension FuelPumpApp {
         request.earliestBeginDate = Calendar.current.date(byAdding: .hour, value: 6, to: Date())
         do {
             try BGTaskScheduler.shared.submit(request)
-            print("||DEBUG||addBackgroundTaskDataRefresh operation: Successfully configured.")
+            print("||DEBUG|| addBackgroundTaskDataRefresh operation: Successfully configured.")
         } catch(let error) {
-            print("||DEBUG||addBackgroundTaskDataRefresh error operation: \(error.localizedDescription)")
+            print("||DEBUG|| addBackgroundTaskDataRefresh error operation: \(error.localizedDescription)")
         }
     }
 

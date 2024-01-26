@@ -34,7 +34,7 @@ struct GasStationList: View {
 struct GasStationList_Previews: PreviewProvider {
     static var previews: some View {
         GasStationList(result: GasStationsResult(gasStations: GasStation.mockedData,
-                                                 maxPrice: 1.8, minPrice: 1.0),
+                                                 maxPrice: 1.8, minPrice: 1.0, date: ""),
                        favouriteFuel: .dieselA,
                        isLoading: false) { _ in }
     }

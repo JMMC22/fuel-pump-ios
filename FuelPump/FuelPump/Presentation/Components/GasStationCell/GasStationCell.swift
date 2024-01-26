@@ -28,6 +28,7 @@ struct GasStationCell: View {
                     HStack(alignment: .center, spacing: 4) {
                         Text(viewModel.companyName)
                             .FPFont(.Inter(16, weight: .bold), color: .black)
+                            .lineLimit(1)
                         Text(viewModel.distance)
                             .FPFont(.Inter(12, weight: .regular), color: .textGray)
                     }
