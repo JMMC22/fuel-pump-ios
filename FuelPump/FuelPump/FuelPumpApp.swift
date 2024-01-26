@@ -25,6 +25,7 @@ struct FuelPumpApp: App {
         }
         .backgroundTask(.appRefresh("dataRefresh")) {
             print("||DEBUG|| Background task: dataRefresh")
+            let _ = DefaultGasStationRepository().fetchAllGasStations()
         }
     }
 }
@@ -33,8 +34,9 @@ struct FuelPumpApp: App {
 extension FuelPumpApp {
 
     func addBackgroundTaskDataRefresh() {
+        cancelBackgroundTaskDataRefresh()
         let request = BGAppRefreshTaskRequest(identifier: "dataRefresh")
-        request.earliestBeginDate = Calendar.current.date(byAdding: .second, value: 30, to: Date())
+        request.earliestBeginDate = Calendar.current.date(byAdding: .hour, value: 6, to: Date())
         do {
             try BGTaskScheduler.shared.submit(request)
             print("||DEBUG||addBackgroundTaskDataRefresh operation: Successfully configured.")
