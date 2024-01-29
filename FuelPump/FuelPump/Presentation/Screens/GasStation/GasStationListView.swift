@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GasStationListView: View {
 
+    @Environment(\.scenePhase) var scenePhase
+
     @EnvironmentObject private var coordinator: AppCoordinator
     @StateObject private var viewModel: GasStationListViewModel
 
@@ -43,6 +45,11 @@ struct GasStationListView: View {
             viewModel.viewDidLoad()
         }
         .toolbar(.hidden)
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                viewModel.viewDidLoad()
+            }
+        }
     }
 
     private var lastUpdate: some View {
