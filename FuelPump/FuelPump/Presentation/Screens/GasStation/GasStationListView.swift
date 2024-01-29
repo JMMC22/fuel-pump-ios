@@ -27,7 +27,7 @@ struct GasStationListView: View {
     private func content() -> some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text(viewModel.result.date)
+                lastUpdate
                 title
                 list
             }
@@ -43,6 +43,11 @@ struct GasStationListView: View {
             viewModel.viewDidLoad()
         }
         .toolbar(.hidden)
+    }
+
+    private var lastUpdate: some View {
+        Text(viewModel.result.date)
+            .FPFont(.Inter(12, weight: .regular), color: .textGray)
     }
 
     private var title: some View {

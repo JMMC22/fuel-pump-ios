@@ -41,23 +41,20 @@ extension DefaultGasStationRepository: GasStationRepository {
                 guard let lastResult = response.last else {
                     throw ErrorGasStationRepository.noGasStationsFound
                 }
-                
-                let result = GetAllGasStation.mapFromRealmObject(lastResult)
-                return self.handleGetAllGasStation(result.gasStations, fuel: fuel, latitude: latitude, longitude: longitude)
+
+                let nonZeroPredicate = NSPredicate(format: "\(fuel.description) != 0")
+                let gasStations: [GasStation] = lastResult.gasStations
+                                                     .filter(nonZeroPredicate)
+                                                     .compactMap({ GasStation.mapFromRealmObject($0) })
+
+                return self.handleGetAllGasStation(gasStations, fuel: fuel, latitude: latitude, longitude: longitude, date: lastResult._date)
             }
             .eraseToAnyPublisher()
     }
     
-    private func handleGetAllGasStation(_ stations: [GasStation], fuel: FuelType, latitude: Double, longitude: Double, limit: Int = 10) -> GasStationsResult {
-        guard stations.isEmpty == false else {
+    private func handleGetAllGasStation(_ stations: [GasStation], fuel: FuelType, latitude: Double, longitude: Double, date: String, limit: Int = 10) -> GasStationsResult {
+        guard !stations.isEmpty, !latitude.isZero, !longitude.isZero  else {
             return GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0, date: "")
-        }
-
-        guard !latitude.isZero, !longitude.isZero else {
-            let gasStations = Array(stations.prefix(limit))
-            let maxPrice = maxPrice(of: fuel, stations: gasStations)
-            let minPrice = minPrice(of: fuel, stations: gasStations)
-            return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: "")
         }
 
         let userLocation = Location(latitude: String(latitude), longitude: String(longitude))
@@ -72,7 +69,7 @@ extension DefaultGasStationRepository: GasStationRepository {
         let gasStations = Array(sortedGasStations.prefix(limit))
         let maxPrice = maxPrice(of: fuel, stations: gasStations)
         let minPrice = minPrice(of: fuel, stations: gasStations)
-        return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: "")
+        return GasStationsResult(gasStations: gasStations, maxPrice: maxPrice, minPrice: minPrice, date: date)
     }
 
     private func updateGasStations(response: GetAllGasStationRealm) {

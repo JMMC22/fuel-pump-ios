@@ -80,6 +80,8 @@ extension GasStation {
             return gasoline98_E5
         case .gasoline98_E10:
             return gasoline98_E10
+        case .unknown:
+            return 0
         }
     }
 

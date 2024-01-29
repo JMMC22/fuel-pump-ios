@@ -17,7 +17,7 @@ class SplashViewModel: ObservableObject {
     init(fetchAllGasStationsUseCase: FetchAllGasStationsUseCase = DefaultFetchAllGasStationsUseCase()) {
         self.fetchAllGasStationsUseCase = fetchAllGasStationsUseCase
     }
-    
+
     func viewDidLoad() {
         fetchAll()
     }

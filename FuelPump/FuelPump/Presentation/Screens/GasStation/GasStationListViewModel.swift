@@ -7,20 +7,19 @@
 
 import Foundation
 import Combine
+import CoreLocation
 
 class GasStationListViewModel: ObservableObject {
 
     @Published var result: GasStationsResult = GasStationsResult(gasStations: [], maxPrice: 0.0, minPrice: 0.0, date: "")
     @Published var isLoading: Bool = false
     @Published var error: Bool = false
-    @Published var favouriteFuel: FuelType = .dieselA
+    @Published var favouriteFuel: FuelType = .unknown
 
     private let getGasStationsUseCase: GetGasStationsUseCase
     private let getUserUseCase: GetUserUseCase
     private let locationManager: LocationManager
     private var cancellables = Set<AnyCancellable>()
-
-    private var userLocation: Location = Location(latitude: "", longitude: "")
 
     init(getGasStationsUseCase: GetGasStationsUseCase,
          getUserUseCase: GetUserUseCase,
@@ -32,7 +31,6 @@ class GasStationListViewModel: ObservableObject {
 
     func viewDidLoad() {
         getUser()
-        locationManager.requestLocation()
         subscribeToLocation()
         subscribeToLocationStatus()
     }
@@ -65,6 +63,7 @@ extension GasStationListViewModel {
 extension GasStationListViewModel {
     private func getUser() {
         getUserUseCase.execute()
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: handleCompletion, receiveValue: handleResponse)
             .store(in: &cancellables)
     }
@@ -81,6 +80,8 @@ extension GasStationListViewModel {
     private func handleResponse(user: User?) {
         if let user {
             favouriteFuel = user.fuelType
+            getGasStations(latitude: locationManager.lastLocation.latitude,
+                           longitude: locationManager.lastLocation.longitude)
         }
     }
 }
@@ -88,6 +89,7 @@ extension GasStationListViewModel {
 // MARK: - Get Gas Stations
 extension GasStationListViewModel {
     func getGasStations(latitude: Double, longitude: Double) {
+        guard latitude != 0, longitude != 0, favouriteFuel != .unknown else { return }
         getGasStationsUseCase.execute(by: favouriteFuel, latitude: latitude, longitude: longitude)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: handleGetGasStationsCompletion, receiveValue: handleGetGasStationsResponse)
@@ -104,6 +106,7 @@ extension GasStationListViewModel {
     }
 
     private func handleGetGasStationsResponse(result: GasStationsResult) {
+        print("||DEBUG|| getGasStations operation: \(result.gasStations.count)")
         self.result = result
     }
 }

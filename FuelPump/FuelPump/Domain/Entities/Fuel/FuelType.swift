@@ -16,6 +16,7 @@ enum FuelType: String, CaseIterable {
     case gasoline95_E5_Premium = "Gasolina 95 E5 Premium"
     case gasoline98_E5 = "Gasolina 98 E5"
     case gasoline98_E10 = "Gasolina 98 E10"
+    case unknown
 }
 
 extension FuelType: Identifiable {
@@ -43,6 +44,8 @@ extension FuelType {
             return "gasoline98_E5"
         case .gasoline98_E10:
             return "gasoline98_E10"
+        case .unknown:
+            return ""
         }
     }
 }
